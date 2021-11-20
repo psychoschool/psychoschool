@@ -1,0 +1,173 @@
+// Font sizes
+$g-font-size: 24px;
+$l-font-size: 20px;
+$b-font-size: 18px;
+$m-font-size: 16px;
+$font-size: 14px;
+$s-font-size: 12px;
+$xs-font-size: 10px;
+
+// colors
+$white: rgb(255, 255, 255);
+$black: #000;
+$afro: #525252;
+$red: #ff443a;
+$blue: #294473;
+$orange: #f6a623;
+$yellow: #ffd60a;
+$darkGray: #4b545b;
+
+// Media
+$desktop-width: 1920px;
+$tablet-width: 990px;
+$mobile-width: 735px;
+
+$desktop: '(min-width:#{$tablet-width}) and (max-width: #{$desktop-width})';
+$tablet: 'only screen and (max-width: #{$tablet-width})';
+$mobile: 'only screen and (max-width: #{$mobile-width})';
+
+// mixins
+@mixin square($num: 0) {
+  width: $num;
+  height: $num;
+}
+
+@mixin circle($um) {
+  @include square($um);
+
+  border-radius: 50%;
+}
+
+@mixin block-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin btn-reset {
+  box-shadow: none;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  background: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin img-reset {
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin s-shadow {
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.07);
+}
+
+@mixin m-shadow {
+  box-shadow: 0 4px 8px 0 rgba(#000, 0.3);
+}
+
+@mixin b-shadow {
+  box-shadow: 0 6px 16px 0 rgba(#000, 0.3);
+}
+
+@mixin xs-text {
+  font-size: $xs-font-size;
+  line-height: 12px;
+}
+
+@mixin s-text {
+  font-size: $s-font-size;
+  line-height: 16px;
+}
+
+@mixin text {
+  font-size: $font-size;
+  line-height: 19px;
+}
+
+@mixin m-text {
+  font-size: $m-font-size;
+  line-height: 21px;
+}
+
+@mixin b-text {
+  font-size: $b-font-size;
+  line-height: 24px;
+}
+
+@mixin l-text {
+  font-size: $l-font-size;
+  line-height: 27px;
+}
+
+@mixin g-text {
+  font-size: $g-font-size;
+  line-height: 30px;
+}
+
+@mixin l-text {
+  font-size: $l-font-size;
+  line-height: 28px;
+}
+
+@mixin d1($fw: 500) {
+  font-size: 72px;
+  line-height: 50px;
+  font-weight: $fw;
+}
+
+@mixin h1($fw: 500) {
+  font-size: 42px;
+  line-height: 50px;
+  font-weight: $fw;
+}
+
+@mixin h2($fw: 500) {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: $fw;
+}
+
+@mixin h3($fw: 500) {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: $fw;
+}
+
+@mixin h4($fw: 500) {
+  @include b-text;
+
+  font-weight: $fw;
+}
+
+@mixin h5($fw: 500) {
+  @include m-text;
+
+  font-weight: $fw;
+}
+
+@mixin h6($fw: 500) {
+  @include text;
+
+  font-weight: $fw;
+}
+
+@mixin section {
+  padding: 0 100px;
+
+  @media #{$tablet} {
+    padding: 0 16px;
+  }
+}

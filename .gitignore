@@ -1,0 +1,7 @@
+.env
+.eslintcache
+yarn.lock
+
+.idea
+dist
+node_modules
