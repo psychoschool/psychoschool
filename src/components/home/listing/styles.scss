@@ -1,0 +1,53 @@
+@import 'variables';
+
+.wrapper {
+  @include m-shadow;
+
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  border-left: 1px solid $divider;
+}
+
+.header {
+  padding: 20px;
+}
+
+.list {
+  height: 100%;
+  overflow: auto;
+}
+
+.section-wrapper {
+  padding: 20px;
+  background: $actionFocus;
+}
+
+.section-title {
+  @include h4;
+}
+
+.section-text {
+  @include s-text;
+
+  color: $textSecondary;
+}
+
+.lecture-wrapper {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background: $actionHover;
+  }
+}
+
+.lecture-title {
+  @include h5;
+}
+
+.lecture-text {
+  @include s-text;
+
+  color: $textSecondary;
+}

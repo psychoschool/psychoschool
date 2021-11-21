@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Home } from 'components/home'
 
 const HomePage = () => {
   return (
@@ -8,7 +9,7 @@ const HomePage = () => {
         <title>Главная</title>
       </Helmet>
 
-      <h1>Home page</h1>
+      <Home />
     </>
   )
 }
