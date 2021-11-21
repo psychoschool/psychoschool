@@ -13,8 +13,14 @@
   align-items: center;
   gap: 14px;
   z-index: 999;
-  background: $primaryMain;
-  color: $primaryContrastText;
+  background: $secondaryMain;
+  color: $secondaryContrastText;
+}
+
+.dark {
+  background-color: $background;
+  background-image: linear-gradient(#ffffff17, #ffffff17);
+  color: $textPrimary;
 }
 
 .logo {

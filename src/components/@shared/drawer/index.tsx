@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
+import cn from 'classnames'
+import { ThemeContext } from 'utils/theme'
+import LightIcon from './icons/light-mode.icon.svg'
+import DarkIcon from './icons/dark-mod.icon.svg'
 import logo from './icons/logo.png'
 import css from './styles.scss'
 
 export const Drawer = () => {
+  const { theme, setTheme } = useContext(ThemeContext)
+
+  const toggleTheme = () => {
+    setTheme(theme == 'dark' ? 'light' : 'dark')
+  }
+
   return (
     <>
-      <header className={css.wrapper}>
+      <header className={cn(css.wrapper, { [css.dark]: theme === 'dark' })}>
         <img className={css.logo} src={logo} alt='logo' />
         <h4 className={css.title}>Platform</h4>
 
-        <ul className={css.menu}>
-          <li>nav 1</li>
-          <li>nav 2</li>
-          <li>nav 3</li>
-        </ul>
+        <button onClick={toggleTheme}>{theme === 'dark' ? <DarkIcon /> : <LightIcon />}</button>
       </header>
 
       <main className={css.content}>

@@ -8,6 +8,7 @@ $s-font-size: 12px;
 $xs-font-size: 10px;
 
 // colors
+$theme: var(--mode);
 $primaryDark: var(--palette-primary-dark);
 $primaryLight: var(--palette-primary-light);
 $primaryMain: var(--palette-primary-main);
