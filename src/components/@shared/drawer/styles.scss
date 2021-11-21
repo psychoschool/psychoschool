@@ -1,0 +1,35 @@
+@import 'variables';
+
+.wrapper {
+  @include m-shadow;
+
+  position: fixed;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  justify-items: end;
+  height: 56px;
+  padding: 0 20px;
+  align-items: center;
+  gap: 14px;
+  z-index: 999;
+  background: $primaryMain;
+  color: $primaryContrastText;
+}
+
+.logo {
+  @include square(56px);
+}
+
+.title {
+  @include h4(600);
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.content {
+  padding-top: 56px;
+}

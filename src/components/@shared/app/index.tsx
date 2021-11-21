@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import loadable from '@loadable/component'
 import _throttle from 'lodash.throttle'
 
+import { ThemeProvider, useThemeCreator } from 'utils/theme'
 import { useAppDispatch } from 'utils/store.util'
 import { useScreenActions } from 'entities/ui/ui.actions'
 import { Drawer } from 'components/@shared/drawer'
@@ -14,6 +15,7 @@ const NotFoundPage = loadable(() => import('pages/not-found'))
 export const App = () => {
   const dispatch = useAppDispatch()
   const { changeScreen } = useScreenActions(dispatch)
+  const theme = useThemeCreator()
 
   useEffect(() => {
     addEventListener('resize', _throttle(changeScreen, 500))
@@ -22,12 +24,14 @@ export const App = () => {
 
   return (
     <>
-      <Routes>
-        <Route path='/' element={<Drawer />}>
-          <Route index element={<HomePage />} />
-          <Route path='*' element={<NotFoundPage />} />
-        </Route>
-      </Routes>
+      <ThemeProvider value={theme}>
+        <Routes>
+          <Route path='/' element={<Drawer />}>
+            <Route index element={<HomePage />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </>
   )
 }
