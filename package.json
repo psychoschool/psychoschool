@@ -11,7 +11,8 @@
   "author": "ollylut@gmal.com",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production && webpack --mode production",
-    "start": "NODE_ENV=development webpack serve --mode development",
+    "dev": "NODE_ENV=development webpack serve --mode development",
+    "start": "npx serve dist",
     "test": "jest",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
     "lint": "run-p lint:**",
@@ -91,6 +92,7 @@
     "react-refresh": "^0.11.0",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
+    "serve": "^13.0.2",
     "style-loader": "^3.3.1",
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
