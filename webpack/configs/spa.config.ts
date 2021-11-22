@@ -12,7 +12,7 @@ const config = {
   entry: [join(rootDir, 'src', 'main.tsx')],
   output: {
     path: join(rootDir, 'dist'),
-    publicPath: isDev ? '/' : 'https://complect-group.ru/',
+    publicPath: isDev ? '/' : '/',
     filename: 'js/[name].[fullhash].js'
   },
   module: {

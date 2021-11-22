@@ -17,6 +17,6 @@ const spaConfig = {
 }
 
 export const htmlWebpackPlugin = [
-  isProd && new HtmlWebpackPlugin(offlineConfig),
+  // isProd && new HtmlWebpackPlugin(offlineConfig),
   new HtmlWebpackPlugin(spaConfig)
 ].filter(Boolean)
