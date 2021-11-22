@@ -3,23 +3,21 @@
 .wrapper {
   @include m-shadow;
 
-  height: calc(100vh - 56px);
-  overflow: hidden;
   border-left: 1px solid $divider;
 }
 
 .header {
   padding: 20px;
+  border-left: 1px solid $divider;
 }
 
 .list {
-  height: 100%;
+  height: calc(100vh - 56px - 62px);
   overflow: auto;
 }
 
-.section-wrapper {
-  padding: 20px;
-  background: $actionFocus;
+.section-header {
+  padding: 12px 20px;
 }
 
 .section-title {
@@ -36,18 +34,33 @@
   padding: 14px 20px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: auto 1fr;
 
   &:hover {
     background: $actionHover;
   }
 }
 
+.selected {
+  background: $actionFocus;
+}
+
 .lecture-title {
   @include h5;
+}
+
+.icon {
+  height: 16px;
+  fill: $textSecondary;
 }
 
 .lecture-text {
   @include s-text;
 
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
   color: $textSecondary;
 }

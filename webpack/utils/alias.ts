@@ -12,5 +12,6 @@ export const alias = {
   api: join(rootDir, 'src/resources/api'),
   schemas: join(rootDir, 'src/resources/schemas'),
   assets: join(rootDir, 'src/assets'),
+  uikit: join(rootDir, 'src/uikit'),
   utils: join(rootDir, 'src/utils')
 }

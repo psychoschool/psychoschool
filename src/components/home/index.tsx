@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Listing } from 'components/home/listing'
+import { Preview } from 'components/home/preview'
 import css from './styles.scss'
+import { course } from 'components/home/listing/consts'
 
 export const Home = () => {
+  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)
+
   return (
     <div className={css.wrapper}>
-      <picture>
-        <source srcSet='https://i.ytimg.com/vi_webp/OugKFoihTpw/maxresdefault.webp' type='image/webp' />
-        <img src='https://i.ytimg.com/vi/OugKFoihTpw/maxresdefault.jpg' alt='' />
-      </picture>
+      <div className={css.content}>
+        <Preview videoID={current} />
 
-      <Listing />
+        <div className={css.info}>
+          <h2 className={css.title}>Об этом курсе</h2>
+          <p className={css.text}>
+            Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками,
+            зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.
+          </p>
+        </div>
+      </div>
+
+      <Listing current={current} onChange={setCurrent} />
     </div>
   )
 }

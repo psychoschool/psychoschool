@@ -3,4 +3,30 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 350px;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+
+  @media #{$mobile} {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+}
+
+.content {
+  overflow: auto;
+}
+
+.info {
+  padding: 20px;
+}
+
+.title {
+  @include h2(600);
+}
+
+.text {
+  @include text;
+
+  margin-top: 14px;
+  color: $textSecondary;
 }

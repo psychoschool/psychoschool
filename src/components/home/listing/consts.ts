@@ -1,67 +1,67 @@
 export const course = {
   sections: [
     {
-      title: 'Раздел 1',
+      title: 'Теория дипрессии',
       lectures: [
         {
-          title: 'title 1',
-          video: '',
+          title: 'Симптомы и лечение ',
+          video: 'Plaq3HOl7uU',
           isCompleted: false,
-          duration: 5
+          duration: 25
         },
         {
-          title: 'title 2',
-          video: '',
+          title: 'Причины',
+          video: '9EsyhT4Ljxw',
           isCompleted: false,
-          duration: 5
+          duration: 16
         },
         {
-          title: 'title 3',
-          video: '',
+          title: 'Лечение Ч.1',
+          video: '9RrOC9F9Tc0',
           isCompleted: false,
-          duration: 5
+          duration: 30
         },
         {
-          title: 'title 4',
-          video: '',
+          title: 'Инструкция самопомощи',
+          video: 'tSqilg_NTXU',
           isCompleted: false,
-          duration: 5
+          duration: 26
         },
         {
-          title: 'title 5',
-          video: '',
+          title: 'У меня тяжелая депрессия, что делать?',
+          video: 'DOfB12h_9yE',
           isCompleted: false,
-          duration: 5
+          duration: 27
         },
         {
-          title: 'title 6',
-          video: '',
+          title: 'Антидепрессанты, возвращение к наркотикам',
+          video: 'ntvMSYMgEhw',
           isCompleted: false,
-          duration: 5
+          duration: 28
         },
         {
-          title: 'title 7',
-          video: '',
+          title: '2 истории о зависимости и депрессии',
+          video: 'YjJ7PAHj_XA',
           isCompleted: false,
-          duration: 5
+          duration: 33
         },
         {
-          title: 'title 8',
-          video: '',
+          title: 'Последствия самоизоляции',
+          video: '1CMfCdbFmFU',
           isCompleted: false,
-          duration: 5
+          duration: 12
         },
         {
-          title: 'title 9',
-          video: '',
+          title: 'Серотонин',
+          video: 'PCDyMAgdV0o',
           isCompleted: false,
-          duration: 5
+          duration: 11
         },
         {
-          title: 'title 10',
-          video: '',
+          title: 'Дофамин',
+          video: 'NeIDury1MTs',
           isCompleted: false,
-          duration: 5
+          duration: 21
         }
       ]
     },
@@ -69,61 +69,61 @@ export const course = {
       title: 'Раздел 2',
       lectures: [
         {
-          title: 'title 1',
+          title: 'Title 1',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 2',
+          title: 'Title 2',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 3',
+          title: 'Title 3',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 4',
+          title: 'Title 4',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 5',
+          title: 'Title 5',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 6',
+          title: 'Title 6',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 7',
+          title: 'Title 7',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 8',
+          title: 'Title 8',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 9',
+          title: 'Title 9',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 10',
+          title: 'Title 10',
           video: '',
           isCompleted: false,
           duration: 5
@@ -134,61 +134,61 @@ export const course = {
       title: 'Раздел 3',
       lectures: [
         {
-          title: 'title 1',
+          title: 'Title 1',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 2',
+          title: 'Title 2',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 3',
+          title: 'Title 3',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 4',
+          title: 'Title 4',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 5',
+          title: 'Title 5',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 6',
+          title: 'Title 6',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 7',
+          title: 'Title 7',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 8',
+          title: 'Title 8',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 9',
+          title: 'Title 9',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 10',
+          title: 'Title 10',
           video: '',
           isCompleted: false,
           duration: 5
@@ -199,61 +199,61 @@ export const course = {
       title: 'Раздел 4',
       lectures: [
         {
-          title: 'title 1',
+          title: 'Title 1',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 2',
+          title: 'Title 2',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 3',
+          title: 'Title 3',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 4',
+          title: 'Title 4',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 5',
+          title: 'Title 5',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 6',
+          title: 'Title 6',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 7',
+          title: 'Title 7',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 8',
+          title: 'Title 8',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 9',
+          title: 'Title 9',
           video: '',
           isCompleted: false,
           duration: 5
         },
         {
-          title: 'title 10',
+          title: 'Title 10',
           video: '',
           isCompleted: false,
           duration: 5

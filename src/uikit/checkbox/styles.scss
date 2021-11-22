@@ -1,0 +1,108 @@
+@import 'variables';
+
+.wrapper {
+}
+
+.checkbox {
+  appearance: none;
+  background-color: $background;
+  border: 1px solid $textSecondary;
+  border-radius: 2px;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease 0s;
+  will-change: border-color;
+}
+
+.checkbox-wrapper {
+  position: relative;
+}
+
+.checked-icon {
+  fill-opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: $primaryMain;
+}
+
+.checked {
+  .checkbox {
+    background: $primaryContrastText;
+    border-color: $primaryMain;
+  }
+
+  .checked-icon {
+    fill-opacity: 1;
+  }
+}
+
+.label {
+  display: grid;
+  gap: 16px;
+  color: $textPrimary;
+  grid-template-columns: auto 1fr;
+  justify-items: start;
+  align-items: start;
+  cursor: pointer;
+}
+
+.small {
+  .checkbox,
+  .checked-icon {
+    @include square(16px);
+  }
+
+  .label {
+    @include text;
+    gap: 12px;
+  }
+}
+
+.medium {
+  .checkbox,
+  .checked-icon {
+    @include square(24px);
+  }
+
+  .label {
+    @include b-text;
+    gap: 14px;
+  }
+}
+
+.large {
+  .checkbox,
+  .checked-icon {
+    @include square(32px);
+    gap: 16px;
+  }
+
+  .label {
+    @include l-text;
+  }
+}
+
+.fluid {
+  width: 100%;
+}
+
+.invalid {
+  .checkbox {
+  }
+
+  .label {
+  }
+}
+
+.disabled {
+  .checkbox {
+    cursor: default;
+  }
+
+  .label {
+    color: #afafaf;
+    cursor: default;
+  }
+}
