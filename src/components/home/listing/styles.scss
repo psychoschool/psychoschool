@@ -2,18 +2,31 @@
 
 .wrapper {
   @include m-shadow;
-
-  border-left: 1px solid $divider;
 }
 
 .header {
   padding: 20px;
-  border-left: 1px solid $divider;
+  position: sticky;
+  background: $background;
+  border-bottom: 1px solid $divider;
+  z-index: 1;
+
+  @media #{$mobile} {
+    position: sticky;
+    top: 55px;
+  }
 }
 
 .list {
   height: calc(100vh - 56px - 62px);
   overflow: auto;
+  margin-top: -1px;
+  margin-left: -1px;
+
+  @media #{$mobile} {
+    margin-left: 0;
+    height: 100%;
+  }
 }
 
 .section-header {

@@ -10,6 +10,9 @@
 }
 
 .summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.03);
 }
@@ -23,12 +26,26 @@
 }
 
 .hidden {
-  min-height: 0;
-  height: 0;
-  visibility: hidden;
-  overflow: hidden;
+  .collapse {
+    min-height: 0;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  .icon {
+    transform: rotate(90deg);
+  }
+}
+
+.icon {
+  @include square(20px);
+
+  margin-right: 20px;
+  fill: $textPrimary;
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(-90deg);
 }
 
 .details {
-  border-top: 1px solid $divider;
 }

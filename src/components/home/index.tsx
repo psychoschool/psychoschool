@@ -21,7 +21,9 @@ export const Home = () => {
         </div>
       </div>
 
-      <Listing current={current} onChange={setCurrent} />
+      <div className={css.listing}>
+        <Listing current={current} onChange={setCurrent} />
+      </div>
     </div>
   )
 }

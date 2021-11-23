@@ -1,19 +1,37 @@
 @import 'variables';
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  height: calc(100vh - 56px);
-  overflow: hidden;
-
-  @media #{$mobile} {
-    grid-template-columns: 1fr;
-    height: 100%;
-  }
 }
 
 .content {
-  overflow: auto;
+  width: calc(100vw - 380px);
+
+  @media #{$tablet} {
+    width: calc(100vw - 350px);
+  }
+
+  @media #{$mobile} {
+    width: 100%;
+  }
+}
+
+.listing {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 380px;
+  border-left: 1px solid $divider;
+
+  @media #{$tablet} {
+    width: 350px;
+  }
+
+  @media #{$mobile} {
+    position: relative;
+    top: 0;
+    width: 100%;
+    border-left: none;
+  }
 }
 
 .info {
