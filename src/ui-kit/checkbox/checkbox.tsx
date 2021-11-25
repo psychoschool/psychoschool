@@ -34,6 +34,6 @@ export const Checkbox: FC<CheckBoxProps> = props => {
 }
 
 Checkbox.defaultProps = {
-  size: Size.Medium,
+  size: 'medium',
   checked: false
 }

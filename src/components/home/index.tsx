@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Listing } from 'components/home/listing'
 import { Preview } from 'components/home/preview'
-import css from './styles.scss'
 import { course } from 'components/home/listing/consts'
+import css from './styles.scss'
 
 export const Home = () => {
   const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)

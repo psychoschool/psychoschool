@@ -1,0 +1,39 @@
+@import 'variables';
+
+.wrapper {
+  display: grid;
+  width: 80%;
+  margin: 62px auto;
+
+  @media #{$tablet} {
+    width: 90%;
+  }
+
+  @media #{$mobile} {
+    width: 100%;
+  }
+}
+
+.header {
+  display: grid;
+  place-items: center;
+}
+
+.avatar {
+  @include circle(200px);
+  fill: $textSecondary;
+}
+
+.title {
+  @include h3(900);
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+  margin: 25px;
+}
+
+.btn {
+  margin-top: 18px;
+}

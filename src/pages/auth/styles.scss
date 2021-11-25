@@ -1,0 +1,28 @@
+@import 'variables';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(350px, 40%);
+  height: calc(100vh - 56px);
+  overflow: hidden;
+
+  @media #{$tablet} {
+    grid-template-columns: 1fr minmax(350px, 60%);
+  }
+
+  @media #{$mobile} {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.form {
+  background: $background;
+}

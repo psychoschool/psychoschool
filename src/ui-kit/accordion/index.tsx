@@ -6,10 +6,10 @@ import css from './styles.scss'
 
 interface Props {
   expanded?: boolean
-  title: JSX.Element | string
   onChange?: (expanded: boolean) => void
 }
-export const Accordion: FC<Props> = ({ title, children, expanded = false, onChange }) => {
+export const Accordion: FC<Props> = ({ children: childrenProp, expanded = false, onChange }) => {
+  const [summary, ...children] = React.Children.toArray(childrenProp)
   const { theme } = useContext(ThemeContext)
   const [open, setOpen] = useState(expanded)
 
@@ -19,9 +19,14 @@ export const Accordion: FC<Props> = ({ title, children, expanded = false, onChan
   }
 
   return (
-    <div className={cn(css.accordion, { [css.hidden]: !open })}>
-      <div className={cn(css.summary, { [css.dark]: theme === 'dark' })} onClick={handleChange}>
-        {title}
+    <div
+      className={cn(css.accordion, {
+        [css.dark]: theme === 'dark',
+        [css.hidden]: !open
+      })}
+    >
+      <div className={css.summary} onClick={handleChange}>
+        {summary}
 
         <ArrowIcon className={css.icon} />
       </div>

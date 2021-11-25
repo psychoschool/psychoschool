@@ -16,7 +16,7 @@
       "schemas/*": ["src/resources/schemas/*"],
       "utils/*": ["src/utils/*"],
       "assets/*": ["src/assets/*"],
-      "uikit/*": ["src/uikit/*"],
+      "ui-kit/*": ["src/ui-kit/*"],
       "config/*": ["config/*"]
     },
     "esModuleInterop": true,

@@ -1,10 +1,6 @@
 import { ChangeEvent, FocusEvent, RefObject } from 'react'
 
-export enum Size {
-  Small = 'small',
-  Medium = 'medium',
-  Large = 'large'
-}
+export type Size = 'small' | 'medium' | 'large'
 
 export interface CheckBoxProps {
   id?: string

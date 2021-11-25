@@ -7,9 +7,11 @@ import { ThemeProvider, useThemeCreator } from 'utils/theme'
 import { useAppDispatch } from 'utils/store.util'
 import { useScreenActions } from 'entities/ui/ui.actions'
 import { Drawer } from 'components/@shared/drawer'
+import { Login, Signup } from 'components/auth'
 import './styles.scss'
 
 const HomePage = loadable(() => import('pages/home'))
+const AuthPage = loadable(() => import('pages/auth'))
 const NotFoundPage = loadable(() => import('pages/not-found'))
 
 export const App = () => {
@@ -28,6 +30,12 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<Drawer />}>
             <Route index element={<HomePage />} />
+
+            <Route element={<AuthPage />}>
+              <Route path='login' element={<Login />} />
+              <Route path='signup' element={<Signup />} />
+            </Route>
+
             <Route path='*' element={<NotFoundPage />} />
           </Route>
         </Routes>
