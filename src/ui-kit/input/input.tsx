@@ -6,17 +6,7 @@ import { InputProps } from './InputProps'
 import css from './styles.scss'
 
 export const Input: FC<InputProps> = props => {
-  const {
-    label,
-    value,
-    disabled,
-    onFocus,
-    onChange,
-    onValueChange,
-    type = 'text',
-    defaultValue = '',
-    autoComplete = 'off'
-  } = props
+  const { type, label, value, disabled, onFocus, onChange, onValueChange, defaultValue, autoComplete } = props
   const [id, setId] = useState('')
   const [focus, setFocus] = useState(false)
   const [inputValue, setInputValue] = useState(defaultValue)
@@ -68,4 +58,10 @@ export const Input: FC<InputProps> = props => {
       </div>
     </div>
   )
+}
+
+Input.defaultProps = {
+  autoComplete: 'off',
+  defaultValue: '',
+  type: 'text'
 }

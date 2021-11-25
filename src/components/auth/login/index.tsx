@@ -1,10 +1,9 @@
 import React from 'react'
 import { Input } from 'ui-kit/input'
 import { Button } from 'ui-kit/button'
-import image from './avatar.png'
+import { Checkbox } from 'ui-kit/checkbox'
 import UserIcon from './user.icon.svg'
 import css from './styles.scss'
-import { Checkbox } from 'ui-kit/checkbox'
 
 export const Login = () => {
   return (
@@ -14,8 +13,8 @@ export const Login = () => {
         <h2 className={css.title}>Sign in</h2>
       </div>
       <form className={css.form}>
-        <Input label='Username' fluid />
-        <Input label='password' type='password' fluid />
+        <Input label='Email' type='email' fluid />
+        <Input label='Password' type='password' fluid />
         <Checkbox label='Запомнить меня' />
 
         <div className={css.btn}>
