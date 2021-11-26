@@ -1,9 +1,10 @@
 @import 'variables';
 
 .chipsWrapper {
-  background: $background;
   position: sticky;
+  z-index: 1;
   top: 56px;
+  background: $background;
 }
 
 .chips {
@@ -48,6 +49,7 @@
 
 .count-wrapper {
   @include m-shadow;
+  @include h5(900);
 
   position: absolute;
   top: 0;
@@ -77,6 +79,10 @@
 
   margin-top: 4px;
   color: $textPrimary;
+
+  @media #{$mobile} {
+    @include h5(900);
+  }
 }
 
 .play-wrapper {

@@ -24,7 +24,7 @@ export const Home = () => {
               <div className={css.cover}>
                 <img src={course.image} className={css.image} alt='preview' />
                 <div className={css.countWrapper}>
-                  <p>{course.lectures}</p>
+                  {course.lectures}
                   <CountIcon className={css.countIcon} />
                 </div>
 

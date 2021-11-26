@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import cn from 'classnames'
 import { ThemeContext } from 'utils/theme'
 import LightIcon from './icons/light-mode.icon.svg'
@@ -17,8 +17,10 @@ export const Drawer = () => {
   return (
     <>
       <header className={cn(css.wrapper, { [css.dark]: theme === 'dark' })}>
-        <img className={css.logo} src={logo} alt='logo' />
-        <h4 className={css.title}>Platform</h4>
+        <Link to='/' className={css.link}>
+          <img className={css.logo} src={logo} alt='logo' />
+          <h4 className={css.title}>Platform</h4>
+        </Link>
 
         <button onClick={toggleTheme}>{theme === 'dark' ? <DarkIcon /> : <LightIcon />}</button>
       </header>
