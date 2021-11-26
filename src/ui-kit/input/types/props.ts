@@ -1,8 +1,8 @@
 import { ChangeEvent, ReactNode, RefObject, FocusEvent, ClipboardEvent, KeyboardEvent } from 'react'
 
-import { Autocomplete } from './types'
-import { Size } from './types/size'
-import { Type } from './types/type'
+import { Autocomplete } from './autocomplete'
+import { Type } from './type'
+import { Size } from './size'
 
 export type SectionType = Element | ReactNode | string | ((params: { value: InputValue }) => ReactNode) | undefined
 

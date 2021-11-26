@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { ButtonProps } from './types'
-import css from './styles.scss'
+import { ButtonProps } from '../types'
+import css from '../styles.scss'
 
 export const getClassNames = (props: ButtonProps) => {
   const { size, fluid, disabled } = props

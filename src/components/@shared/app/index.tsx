@@ -10,8 +10,9 @@ import { Drawer } from 'components/@shared/drawer'
 import { Login, Signup } from 'components/auth'
 import './styles.scss'
 
-const HomePage = loadable(() => import('pages/home'))
 const AuthPage = loadable(() => import('pages/auth'))
+const HomePage = loadable(() => import('pages/home'))
+const CoursePage = loadable(() => import('pages/course'))
 const NotFoundPage = loadable(() => import('pages/not-found'))
 
 export const App = () => {
@@ -30,6 +31,8 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<Drawer />}>
             <Route index element={<HomePage />} />
+
+            <Route path='course/:course' element={<CoursePage />} />
 
             <Route element={<AuthPage />}>
               <Route path='login' element={<Login />} />

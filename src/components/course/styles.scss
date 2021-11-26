@@ -1,0 +1,50 @@
+@import 'variables';
+
+.wrapper {
+}
+
+.content {
+  width: calc(100vw - 380px);
+
+  @media #{$tablet} {
+    width: calc(100vw - 350px);
+  }
+
+  @media #{$mobile} {
+    width: 100%;
+  }
+}
+
+.listing {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 380px;
+  border-left: 1px solid $divider;
+
+  @media #{$tablet} {
+    width: 350px;
+  }
+
+  @media #{$mobile} {
+    position: relative;
+    top: 0;
+    width: 100%;
+    border-left: none;
+  }
+}
+
+.info {
+  padding: 20px;
+}
+
+.title {
+  @include h2(600);
+}
+
+.text {
+  @include text;
+
+  margin-top: 14px;
+  color: $textSecondary;
+}

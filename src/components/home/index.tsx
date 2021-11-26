@@ -1,29 +1,40 @@
-import React, { useState } from 'react'
-import { Listing } from 'components/home/listing'
-import { Preview } from 'components/home/preview'
-import { course } from 'components/home/listing/consts'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Chip } from 'ui-kit/chip'
+import { tags, courses } from './consts'
+import CountIcon from './icons/playlist.icon.svg'
 import css from './styles.scss'
 
 export const Home = () => {
-  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)
-
   return (
-    <div className={css.wrapper}>
-      <div className={css.content}>
-        <Preview videoID={current} />
-
-        <div className={css.info}>
-          <h2 className={css.title}>Об этом курсе</h2>
-          <p className={css.text}>
-            Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками,
-            зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.
-          </p>
-        </div>
+    <>
+      <div className={css.chipsWrapper}>
+        <ul className={css.chips}>
+          {tags.map((tag, index) => (
+            <Chip key={tag} label={tag} active={index === 0} />
+          ))}
+        </ul>
       </div>
 
+      <h3 className={css.title}>Доступные курсы</h3>
       <div className={css.listing}>
-        <Listing current={current} onChange={setCurrent} />
+        {courses.map((course, index) => (
+          <Link key={course.title} to={`course/${index}`}>
+            <div className={css.course}>
+              <div className={css.cover}>
+                <img src={course.image} className={css.image} alt='preview' />
+                <div className={css.countWrapper}>
+                  <p>{course.lectures}</p>
+                  <CountIcon className={css.countIcon} />
+                </div>
+
+                <div className={css.playWrapper}>Начать курс</div>
+              </div>
+              <h5 className={css.courseTitle}>{course.title}</h5>
+            </div>
+          </Link>
+        ))}
       </div>
-    </div>
+    </>
   )
 }

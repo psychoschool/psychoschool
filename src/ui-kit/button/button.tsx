@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { ButtonProps } from './types'
-import { getClassNames } from './getClassNames'
+import { getClassNames } from './utils/cn.util'
 
 export const Button: FC<ButtonProps> = props => {
   const { text, type, disabled } = props

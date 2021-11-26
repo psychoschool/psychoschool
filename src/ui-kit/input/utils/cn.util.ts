@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { InputProps } from '../input/InputProps'
-import css from './styles.scss'
+import { InputProps } from '../types'
+import css from '../styles.scss'
 
 export const getClassNames = (props: InputProps) => {
   const { size, fluid, invalid, focus, value, disabled } = props
