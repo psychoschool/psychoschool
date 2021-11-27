@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import cn from 'classnames'
+import { Popper } from 'ui-kit/popper'
 import { ThemeContext } from 'utils/theme'
-import LightIcon from './icons/light-mode.icon.svg'
-import DarkIcon from './icons/dark-mod.icon.svg'
+import { Menu } from './menu'
+import UserIcon from './icons/user.icon.svg'
 import logo from './icons/logo.png'
 import css from './styles.scss'
 
 export const Drawer = () => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
+  const [open, setOpen] = useState(false)
 
-  const toggleTheme = () => {
-    setTheme(theme == 'dark' ? 'light' : 'dark')
-  }
+  const handleClose = () => setOpen(false)
 
   return (
     <>
@@ -22,7 +22,19 @@ export const Drawer = () => {
           <h4 className={css.title}>Platform</h4>
         </Link>
 
-        <button onClick={toggleTheme}>{theme === 'dark' ? <DarkIcon /> : <LightIcon />}</button>
+        <Popper
+          content={<Menu onSelect={handleClose} />}
+          open={open}
+          hasArrow
+          hasShadow
+          placement='bottom'
+          align='right'
+          onClickOutside={handleClose}
+        >
+          <button onClick={() => setOpen(!open)}>
+            <UserIcon className={css.circleBtn} />
+          </button>
+        </Popper>
       </header>
 
       <main className={css.content}>

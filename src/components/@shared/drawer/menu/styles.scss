@@ -1,0 +1,53 @@
+@import 'variables';
+
+.wrapper {
+  width: 220px;
+  padding: 8px 0;
+}
+
+.icon {
+  @include square(20px);
+  fill: $actionActive;
+}
+
+.item {
+  display: flex;
+  padding: 6px 16px;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  color: $textPrimary;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background: $actionHover;
+  }
+}
+
+.avatar {
+  @include circle(32px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  background-color: rgb(189 189 189);
+}
+
+.avatar-icon {
+  @include square(24px);
+  fill: $background;
+}
+
+.divider {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-width: 0;
+  border-style: solid;
+  border-color: $divider;
+  border-bottom-width: thin;
+}
+
+.dark {
+  background-color: rgb(117, 117, 117);
+}

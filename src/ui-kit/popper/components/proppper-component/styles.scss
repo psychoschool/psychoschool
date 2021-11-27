@@ -1,0 +1,116 @@
+@import 'variables';
+
+$popper: &;
+$arrowSize: 4px;
+$arrowShift: 16px;
+
+.root {
+  position: absolute;
+  z-index: 1600;
+  // изначально рендерим поппер под таргетом
+  top: 100%;
+  left: 0;
+  opacity: 0;
+
+  // Скроллируем при ограничении высоты
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  border-radius: 5px;
+  background-color: $background;
+  transition-duration: 0ms;
+  transition: opacity 0.2s ease-in;
+}
+
+// в портале рендерим вверх страницы, чтоб не было рендера за край страницы
+.in-portal {
+  top: 0;
+}
+
+.has-shadow {
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.32));
+}
+
+.has-arrow {
+  overflow: visible;
+  border-color: $background;
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-color: inherit;
+    border-style: solid;
+  }
+}
+
+.placement-top:after {
+  border-top-width: $arrowSize;
+  border-left-width: $arrowSize;
+  border-right-width: $arrowSize;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom: none;
+  bottom: -$arrowSize;
+}
+
+.placement-bottom:after {
+  border-bottom-width: $arrowSize;
+  border-left-width: $arrowSize;
+  border-right-width: $arrowSize;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+  top: -$arrowSize;
+}
+
+.placement-left:after {
+  border-left-width: $arrowSize;
+  border-top-width: $arrowSize;
+  border-bottom-width: $arrowSize;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right: none;
+  right: -$arrowSize;
+}
+
+.placement-right:after {
+  border-right-width: $arrowSize;
+  border-top-width: $arrowSize;
+  border-bottom-width: $arrowSize;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left: none;
+  left: -$arrowSize;
+}
+
+.placement-top.align-center:after,
+.placement-bottom.align-center:after {
+  left: 50%;
+  transform: translateX(-$arrowSize);
+}
+
+.placement-top.align-left:after,
+.placement-bottom.align-left:after {
+  right: $arrowShift;
+}
+
+.placement-top.align-right:after,
+.placement-bottom.align-right:after {
+  left: $arrowShift;
+}
+
+.placement-left.align-center:after,
+.placement-right.align-center:after {
+  top: 50%;
+  transform: translateY(-$arrowSize);
+}
+
+.placement-left.align-top:after,
+.placement-right.align-top:after {
+  bottom: $arrowShift;
+}
+
+.placement-left.align-bottom:after,
+.placement-right.align-bottom:after {
+  top: $arrowShift;
+}
