@@ -11,6 +11,9 @@
 }
 
 .item {
+  @include m-text;
+
+  line-height: 1.5;
   display: flex;
   padding: 6px 16px;
   gap: 16px;

@@ -24,22 +24,19 @@ export const Menu: FC<Props> = ({ onSelect }) => {
         <div className={cn(css.avatar, { [css.dark]: theme === 'dark' })}>
           <PersonIcon className={css.avatarIcon} />
         </div>
-
-        <p>Профиль</p>
+        Профиль
       </li>
 
       <hr className={css.divider} />
 
       <li className={css.item} onClick={toggleTheme}>
         {theme === 'dark' ? <DarkIcon className={css.icon} /> : <LightIcon className={css.icon} />}
-
-        <p>Тема</p>
+        Тема
       </li>
 
       <li className={css.item} onClick={onSelect}>
         <LogOutIcon className={css.icon} />
-
-        <p>Выйти</p>
+        Выйти
       </li>
     </ul>
   )

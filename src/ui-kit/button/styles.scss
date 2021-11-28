@@ -53,3 +53,16 @@
 
   padding: 8px 22px;
 }
+
+.disabled {
+  cursor: default;
+  color: $actionDisabled;
+  background: $actionDisabledBackground;
+  box-shadow: none;
+
+  &:hover {
+    color: $actionDisabled;
+    background: $actionDisabledBackground;
+    box-shadow: none;
+  }
+}

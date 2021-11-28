@@ -1,0 +1,43 @@
+@import 'variables';
+
+.popup {
+  background: $actionHover;
+  width: 280px;
+  padding: 24px;
+}
+
+.title {
+  @include h4(600);
+}
+
+.info {
+  @include text;
+  margin-top: 8px;
+  font-weight: 100;
+  margin-bottom: 24px;
+}
+
+.divider {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-width: 0;
+  border-style: solid;
+  border-color: $divider;
+  border-bottom-width: thin;
+}
+
+.list {
+  margin: 24px 0;
+}
+
+.item {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.icon {
+  @include square(20px);
+
+  fill: $successMain;
+}
