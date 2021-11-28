@@ -7,7 +7,7 @@ const free: CoursesCollection = {
   4: { id: '4', title: 'Медитация', image: 'https://picsum.photos/323/180', lectures: 9 },
   5: { id: '5', title: 'Алкоголь', image: 'https://picsum.photos/324/180', lectures: 35 },
   6: { id: '6', title: 'Психоактивные вещества', image: 'https://picsum.photos/325/180', lectures: 18 },
-  7: { id: '7', title: 'Отношения', image: 'https://picsum.photos/326/180', lectures: 22, requirements: [] }
+  7: { id: '7', title: 'Отношения', image: 'https://picsum.photos/326/180', lectures: 22 }
 }
 
 const premium: CoursesCollection = {
@@ -16,20 +16,11 @@ const premium: CoursesCollection = {
     title: 'Шаг вперед',
     image: 'https://picsum.photos/320/181',
     lectures: 15,
-    requirements: [
-      {
-        label: 'Авторизация',
-        valid: false
-      },
-      {
-        label: 'Оплата',
-        valid: false
-      },
-      {
-        label: 'Тест',
-        valid: false
-      }
-    ]
+    requirements: {
+      auth: true,
+      pay: true,
+      test: false
+    }
   }
 }
 

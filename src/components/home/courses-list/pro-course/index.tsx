@@ -7,7 +7,7 @@ import { Popup } from './popup'
 import css from './styles.scss'
 
 interface Props {
-  course: Course
+  course: Required<Course>
 }
 export const ProCourse: FC<Props> = ({ course }) => {
   const isMobile = useSelector(selectIsMobile)

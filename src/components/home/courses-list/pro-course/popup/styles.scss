@@ -35,9 +35,3 @@
   gap: 12px;
   margin: 12px 0;
 }
-
-.icon {
-  @include square(20px);
-
-  fill: $successMain;
-}

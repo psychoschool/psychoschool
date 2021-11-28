@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { CoursesCollection } from 'entities/courses/courses.type'
+import { Course, CoursesCollection } from 'entities/courses/courses.type'
 import { FreeCourse } from './free-course'
 import { ProCourse } from './pro-course'
 import css from './styles.scss'
@@ -15,7 +15,11 @@ export const CoursesList: FC<Props> = ({ title, courses }) => {
 
       <div className={css.listing}>
         {Object.entries(courses).map(([id, course]) =>
-          course.requirements?.length ? <ProCourse key={id} course={course} /> : <FreeCourse key={id} course={course} />
+          course.requirements ? (
+            <ProCourse key={id} course={course as Required<Course>} />
+          ) : (
+            <FreeCourse key={id} course={course} />
+          )
         )}
       </div>
     </>

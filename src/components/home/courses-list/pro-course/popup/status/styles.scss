@@ -1,0 +1,13 @@
+@import 'variables';
+
+.done {
+  @include square(20px);
+
+  fill: $successMain;
+}
+
+.nope {
+  @include square(20px);
+
+  fill: $errorMain;
+}

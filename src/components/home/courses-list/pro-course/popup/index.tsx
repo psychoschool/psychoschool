@@ -1,14 +1,16 @@
 import React, { FC } from 'react'
-import { Course } from 'entities/courses/courses.type'
-import DoneIcon from './icons/done.icon.svg'
-import css from './styles.scss'
+import { Course, Requirements } from 'entities/courses/courses.type'
 import { Button } from 'ui-kit/button'
+import { Status } from './status'
+import { normalizeTitle } from './normalize.util'
+import css from './styles.scss'
 
 interface Props {
-  course: Course
+  course: Required<Course>
 }
 export const Popup: FC<Props> = ({ course }) => {
   const { title, requirements } = course
+
   return (
     <div className={css.popup}>
       <h4 className={css.title}>{title}</h4>
@@ -17,21 +19,15 @@ export const Popup: FC<Props> = ({ course }) => {
       <hr className={css.divider} />
 
       <ul className={css.list}>
-        <li className={css.item}>
-          <DoneIcon className={css.icon} />
-          Авторизоваться на сайте
-        </li>
-        <li className={css.item}>
-          <DoneIcon className={css.icon} />
-          Оплатить курс
-        </li>
-        <li className={css.item}>
-          <DoneIcon className={css.icon} />
-          Пройти тест
-        </li>
+        {Object.entries(requirements).map(([key, value]) => (
+          <li key={key} className={css.item}>
+            <Status status={value} />
+            {normalizeTitle(key as Requirements)}
+          </li>
+        ))}
       </ul>
 
-      <Button size='small' disabled text='начать курс' />
+      <Button size='medium' disabled text='начать курс' />
     </div>
   )
 }
