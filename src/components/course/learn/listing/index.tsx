@@ -1,17 +1,18 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
+import { ICourse } from 'entities/courses/courses.type'
 import PlayIcon from './icons/play.icon.svg'
-import { course } from './consts'
 import { Accordion } from 'ui-kit/accordion'
 import { Checkbox } from 'ui-kit/checkbox'
 import css from './styles.scss'
 
 interface Props {
   current: string
+  course: ICourse
   onChange: (video: string) => void
 }
 
-export const Listing: FC<Props> = ({ current, onChange }) => {
+export const Listing: FC<Props> = ({ current, course, onChange }) => {
   return (
     <div className={css.wrapper}>
       <h3 className={css.header}>Материалы курса</h3>

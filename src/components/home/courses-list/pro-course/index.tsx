@@ -1,37 +1,45 @@
 import React, { FC, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Popper } from 'ui-kit/popper'
-import { selectIsMobile } from 'entities/ui/screen/screen.selector'
-import { Course } from 'entities/courses/courses.type'
+import { Link } from 'react-router-dom'
+import { Modal } from 'ui-kit/modal'
+import { CourseItem } from 'entities/courses/courses.type'
+import { getDebugger } from 'utils/debugger.util'
+import { isReadyToStart } from './start.util'
 import { Popup } from './popup'
 import css from './styles.scss'
 
 interface Props {
-  course: Required<Course>
+  course: Required<CourseItem>
 }
+const debug = getDebugger('component: ProCourse')
 export const ProCourse: FC<Props> = ({ course }) => {
-  const isMobile = useSelector(selectIsMobile)
-  const { title, image } = course
   const [open, setOpen] = useState(false)
+  const { title, image } = course
+  const isReady = isReadyToStart(course.requirements)
+  debug('is ready to start', isReady)
+
+  const openModal = () => {
+    if (!isReady) setOpen(true)
+  }
+
+  const content = (
+    <div className={css.course} onClick={openModal}>
+      <div className={css.cover}>
+        <img src={image} className={css.image} alt='preview' />
+
+        <div className={css.playWrapper}>Начать курс</div>
+      </div>
+
+      <h6 className={css.courseTitle}>{title}</h6>
+    </div>
+  )
 
   return (
-    <Popper
-      open={open}
-      content={<Popup course={course} />}
-      placement={isMobile ? 'bottom' : 'right'}
-      hasShadow
-      align='top'
-      onClickOutside={() => setOpen(false)}
-    >
-      <div className={css.course} onClick={() => setOpen(true)}>
-        <div className={css.cover}>
-          <img src={image} className={css.image} alt='preview' />
+    <>
+      {isReady ? <Link to={`course/${course.id}`}>{content}</Link> : content}
 
-          <div className={css.playWrapper}>Начать курс</div>
-        </div>
-
-        <h6 className={css.courseTitle}>{title}</h6>
-      </div>
-    </Popper>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Popup course={course} />
+      </Modal>
+    </>
   )
 }

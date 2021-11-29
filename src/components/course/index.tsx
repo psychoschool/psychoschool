@@ -1,29 +1,22 @@
-import React, { useState } from 'react'
-import { Listing } from 'components/course/listing'
-import { Preview } from 'components/course/preview'
-import { course } from 'components/course/listing/consts'
-import css from './styles.scss'
+import React, { FC } from 'react'
+import { CourseId } from 'entities/courses/courses.type'
+import { getDebugger } from 'utils/debugger.util'
+import { passedTest } from './test.util'
 
-export const Course = () => {
-  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)
+import { Test } from './test'
+import { Learn } from './learn'
+import { course } from './consts'
 
-  return (
-    <div className={css.wrapper}>
-      <div className={css.content}>
-        <Preview videoID={current} />
+interface Props {
+  courseId: CourseId
+}
 
-        <div className={css.info}>
-          <h2 className={css.title}>Об этом курсе</h2>
-          <p className={css.text}>
-            Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками,
-            зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.
-          </p>
-        </div>
-      </div>
+const debug = getDebugger('component: Course')
+export const Course: FC<Props> = ({ courseId }) => {
+  const testPassed = passedTest(course)
+  debug('courseID %s', courseId)
+  debug('testPassed %s', testPassed)
 
-      <div className={css.listing}>
-        <Listing current={current} onChange={setCurrent} />
-      </div>
-    </div>
-  )
+  if (!testPassed) return <Test />
+  return <Learn />
 }

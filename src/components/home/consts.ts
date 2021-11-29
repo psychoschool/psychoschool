@@ -17,9 +17,28 @@ const premium: CoursesCollection = {
     image: 'https://picsum.photos/320/181',
     lectures: 15,
     requirements: {
+      auth: false,
+      pay: false
+    }
+  },
+  2: {
+    id: '2',
+    title: '3D ягодицы',
+    image: 'https://picsum.photos/320/182',
+    lectures: 15,
+    requirements: {
       auth: true,
-      pay: true,
-      test: false
+      pay: false
+    }
+  },
+  3: {
+    id: '3',
+    title: 'Здоровый сон',
+    image: 'https://picsum.photos/320/183',
+    lectures: 15,
+    requirements: {
+      auth: true,
+      pay: true
     }
   }
 }

@@ -32,7 +32,7 @@ export const App = () => {
           <Route path='/' element={<Drawer />}>
             <Route index element={<HomePage />} />
 
-            <Route path='course/:course' element={<CoursePage />} />
+            <Route path='course/:courseId' element={<CoursePage />} />
 
             <Route element={<AuthPage />}>
               <Route path='login' element={<Login />} />

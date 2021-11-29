@@ -9,6 +9,7 @@ export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
   variant?: 'text' | 'contained' | 'outlined'
   href?: string
+  to?: string
   target?: string
   download?: boolean | string
   referrerPolicy?: string

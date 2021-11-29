@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { Course, Requirements } from 'entities/courses/courses.type'
-import { Button } from 'ui-kit/button'
-import { Status } from './status'
+import { CourseItem, Requirements } from 'entities/courses/courses.type'
 import { normalizeTitle } from './normalize.util'
+import { Status } from './status'
+import { Action } from './action'
 import css from './styles.scss'
 
 interface Props {
-  course: Required<Course>
+  course: Required<CourseItem>
 }
 export const Popup: FC<Props> = ({ course }) => {
   const { title, requirements } = course
@@ -27,7 +27,7 @@ export const Popup: FC<Props> = ({ course }) => {
         ))}
       </ul>
 
-      <Button size='medium' disabled text='начать курс' />
+      <Action requirements={requirements} />
     </div>
   )
 }

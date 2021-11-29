@@ -1,4 +1,9 @@
-export const course = {
+import { ICourse } from 'entities/courses/courses.type'
+
+export const course: ICourse = {
+  id: '1',
+  title: 'Шаг вперед',
+  image: '',
   sections: [
     {
       title: 'Теория дипрессии',
@@ -260,5 +265,11 @@ export const course = {
         }
       ]
     }
-  ]
+  ],
+  test: {
+    title: 'Название теста',
+    description: 'Описание теста',
+    isCompleted: false,
+    questions: []
+  }
 }

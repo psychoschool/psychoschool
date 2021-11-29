@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { Course } from 'entities/courses/courses.type'
+import { CourseItem } from 'entities/courses/courses.type'
 import PlayListIcon from './icons/playlist.icon.svg'
 import css from './styles.scss'
 
 interface Props {
-  course: Course
+  course: CourseItem
 }
 export const FreeCourse: FC<Props> = ({ course }) => {
   const { id, title, image, lectures } = course
