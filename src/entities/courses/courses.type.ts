@@ -10,14 +10,17 @@ export interface CourseItem {
   requirements?: RequirementsCollection
 }
 
-interface ITest {
+export interface IQuestion {
+  name: string
+  type: 'single' | 'multi'
+  answers: Array<{ name: string }>
+}
+
+export interface ITest {
   title: string
   description?: string
   isCompleted: boolean
-  questions: Array<{
-    title: string
-    type: 'single' | 'multi'
-  }>
+  questions: Array<IQuestion>
 }
 
 export interface ICourse {

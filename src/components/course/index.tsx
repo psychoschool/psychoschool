@@ -3,9 +3,9 @@ import { CourseId } from 'entities/courses/courses.type'
 import { getDebugger } from 'utils/debugger.util'
 import { passedTest } from './test.util'
 
-import { Test } from './test'
+import { courses } from './consts'
 import { Learn } from './learn'
-import { course } from './consts'
+import { Test } from './test'
 
 interface Props {
   courseId: CourseId
@@ -13,10 +13,10 @@ interface Props {
 
 const debug = getDebugger('component: Course')
 export const Course: FC<Props> = ({ courseId }) => {
-  const testPassed = passedTest(course)
+  const testPassed = passedTest(courses[courseId])
   debug('courseID %s', courseId)
   debug('testPassed %s', testPassed)
 
   if (!testPassed) return <Test />
-  return <Learn />
+  return <Learn course={courses[courseId]} />
 }

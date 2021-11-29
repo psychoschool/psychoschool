@@ -4,7 +4,7 @@ import { ButtonProps } from './types'
 import { getClassNames } from './utils/cn.util'
 
 export const Button: FC<ButtonProps> = props => {
-  const { text, type, disabled, to, href, target } = props
+  const { text, type, disabled, to, href, target, onClick } = props
   if (to)
     return (
       <button type={type} disabled={disabled} className={getClassNames(props)}>
@@ -18,7 +18,7 @@ export const Button: FC<ButtonProps> = props => {
       </a>
     )
   return (
-    <button type={type} disabled={disabled} className={getClassNames(props)}>
+    <button type={type} disabled={disabled} className={getClassNames(props)} onClick={onClick}>
       {text}
     </button>
   )

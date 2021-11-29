@@ -25,17 +25,27 @@ const premium: CoursesCollection = {
     id: '2',
     title: '3D ягодицы',
     image: 'https://picsum.photos/320/182',
-    lectures: 15,
+    lectures: 20,
     requirements: {
       auth: true,
       pay: false
     }
   },
-  3: {
-    id: '3',
+  withTest: {
+    id: 'withTest',
     title: 'Здоровый сон',
     image: 'https://picsum.photos/320/183',
-    lectures: 15,
+    lectures: 32,
+    requirements: {
+      auth: true,
+      pay: true
+    }
+  },
+  noTest: {
+    id: 'noTest',
+    title: 'Экзистенциальный кризис',
+    image: 'https://picsum.photos/320/184',
+    lectures: 9,
     requirements: {
       auth: true,
       pay: true

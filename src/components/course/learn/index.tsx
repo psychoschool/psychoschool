@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
+import { ICourse } from 'entities/courses/courses.type'
 import { Preview } from './preview'
 import { Listing } from './listing'
-import { course } from '../consts'
 import css from './styles.scss'
 
-export const Learn = () => {
+interface Props {
+  course: ICourse
+}
+export const Learn: FC<Props> = ({ course }) => {
   const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)
 
   return (
