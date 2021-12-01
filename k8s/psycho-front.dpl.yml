@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psycho-front-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psycho-front
+  template:
+      metadata:
+        labels:
+          app: psycho-front
+      spec:
+          containers:
+            - name: psycho-front
+              image: denchiklut/psycho-front
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: psycho-front-srv
+spec:
+  selector:
+    app: psycho-front
+  ports:
+    - name: psycho-front
+      protocol: TCP
+      port: 5000
+      targetPort: 5000

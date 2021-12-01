@@ -1,13 +1,13 @@
 {
-  "name": "platform",
+  "name": "psychoschool",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:denchiklut/platform.git"
+    "url": "git@github.com:denchiklut/psychoschool.git"
   },
-  "homepage": "https://github.com/denchiklut/platform#readme",
+  "homepage": "https://github.com/denchiklut/psychoschool#readme",
   "license": "ISC",
-  "description": "Learning platform",
+  "description": "Learning platform for PsychoSchool",
   "author": "ollylut@gmal.com",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production && webpack --mode production",
