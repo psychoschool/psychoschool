@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker build -t denchiklut/psychoschool .
+      - run: docker build -t denchiklut/psycho-front .
       - run:
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - run: docker push denchiklut/psychoschool
-      - uses: digitalocean/action-doct@v2
+      - run: docker push denchiklut/psycho-front
+      - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save psychoschool
