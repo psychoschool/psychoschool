@@ -21,10 +21,9 @@ kind: Service
 metadata:
   name: psycho-front-srv
 spec:
+  type: ClusterIP
   selector:
     app: psycho-front
   ports:
-    - name: psycho-front
-      protocol: TCP
-      port: 5000
-      targetPort: 5000
+      - port: 5000
+        targetPort: 5000
