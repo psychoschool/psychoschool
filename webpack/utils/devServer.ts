@@ -1,5 +1,5 @@
 const defaultPort = 3000
-const devServerHost = 'localhost'
+const devServerHost = 'local.psychoschool.ru'
 
 /**
  * @see https://webpack.js.org/configuration/dev-server/

@@ -6,4 +6,3 @@ type Camelize<T> = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   [P in keyof T as CamelCase<P>]: T[P] extends object ? Camelize<T[P]> : T[P]
 }
-type A = Partial<any>

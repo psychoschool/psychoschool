@@ -9,7 +9,7 @@ export const Signup = () => {
     <div className={css.wrapper}>
       <div className={css.header}>
         <UserIcon className={css.avatar} />
-        <h2 className={css.title}>Sign in</h2>
+        <h2 className={css.title}>Sign up</h2>
       </div>
 
       <form className={css.form}>
