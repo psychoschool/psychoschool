@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psycho-front-stage-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psycho-front-stage
+  template:
+      metadata:
+        labels:
+          app: psycho-front-stage
+      spec:
+          containers:
+            - name: psycho-front-stage
+              image: denchiklut/psycho-front-stage
+              resources:
+                limits:
+                  cpu: 200m
+                  memory: 256Mi
+                requests:
+                  cpu: 100m
+                  memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: psycho-front-stage-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: psycho-front-stage
+  ports:
+      - port: 5000
+        targetPort: 5000

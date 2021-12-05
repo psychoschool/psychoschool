@@ -26,3 +26,23 @@ spec:
                 name: psycho-api-srv
                 port:
                   number: 8080
+    - host: staging.psychoschool.ru
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: psycho-front-stage-srv
+                port:
+                  number: 5000
+    - host: api-stage.psychoschool.ru
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: psycho-api-stage-srv
+                port:
+                  number: 8080
