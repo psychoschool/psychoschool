@@ -3,20 +3,20 @@ interface ServiceConfig {
   pathPrefix?: string
 }
 
-export const COMPLECT_API: Readonly<'complect-api'> = 'complect-api'
+export const PSYCHO_API: Readonly<'psycho-api'> = 'psycho-api'
 
 const prod: Record<string, ServiceConfig> = {
-  [COMPLECT_API]: {
-    host: 'https://complect-group.ru',
-    pathPrefix: ''
+  [PSYCHO_API]: {
+    host: 'http://api.psychoschool.ru',
+    pathPrefix: '/api/v1'
   }
 }
 
-const dev: Record<string, ServiceConfig> = {
-  [COMPLECT_API]: {
-    host: 'http://localhost:3000',
-    pathPrefix: ''
+const stage: Record<string, ServiceConfig> = {
+  [PSYCHO_API]: {
+    host: 'http://api-stage.psychoschool.ru',
+    pathPrefix: '/api/v1'
   }
 }
 
-export const services = IS_DEV ? dev : prod
+export const services = IS_DEV ? stage : prod
