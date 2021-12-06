@@ -4,8 +4,11 @@ import loadable from '@loadable/component'
 import _throttle from 'lodash.throttle'
 
 import { ThemeProvider, useThemeCreator } from 'utils/theme'
-import { useAppDispatch } from 'utils/store.util'
+import { useAppDispatch, useAppSelector } from 'utils/store.util'
 import { useScreenActions } from 'entities/ui/ui.actions'
+import { selectAuth } from 'entities/auth/auth.selector'
+import { selectCurrentUser } from 'entities/user/user.selector'
+import { useUserActions } from 'entities/user/user.slice'
 import { Drawer } from 'components/@shared/drawer'
 import { Login, Signup } from 'components/auth'
 import './styles.scss'
@@ -20,10 +23,18 @@ export const App = () => {
   const { changeScreen } = useScreenActions(dispatch)
   const theme = useThemeCreator()
 
+  const { getCurrentUser } = useUserActions(dispatch)
+  const { authorized } = useAppSelector(selectAuth)
+  const user = useAppSelector(selectCurrentUser)
+
   useEffect(() => {
     addEventListener('resize', _throttle(changeScreen, 500))
     changeScreen()
   }, [changeScreen])
+
+  useEffect(() => {
+    if (!user) getCurrentUser()
+  }, [user, authorized, getCurrentUser])
 
   return (
     <>

@@ -10,8 +10,8 @@ import css from './styles.scss'
 
 export const Drawer = () => {
   const { theme } = useContext(ThemeContext)
-  const [open, setOpen] = useState(false)
 
+  const [open, setOpen] = useState(false)
   const handleClose = () => setOpen(false)
 
   return (

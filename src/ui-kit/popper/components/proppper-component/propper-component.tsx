@@ -2,10 +2,10 @@ import React, { useEffect, useCallback, useMemo, useLayoutEffect } from 'react'
 import { createPortal } from 'react-dom'
 import debounce from 'lodash.debounce'
 import cn from 'classnames'
+import { camelCase } from 'utils/camelize.util'
 import { PopperComponentProps } from './types'
 import { isClickOutside } from './utils/otside.util'
 import css from './styles.scss'
-import { camelCase } from 'utils/camelize.util'
 
 export const PopperComponent: React.FC<PopperComponentProps> = props => {
   const {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { useSelector } from 'react-redux'
 import { Checkbox } from 'ui-kit/checkbox'
+import { useAppSelector } from 'utils/store.util'
 import { IQuestion } from 'entities/courses/courses.type'
 import { selectIsMobile } from 'entities/ui/screen/screen.selector'
 import css from './styles.scss'
@@ -10,7 +10,7 @@ interface Props {
   actions: JSX.Element
 }
 export const Question: FC<Props> = ({ question, actions }) => {
-  const isMobile = useSelector(selectIsMobile)
+  const isMobile = useAppSelector(selectIsMobile)
   const size = isMobile ? 'small' : 'medium'
 
   return (
