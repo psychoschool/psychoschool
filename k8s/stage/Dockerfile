@@ -1,5 +1,4 @@
 FROM node:alpine as builder
-
 WORKDIR /usr/app
 
 COPY package.json .
@@ -7,6 +6,7 @@ COPY yarn.lock .
 RUN yarn install
 COPY . .
 
+ENV API_MDOE=stage
 RUN yarn build
 
 
