@@ -37,8 +37,8 @@ const config = {
     plugins.esLintPlugin,
     plugins.forkTsCheckerWebpackPlugin,
     plugins.refreshPlugin,
-    plugins.environmentPlugin,
     plugins.definePlugin,
+    plugins.environmentPlugin,
     plugins.copyPlugin,
     ...plugins.htmlWebpackPlugin
   ].filter(Boolean)

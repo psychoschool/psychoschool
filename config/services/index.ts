@@ -19,4 +19,4 @@ const stage: Record<string, ServiceConfig> = {
   }
 }
 
-export const services = IS_DEV ? stage : prod
+export const services = process.env.API_MODE === 'prod' ? prod : stage

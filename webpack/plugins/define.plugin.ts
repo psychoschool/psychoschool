@@ -1,10 +1,9 @@
-import dotenv from 'dotenv'
 import { DefinePlugin } from 'webpack'
-import { isDev } from '../utils/env'
+import { isDev, isProd } from '../utils/env'
 
-dotenv.config()
 const config = {
-  IS_DEV: isDev
+  IS_DEV: isDev,
+  IS_PROD: isProd
 }
 
 export const definePlugin = new DefinePlugin(config)

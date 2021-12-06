@@ -1,8 +1,9 @@
 import { EnvironmentPlugin } from 'webpack'
-import { isDev } from '../utils/env'
+import { apiMode, debug } from '../utils/env'
 
 const config = {
-  DEBUG: isDev
+  DEBUG: debug,
+  API_MODE: apiMode
 }
 
 export const environmentPlugin = new EnvironmentPlugin(config)
