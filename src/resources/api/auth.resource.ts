@@ -1,17 +1,7 @@
 import { PSYCHO_API } from 'config/services'
 import { resource } from 'utils/resource.util'
-import type { AuthResponse, SigningResponse, SignInParams } from 'resources/types'
+import type { UserResponse, SigningResponse, SignInParams } from 'resources/types'
 import { normalizeSignIn } from 'schemas/auth.schema'
-
-export const checkAuth = resource(ctx => ({
-  ctx,
-  name: 'checkAuth',
-  method: 'GET',
-  serviceName: PSYCHO_API,
-  url: '/me',
-  onSuccess: (response: AuthResponse) => response,
-  onError: error => error
-}))
 
 export const signIn = resource((ctx, params: SignInParams) => ({
   ctx,

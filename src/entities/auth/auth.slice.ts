@@ -1,30 +1,14 @@
 import { useMemo } from 'react'
-import { bindActionCreators, createAsyncThunk, createReducer, Dispatch } from '@reduxjs/toolkit'
-import * as authResource from 'api/auth.resource'
-import type { SignInParams } from 'resources/types'
+import { bindActionCreators, createReducer, Dispatch } from '@reduxjs/toolkit'
+import { signIn, signOut } from 'entities/auth/auth.actions'
+import { getCurrentUser } from 'entities/user/user.slice'
 import type { Auth } from './auth.types'
-import { push } from 'redux-first-history'
-
-/*--------------------------------------------------
-  actions
-  -------------------------------------------------- */
-export const checkAuth = createAsyncThunk('auth/checkAuth', () => {
-  return authResource.checkAuth({}, {})
-})
-
-export const signIn = createAsyncThunk('auth/signIn', (params: SignInParams, { dispatch }) => {
-  return authResource.signIn({}, params).then(() => dispatch(push('/')))
-})
-
-export const signOut = createAsyncThunk('auth/signOut', () => {
-  return authResource.signOut({}, {})
-})
 
 /*--------------------------------------------------
   dispatch actions
   -------------------------------------------------- */
 export const useAuthActions = (dispatch: Dispatch) => {
-  return useMemo(() => bindActionCreators({ checkAuth, signIn, signOut }, dispatch), [dispatch])
+  return useMemo(() => bindActionCreators({ signIn, signOut }, dispatch), [dispatch])
 }
 
 /*--------------------------------------------------
@@ -37,18 +21,20 @@ export const authReducer = createReducer<Auth>(
   },
   builder => {
     builder
-      .addCase(checkAuth.fulfilled, (state, action) => {
-        const user = action.payload
-        return { authorized: true, status: 'succeeded', ...user }
+      .addCase(getCurrentUser.fulfilled, (state, action) => {
+        return { authorized: true, status: 'succeeded' }
       })
-      .addCase(checkAuth.pending, (state, action) => {
+      .addCase(getCurrentUser.pending, (state, action) => {
         return { ...state, authorized: false, status: 'pending' }
       })
-      .addCase(checkAuth.rejected, (state, action) => {
+      .addCase(getCurrentUser.rejected, (state, action) => {
         return { ...state, authorized: false, status: 'failed' }
       })
-      .addCase(signOut.rejected, state => {
-        return { ...state, authorized: false, status: 'failed' }
+      .addCase(signIn.fulfilled, state => {
+        return { ...state, authorized: true, status: 'succeeded' }
+      })
+      .addCase(signOut.fulfilled, state => {
+        return { ...state, authorized: false, status: 'succeeded' }
       })
   }
 )

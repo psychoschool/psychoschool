@@ -1,27 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import cn from 'classnames'
 import { Popper } from 'ui-kit/popper'
 import { ThemeContext } from 'utils/theme'
-import { useAppDispatch } from 'utils/store.util'
-import { useAuthActions } from 'entities/auth/auth.slice'
 import { Menu } from './menu'
 import UserIcon from './icons/user.icon.svg'
 import logo from './icons/logo.png'
 import css from './styles.scss'
 
 export const Drawer = () => {
-  const dispatch = useAppDispatch()
-  const { pathname } = useLocation()
   const { theme } = useContext(ThemeContext)
 
   const [open, setOpen] = useState(false)
   const handleClose = () => setOpen(false)
-  const { checkAuth } = useAuthActions(dispatch)
-
-  useEffect(() => {
-    checkAuth()
-  }, [checkAuth, pathname])
 
   return (
     <>
