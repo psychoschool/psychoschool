@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker build -t denchiklut/psycho-front .
+      - run: export API_MODE=prod
+      - run: docker build -t denchiklut/psycho-front --build-arg API_MODE .
       - run:
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - run: docker push denchiklut/psycho-front
