@@ -14,3 +14,4 @@ spec:
             tokenSecretRef:
               name: digitalocean-dns
               key: access-token
+
