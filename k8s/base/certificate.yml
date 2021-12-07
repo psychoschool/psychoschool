@@ -1,17 +1,17 @@
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: psychoschool-ru
-spec:
-  secretName: psychoschool-ru
-  issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
-  commonName: psychoschool.ru
-  dnsNames:
-    - psychoschool.ru
-    - www.psychoschool.ru
-    - staging.psychoschool.ru
-    - www.staging.psychoschool.ru
-    - api-stage.psychoschool.ru
-    - api.psychoschool.ru
+#apiVersion: cert-manager.io/v1
+#kind: Certificate
+#metadata:
+#  name: psychoschool-ru
+#spec:
+#  secretName: psychoschool-ru
+#  issuerRef:
+#    name: letsencrypt-prod
+#    kind: ClusterIssuer
+#  commonName: psychoschool.ru
+#  dnsNames:
+#    - psychoschool.ru
+#    - www.psychoschool.ru
+#    - staging.psychoschool.ru
+#    - www.staging.psychoschool.ru
+#    - api-stage.psychoschool.ru
+#    - api.psychoschool.ru
