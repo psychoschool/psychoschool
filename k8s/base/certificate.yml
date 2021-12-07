@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: psychoschool-ru-tls
+  name: psychoschool-ru
 spec:
   secretName: psychoschool-ru
   issuerRef:
