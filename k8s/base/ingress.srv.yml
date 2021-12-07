@@ -11,7 +11,7 @@ spec:
     - hosts:
         - psychoschool.ru
         - www.psychoschool.ru
-      secretName: psychoschool-ru-tls
+      secretName: psychoschool-ru
   rules:
     - host: psychoschool.ru
       http:
