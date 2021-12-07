@@ -22,36 +22,6 @@ spec:
                 name: psycho-front-srv
                 port:
                   number: 5000
-    - host: api.psychoschool.ru
-      http:
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: psycho-api-srv
-                port:
-                  number: 8080
-    - host: staging.psychoschool.ru
-      http:
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: psycho-front-stage-srv
-                port:
-                  number: 5000
-    - host: api-stage.psychoschool.ru
-      http:
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: psycho-api-stage-srv
-                port:
-                  number: 8080
     - host: www.psychoschool.ru
       http:
         paths:
@@ -62,16 +32,16 @@ spec:
                 name: psycho-front-srv
                 port:
                   number: 5000
-    - host: www.api.psychoschool.ru
+    - host: staging.psychoschool.ru
       http:
         paths:
           - path: /
             pathType: ImplementationSpecific
             backend:
               service:
-                name: psycho-api-srv
+                name: psycho-front-stage-srv
                 port:
-                  number: 8080
+                  number: 5000
     - host: www.staging.psychoschool.ru
       http:
         paths:
@@ -82,7 +52,17 @@ spec:
                 name: psycho-front-stage-srv
                 port:
                   number: 5000
-    - host: www.api-stage.psychoschool.ru
+    - host: api.psychoschool.ru
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: psycho-api-srv
+                port:
+                  number: 8080
+    - host: api-stage.psychoschool.ru
       http:
         paths:
           - path: /

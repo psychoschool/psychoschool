@@ -11,3 +11,7 @@ spec:
   dnsNames:
     - psychoschool.ru
     - www.psychoschool.ru
+    - staging.psychoschool.ru
+    - www.staging.psychoschool.ru
+    - api-stage.psychoschool.ru
+    - api.psychoschool.ru
