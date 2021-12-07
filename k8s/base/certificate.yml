@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: psychoschool-ru-tls
 spec:
-  secretName: psychoschool-ru-tls
+  secretName: psychoschool-ru
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
