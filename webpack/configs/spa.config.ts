@@ -2,7 +2,7 @@ import { join } from 'path'
 
 import * as rules from '../rules'
 import * as plugins from '../plugins'
-import { isDev, rootDir } from '../utils/env'
+import { rootDir } from '../utils/env'
 import { alias } from '../utils/alias'
 import { devServerConfig } from '../utils/devServer'
 
@@ -12,7 +12,7 @@ const config = {
   entry: [join(rootDir, 'src', 'main.tsx')],
   output: {
     path: join(rootDir, 'dist'),
-    publicPath: isDev ? '/' : '/',
+    publicPath: '/',
     filename: 'js/[name].[fullhash].js'
   },
   module: {

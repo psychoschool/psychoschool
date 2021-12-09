@@ -1,8 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { rootDir } from './env'
-const defaultPort = 3000
-const devServerHost = 'local.psychoschool.ru'
+import { isDev, rootDir } from './env'
 
 /**
  * @see https://webpack.js.org/configuration/dev-server/
@@ -10,15 +8,15 @@ const devServerHost = 'local.psychoschool.ru'
 export const devServerConfig = {
   http2: true,
   https: {
-    key: readFileSync(join(rootDir, 'certificate', 'key.pem')),
-    cert: readFileSync(join(rootDir, 'certificate', 'cert.pem'))
+    key: isDev && readFileSync(join(rootDir, 'certificate', 'key.pem')),
+    cert: isDev && readFileSync(join(rootDir, 'certificate', 'cert.pem'))
   },
   open: {
     app: {
       name: 'Google Chrome'
     }
   },
-  port: defaultPort,
-  host: devServerHost,
+  port: 3000,
+  host: 'local.psychoschool.ru',
   historyApiFallback: true
 }
