@@ -10,6 +10,7 @@
   "description": "Learning platform for PsychoSchool",
   "author": "ollylut@gmal.com",
   "scripts": {
+    "setup": "sh setup.sh",
     "build": "rm -rf dist && NODE_ENV=production && webpack --mode production",
     "start": "NODE_ENV=development webpack serve --mode development",
     "test": "jest",
