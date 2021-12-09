@@ -1,14 +1,17 @@
 import React, { FC } from 'react'
-import { CourseItem, CoursesCollection } from 'entities/courses/courses.type'
+import { CourseItem, CoursesCollection, CoursesType } from 'entities/courses/courses.type'
 import { FreeCourse } from './free-course'
 import { ProCourse } from './pro-course'
 import css from './styles.scss'
 
 export interface Props {
   title: string
+  type: CoursesType
   courses: CoursesCollection
 }
-export const CoursesList: FC<Props> = ({ title, courses }) => {
+export const CoursesList: FC<Props> = ({ title, type, courses }) => {
+  if (type !== 'free') return null
+
   return (
     <>
       <h3 className={css.title}>{title}</h3>

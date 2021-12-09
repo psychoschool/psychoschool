@@ -1,6 +1,6 @@
 export type Requirements = 'auth' | 'pay'
 export type RequirementsCollection = Partial<Collection<Requirements, boolean>>
-
+export type CoursesType = 'premium' | 'free'
 export type CourseId = string
 export interface CourseItem {
   id: string

@@ -1,0 +1,54 @@
+@import 'variables';
+
+.wrapper {
+  padding: 20px 20px 0;
+}
+
+.title {
+  @include h3;
+}
+
+.course {
+  @include s-shadow;
+
+  background: $actionHover;
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  transition: filter 0.3s ease-in-out;
+  border: 1px solid $divider;
+  margin-top: 12px;
+
+  @media #{$mobile} {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 240px;
+  object-fit: cover;
+
+  @media #{$mobile} {
+    max-width: 100%;
+  }
+}
+
+.info {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  max-width: 780px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.button {
+  align-self: end;
+  margin-top: 20px;
+}
