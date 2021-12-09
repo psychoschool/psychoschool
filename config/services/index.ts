@@ -7,14 +7,14 @@ export const PSYCHO_API: Readonly<'psycho-api'> = 'psycho-api'
 
 const prod: Record<string, ServiceConfig> = {
   [PSYCHO_API]: {
-    host: 'http://api.psychoschool.ru',
+    host: 'https://api.psychoschool.ru',
     pathPrefix: '/api/v1'
   }
 }
 
 const stage: Record<string, ServiceConfig> = {
   [PSYCHO_API]: {
-    host: 'http://api-stage.psychoschool.ru',
+    host: 'https://api-stage.psychoschool.ru',
     pathPrefix: '/api/v1'
   }
 }

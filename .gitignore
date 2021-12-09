@@ -1,6 +1,8 @@
 .env
 .eslintcache
+.DS_Store
 
 .idea
 dist
+certificate
 node_modules
