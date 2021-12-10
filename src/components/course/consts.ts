@@ -543,11 +543,9 @@ const courseWithTest: ICourse = {
 }
 
 export const courses: Collection<CourseId, ICourse> = {
-  withTest: courseWithTest,
-  noTest: course,
   1: course,
   2: course,
-  3: course,
+  3: courseWithTest,
   4: course,
   5: course,
   6: course,

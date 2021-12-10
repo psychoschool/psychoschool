@@ -101,6 +101,11 @@ $mobile: 'only screen and (max-width: #{$mobile-width})';
   }
 }
 
+@mixin link-reset() {
+  @include block-reset();
+  text-decoration: none;
+}
+
 @mixin img-reset {
   width: 100%;
   object-fit: cover;

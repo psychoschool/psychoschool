@@ -2,8 +2,8 @@
 
 .wrapper {
   display: grid;
-  width: 80%;
-  margin: 52px auto;
+  width: 90%;
+  margin: 48px auto 0;
 
   @media #{$tablet} {
     width: 90%;
@@ -36,4 +36,11 @@
 
 .btn {
   margin-top: 18px;
+}
+
+.help {
+  @include s-text;
+
+  display: flex;
+  justify-content: space-between;
 }

@@ -27,7 +27,7 @@ export const Menu: FC<Props> = ({ onSelect }) => {
   }
 
   const handleLogin = () => {
-    if (!authorized) navigate('/signup')
+    if (!authorized) navigate('/login')
     onSelect()
   }
 
