@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'ui-kit/link'
 import { Input } from 'ui-kit/input'
 import { Button } from 'ui-kit/button'
 import UserIcon from './user.icon.svg'
@@ -14,17 +15,16 @@ export const Signup = () => {
 
       <form className={css.form}>
         <Input label='Name' fluid />
-
         <div className={css.raw}>
           <Input label='Email' type='email' fluid />
           <Input label='Phone' type='tel' fluid />
         </div>
-
         <Input label='Password' type='password' fluid />
-
         <div className={css.btn}>
           <Button text='SIGN UP' fluid />
         </div>
+
+        <Link linkTo='/login'>Already have an account? Sign in</Link>
       </form>
     </div>
   )

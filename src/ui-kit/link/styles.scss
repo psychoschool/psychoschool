@@ -1,0 +1,27 @@
+@import 'variables';
+
+.wrapper {
+  @include link-reset;
+  @include text;
+  position: relative;
+
+  color: $primaryMain;
+  text-decoration: underline $primaryMain;
+}
+
+.dark {
+  color: $primaryDark;
+  text-decoration: underline $primaryDark;
+}
+
+.large {
+  @include m-text;
+}
+
+.medium {
+  @include text;
+}
+
+.small {
+  @include s-text;
+}

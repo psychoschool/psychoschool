@@ -3,7 +3,7 @@
 .wrapper {
   display: grid;
   width: 90%;
-  margin: 52px auto;
+  margin: 52px auto 0;
 
   @media #{$mobile} {
     width: 100%;

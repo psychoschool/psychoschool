@@ -1,6 +1,8 @@
 @import 'variables';
 
 .chipsWrapper {
+  @include s-shadow;
+
   position: sticky;
   z-index: 1;
   top: 56px;

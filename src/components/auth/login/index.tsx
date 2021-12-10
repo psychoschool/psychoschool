@@ -4,6 +4,7 @@ import { Button } from 'ui-kit/button'
 import { Checkbox } from 'ui-kit/checkbox'
 import { useAppDispatch } from 'utils/store.util'
 import { useAuthActions } from 'entities/auth/auth.slice'
+import { Link } from 'ui-kit/link'
 import UserIcon from './user.icon.svg'
 import css from './styles.scss'
 
@@ -12,7 +13,6 @@ export const Login = () => {
   const { signIn } = useAuthActions(dispatch)
   const [email, setEmail] = useState('lionel@luthor.corp')
   const [password, setPassword] = useState('denchik1508')
-
   const handleSignIn = () => {
     signIn({ email, password })
   }
@@ -26,10 +26,18 @@ export const Login = () => {
       <form className={css.form}>
         <Input label='Email' type='email' value={email} onValueChange={setEmail} fluid />
         <Input label='Password' type='password' value={password} onValueChange={setPassword} fluid />
-        <Checkbox label='Запомнить меня' />
-
+        <Checkbox size='small' label='Запомнить меня' />
         <div className={css.btn}>
           <Button text='SIGN IN' onClick={handleSignIn} fluid />
+        </div>
+
+        <div className={css.help}>
+          <Link size='small' linkTo='/login'>
+            Forgot password?
+          </Link>
+          <Link size='small' linkTo='/signup'>
+            Don&apos;t have an account? Sign Up
+          </Link>
         </div>
       </form>
     </div>
