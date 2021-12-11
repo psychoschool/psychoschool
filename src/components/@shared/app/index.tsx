@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import loadable from '@loadable/component'
 import _throttle from 'lodash.throttle'
 
+import { SnackProvider } from 'ui-kit/snackbar'
 import { ThemeProvider, useThemeCreator } from 'utils/theme'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
 import { useScreenActions } from 'entities/ui/ui.actions'
@@ -39,20 +40,22 @@ export const App = () => {
   return (
     <>
       <ThemeProvider value={theme}>
-        <Routes>
-          <Route path='/' element={<Drawer />}>
-            <Route index element={<HomePage />} />
+        <SnackProvider maxSnack={3} placement='top'>
+          <Routes>
+            <Route path='/' element={<Drawer />}>
+              <Route index element={<HomePage />} />
 
-            <Route path='course/:courseId' element={<CoursePage />} />
+              <Route path='course/:courseId' element={<CoursePage />} />
 
-            <Route element={<AuthPage />}>
-              <Route path='login' element={<Login />} />
-              <Route path='signup' element={<Signup />} />
+              <Route element={<AuthPage />}>
+                <Route path='login' element={<Login />} />
+                <Route path='signup' element={<Signup />} />
+              </Route>
+
+              <Route path='*' element={<NotFoundPage />} />
             </Route>
-
-            <Route path='*' element={<NotFoundPage />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </SnackProvider>
       </ThemeProvider>
     </>
   )
