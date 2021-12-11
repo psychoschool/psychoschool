@@ -13,6 +13,7 @@ export const Login = () => {
   const { signIn } = useAuthActions(dispatch)
   const [email, setEmail] = useState('lionel@luthor.corp')
   const [password, setPassword] = useState('denchik1508')
+
   const handleSignIn = () => {
     signIn({ email, password })
   }
@@ -36,7 +37,7 @@ export const Login = () => {
             Forgot password?
           </Link>
           <Link size='small' linkTo='/signup'>
-            Don&apos;t have an account? Sign Up
+            Don&apos;t have an account?
           </Link>
         </div>
       </form>

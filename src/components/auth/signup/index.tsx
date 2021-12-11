@@ -24,7 +24,7 @@ export const Signup = () => {
           <Button text='SIGN UP' fluid />
         </div>
 
-        <Link linkTo='/login'>Already have an account? Sign in</Link>
+        <Link linkTo='/login'>Already have an account?</Link>
       </form>
     </div>
   )
