@@ -1,6 +1,6 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useState } from 'react'
 import cn from 'classnames'
-import { ThemeContext } from 'utils/theme'
+import { useTheme } from 'utils/theme'
 import ArrowIcon from './icons/arrow-forward.icon.svg'
 import css from './styles.scss'
 
@@ -10,7 +10,7 @@ interface Props {
 }
 export const Accordion: FC<Props> = ({ children: childrenProp, expanded = false, onChange }) => {
   const [summary, ...children] = React.Children.toArray(childrenProp)
-  const { theme } = useContext(ThemeContext)
+  const [theme] = useTheme()
   const [open, setOpen] = useState(expanded)
 
   const handleChange = () => {

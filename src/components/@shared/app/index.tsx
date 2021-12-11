@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router'
 import loadable from '@loadable/component'
 import _throttle from 'lodash.throttle'
 
+import { ThemeProvider } from 'utils/theme'
 import { SnackProvider } from 'ui-kit/snackbar'
-import { ThemeProvider, useThemeCreator } from 'utils/theme'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
 import { useScreenActions } from 'entities/ui/ui.actions'
 import { selectAuth } from 'entities/auth/auth.selector'
@@ -22,7 +22,6 @@ const NotFoundPage = loadable(() => import('pages/not-found'))
 export const App = () => {
   const dispatch = useAppDispatch()
   const { changeScreen } = useScreenActions(dispatch)
-  const theme = useThemeCreator()
 
   const { getCurrentUser } = useUserActions(dispatch)
   const { authorized } = useAppSelector(selectAuth)
@@ -39,7 +38,7 @@ export const App = () => {
 
   return (
     <>
-      <ThemeProvider value={theme}>
+      <ThemeProvider>
         <SnackProvider maxSnack={3} placement='top'>
           <Routes>
             <Route path='/' element={<Drawer />}>

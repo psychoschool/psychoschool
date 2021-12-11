@@ -1,7 +1,7 @@
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
 import { useNavigate } from 'react-router-dom'
-import { ThemeContext } from 'utils/theme'
+import { useTheme } from 'utils/theme'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
 import { selectAuth } from 'entities/auth/auth.selector'
 import { useAuthActions } from 'entities/auth/auth.slice'
@@ -15,7 +15,7 @@ interface Props {
   onSelect: () => void
 }
 export const Menu: FC<Props> = ({ onSelect }) => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const [theme, setTheme] = useTheme()
   const { authorized } = useAppSelector(selectAuth)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
