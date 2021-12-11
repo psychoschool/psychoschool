@@ -10,7 +10,7 @@ export const Signup = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
-    enqueueSnackbar('Hello')
+    enqueueSnackbar('Неверное имя пользователя или пароль', { variant: 'error' })
   }
 
   return (

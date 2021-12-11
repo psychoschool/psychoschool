@@ -4,10 +4,10 @@ import { SnackBarContext, SnackProps } from 'ui-kit/snackbar'
 
 export const useSnackbar = () => {
   const dispatch = useContext(SnackBarContext)
-  const enqueueSnackbar = (message: string, type: SnackProps['type'] = 'default') => {
+  const enqueueSnackbar = (message: string, params: Omit<SnackProps, 'message'>) => {
     dispatch({
       type: 'ADD',
-      payload: { id: uuid(), message, type }
+      payload: { id: uuid(), message, ...params }
     })
   }
 

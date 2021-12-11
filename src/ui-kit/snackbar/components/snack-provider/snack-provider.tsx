@@ -36,6 +36,8 @@ export const SnackProvider: FC<SnackBarProps> = props => {
 
 SnackProvider.defaultProps = {
   maxSnack: 3,
-  placement: 'bottom',
-  align: 'right'
+  anchorOrigin: {
+    horizontal: 'right',
+    vertical: 'top'
+  }
 }

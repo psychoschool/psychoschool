@@ -1,7 +1,8 @@
 export interface SnackProps {
   id?: string
   message: string
-  type?: 'default' | 'success' | 'warning' | 'info' | 'error'
+  variant?: 'default' | 'success' | 'warning' | 'info' | 'error'
+  autoHideDuration?: number
 }
 
 export type Props = SnackProps & {

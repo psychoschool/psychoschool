@@ -2,12 +2,13 @@ import React, { FC, useCallback, useState } from 'react'
 import cn from 'classnames'
 import { useInterval } from 'utils/useinterval.util'
 import { getClassNames } from './utils/cn.util'
+import CloseIcon from './icons/close.icon.svg'
 import { Props } from './types'
 import css from './styles.scss'
 
 export const Snack: FC<Props> = props => {
   const { onClose, ...snack } = props
-  const [time, setTime] = useState(255)
+  const [time, setTime] = useState(snack.autoHideDuration ?? 5)
   const [close, setClose] = useState(false)
   const className = getClassNames(props)
 
@@ -24,11 +25,13 @@ export const Snack: FC<Props> = props => {
   return (
     <div className={cn(className, { [css.close]: close })}>
       <p className={css.content}>{snack.message}</p>
-      <button onClick={handleClose}>close</button>
+      <button className={css.closeBtn} onClick={handleClose}>
+        <CloseIcon className={css.closeIcon} />
+      </button>
     </div>
   )
 }
 
 Snack.defaultProps = {
-  type: 'default'
+  variant: 'default'
 }

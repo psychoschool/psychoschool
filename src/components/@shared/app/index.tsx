@@ -39,7 +39,7 @@ export const App = () => {
   return (
     <>
       <ThemeProvider>
-        <SnackProvider maxSnack={3} placement='top'>
+        <SnackProvider maxSnack={3}>
           <Routes>
             <Route path='/' element={<Drawer />}>
               <Route index element={<HomePage />} />

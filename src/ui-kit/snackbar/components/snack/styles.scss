@@ -6,25 +6,32 @@
   padding: 6px 16px;
   border-radius: 4px;
   color: $white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   animation: slide-left 0.4s ease-in;
   animation-fill-mode: forwards;
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
 }
 
 .default {
   background-color: rgb(49, 49, 49);
-  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
 }
 
 .success {
+  background-color: rgb(46, 125, 50);
 }
 
 .warning {
+  background-color: rgb(237, 108, 2);
 }
 
 .info {
+  background-color: rgb(2, 136, 209);
 }
 
 .error {
+  background-color: rgb(211, 47, 47);
 }
 
 .content {
@@ -36,6 +43,21 @@
 .close {
   animation: slide-right 0.4s ease-in;
   animation-fill-mode: forwards;
+}
+
+.close-btn {
+  @include circle(30px);
+  padding: 5px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background: $actionHover;
+  }
+}
+
+.close-icon {
+  @include circle(20px);
+  fill: $white;
 }
 
 @keyframes slide-left {
