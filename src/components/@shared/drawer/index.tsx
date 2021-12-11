@@ -1,16 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import cn from 'classnames'
 import { Popper } from 'ui-kit/popper'
-import { ThemeContext } from 'utils/theme'
+import { useTheme } from 'utils/theme'
 import { Menu } from './menu'
 import UserIcon from './icons/user.icon.svg'
 import logo from './icons/logo.png'
 import css from './styles.scss'
 
 export const Drawer = () => {
-  const { theme } = useContext(ThemeContext)
-
+  const [theme] = useTheme()
   const [open, setOpen] = useState(false)
   const handleClose = () => setOpen(false)
 

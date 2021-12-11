@@ -1,11 +1,18 @@
 import React from 'react'
 import { Link } from 'ui-kit/link'
 import { Input } from 'ui-kit/input'
+import { useSnackbar } from 'ui-kit/snackbar'
 import { Button } from 'ui-kit/button'
 import UserIcon from './user.icon.svg'
 import css from './styles.scss'
 
 export const Signup = () => {
+  const { enqueueSnackbar } = useSnackbar()
+
+  const handleClick = () => {
+    enqueueSnackbar('Hello')
+  }
+
   return (
     <div className={css.wrapper}>
       <div className={css.header}>
@@ -21,7 +28,7 @@ export const Signup = () => {
         </div>
         <Input label='Password' type='password' fluid />
         <div className={css.btn}>
-          <Button text='SIGN UP' fluid />
+          <Button onClick={handleClick} text='SIGN UP' fluid />
         </div>
 
         <Link linkTo='/login'>Already have an account?</Link>

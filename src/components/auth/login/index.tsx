@@ -13,6 +13,7 @@ export const Login = () => {
   const { signIn } = useAuthActions(dispatch)
   const [email, setEmail] = useState('lionel@luthor.corp')
   const [password, setPassword] = useState('denchik1508')
+
   const handleSignIn = () => {
     signIn({ email, password })
   }

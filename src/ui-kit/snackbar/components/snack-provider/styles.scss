@@ -1,0 +1,30 @@
+@import 'variables';
+
+.snack-list {
+  position: fixed;
+  width: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+  z-index: 1;
+}
+
+.top {
+  top: 72px;
+}
+
+.bottom {
+  bottom: 10px;
+}
+
+.left {
+  left: 10px;
+}
+
+.center {
+  top: 50%;
+}
+
+.right {
+  right: 10px;
+}

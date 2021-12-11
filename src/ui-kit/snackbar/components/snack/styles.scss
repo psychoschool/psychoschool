@@ -1,0 +1,59 @@
+@import 'variables';
+
+.snack {
+  @include m-shadow;
+
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: $white;
+  animation: slide-left 0.4s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.default {
+  background-color: rgb(49, 49, 49);
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
+.success {
+}
+
+.warning {
+}
+
+.info {
+}
+
+.error {
+}
+
+.content {
+  display: flex;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.close {
+  animation: slide-right 0.4s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(110%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(110%);
+  }
+}
