@@ -1,14 +1,14 @@
-import React, { useContext, FC } from 'react'
+import React, { FC } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
-import { ThemeContext } from 'utils/theme'
+import { useTheme } from 'utils/theme'
 import { addNoopenerNoreferredToRel } from './utils/refered.util'
 import { getClassNames } from './utils/cn.util'
 import { LinkProps } from './types'
 
 export const Link: FC<LinkProps> = props => {
   const { href, children, onClick, target, rel, tabIndex, download, linkTo } = props
-  const { theme } = useContext(ThemeContext)
+  const [theme] = useTheme()
 
   const additionalProps = {
     onClick: onClick,
