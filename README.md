@@ -22,4 +22,4 @@ yarn install
 yarn start
 ```
 
-Готово! Проект запустится на https://localhost:3000
+Готово! Проект запустится на https://local.psychoschool.ru:3000/

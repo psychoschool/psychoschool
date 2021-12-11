@@ -36,7 +36,7 @@ export const Login = () => {
             Forgot password?
           </Link>
           <Link size='small' linkTo='/signup'>
-            Don&apos;t have an account? Sign Up
+            Don&apos;t have an account?
           </Link>
         </div>
       </form>
