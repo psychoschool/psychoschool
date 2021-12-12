@@ -1,4 +1,6 @@
 import React from 'react'
+import { useAppDispatch } from 'utils/store.util'
+import { useAuthActions } from 'entities/auth/auth.slice'
 import { Link } from 'ui-kit/link'
 import { Input } from 'ui-kit/input'
 import { useSnackbar } from 'ui-kit/snackbar'
@@ -7,10 +9,20 @@ import UserIcon from './user.icon.svg'
 import css from './styles.scss'
 
 export const Signup = () => {
+  const dispatch = useAppDispatch()
+  const { signUp } = useAuthActions(dispatch)
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
-    enqueueSnackbar('Неверное имя пользователя или пароль', { variant: 'error' })
+    signUp({
+      firstName: 'Klark',
+      phone: 79998394800,
+      password: 'denchik1508',
+      email: 'klark@luthor.corp',
+      onError: () => {
+        enqueueSnackbar('Пользователь с таким email уже существует', { variant: 'error' })
+      }
+    })
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { bindActionCreators, createReducer, Dispatch } from '@reduxjs/toolkit'
-import { signIn, signOut } from 'entities/auth/auth.actions'
+import { signIn, signOut, signUp } from 'entities/auth/auth.actions'
 import { getCurrentUser } from 'entities/user/user.slice'
 import type { Auth } from './auth.types'
 
@@ -8,7 +8,7 @@ import type { Auth } from './auth.types'
   dispatch actions
   -------------------------------------------------- */
 export const useAuthActions = (dispatch: Dispatch) => {
-  return useMemo(() => bindActionCreators({ signIn, signOut }, dispatch), [dispatch])
+  return useMemo(() => bindActionCreators({ signIn, signUp, signOut }, dispatch), [dispatch])
 }
 
 /*--------------------------------------------------
@@ -31,6 +31,9 @@ export const authReducer = createReducer<Auth>(
         return { ...state, authorized: false, status: 'failed' }
       })
       .addCase(signIn.fulfilled, state => {
+        return { ...state, authorized: true, status: 'succeeded' }
+      })
+      .addCase(signUp.fulfilled, state => {
         return { ...state, authorized: true, status: 'succeeded' }
       })
       .addCase(signOut.fulfilled, state => {
