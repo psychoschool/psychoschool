@@ -16,7 +16,7 @@ export const Snack: FC<Props> = props => {
     setClose(true)
 
     setTimeout(() => {
-      onClose(snack)
+      onClose(snack.id)
     }, 400)
   }, [onClose, snack])
 

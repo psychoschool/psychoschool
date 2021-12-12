@@ -1,5 +1,3 @@
-import { ResourceError } from 'errors/resource-error'
-
 export interface SigningResponse {
   access_token: string
 }
@@ -18,5 +16,4 @@ export interface SignUpParams {
   email: string
   phone: number
   password: string
-  onError?: (error: ResourceError) => void
 }

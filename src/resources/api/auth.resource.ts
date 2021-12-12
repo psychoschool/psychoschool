@@ -22,10 +22,7 @@ export const signUp = resource((ctx, params: SignUpParams) => ({
   url: '/signup',
   data: params,
   onSuccess: (response: SignUpResponse) => normalizeSignIn(response),
-  onError: error => {
-    params.onError?.(error)
-    return error
-  }
+  onError: error => error
 }))
 
 export const signOut = resource(ctx => ({

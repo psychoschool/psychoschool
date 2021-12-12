@@ -1,4 +1,4 @@
-import { SnackProps } from 'ui-kit/snackbar'
+import { SnacksCollection } from 'entities/ui/snacks/snacks.type'
 
 export interface SnackBarProps {
   maxSnack?: number
@@ -6,9 +6,6 @@ export interface SnackBarProps {
     vertical?: 'top' | 'bottom'
     horizontal?: 'left' | 'center' | 'right'
   }
-}
-
-export interface SnackAction {
-  type: 'ADD' | 'REMOVE'
-  payload: SnackProps
+  snacks: SnacksCollection
+  onRemoveSnack: (id: string) => void
 }
