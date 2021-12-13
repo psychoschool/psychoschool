@@ -22,22 +22,22 @@ export const Login = () => {
     <div className={css.wrapper}>
       <div className={css.header}>
         <UserIcon className={css.avatar} />
-        <h2 className={css.title}>Sign in</h2>
+        <h2 className={css.title}>Войти</h2>
       </div>
       <form className={css.form}>
         <Input label='Email' type='email' value={email} onValueChange={setEmail} fluid />
-        <Input label='Password' type='password' value={password} onValueChange={setPassword} fluid />
+        <Input label='Пароль' type='password' value={password} onValueChange={setPassword} fluid />
         <Checkbox size='small' label='Запомнить меня' />
         <div className={css.btn}>
-          <Button text='SIGN IN' onClick={handleSignIn} fluid />
+          <Button text='Войти' onClick={handleSignIn} fluid />
         </div>
 
         <div className={css.help}>
           <Link size='small' linkTo='/login'>
-            Forgot password?
+            Забыли пароль?
           </Link>
           <Link size='small' linkTo='/signup'>
-            Don&apos;t have an account?
+            Создать аккаунт?
           </Link>
         </div>
       </form>
