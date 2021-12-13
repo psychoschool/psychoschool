@@ -124,6 +124,24 @@
   }
 }
 
+.invalid {
+  .label {
+    color: $errorMain;
+  }
+
+  .fieldset {
+    border-color: $errorMain !important;
+  }
+
+  .input-container {
+    &:hover {
+      .fieldset {
+        border-color: $errorDark !important;
+      }
+    }
+  }
+}
+
 .disabled {
   .input-container {
     &:hover {

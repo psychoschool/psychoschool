@@ -1,9 +1,10 @@
 export interface SnackProps {
-  id?: string
+  id: string
   message: string
-  type?: 'default' | 'success' | 'warning' | 'info' | 'error'
+  variant?: 'default' | 'success' | 'warning' | 'info' | 'error'
+  autoHideDuration?: number
 }
 
 export type Props = SnackProps & {
-  onClose: (payload: SnackProps) => void
+  onClose: (id: string) => void
 }

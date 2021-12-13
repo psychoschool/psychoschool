@@ -6,9 +6,10 @@ import _throttle from 'lodash.throttle'
 import { ThemeProvider } from 'utils/theme'
 import { SnackProvider } from 'ui-kit/snackbar'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
-import { useScreenActions } from 'entities/ui/ui.actions'
+import { useScreenActions, useSnackActions } from 'entities/ui/ui.actions'
 import { selectAuth } from 'entities/auth/auth.selector'
 import { selectCurrentUser } from 'entities/user/user.selector'
+import { selectSnacksCollection } from 'entities/ui/snacks/snacks.selector'
 import { useUserActions } from 'entities/user/user.slice'
 import { Drawer } from 'components/@shared/drawer'
 import { Login, Signup } from 'components/auth'
@@ -22,7 +23,8 @@ const NotFoundPage = loadable(() => import('pages/not-found'))
 export const App = () => {
   const dispatch = useAppDispatch()
   const { changeScreen } = useScreenActions(dispatch)
-
+  const { removeSnack } = useSnackActions(dispatch)
+  const snacks = useAppSelector(selectSnacksCollection)
   const { getCurrentUser } = useUserActions(dispatch)
   const { authorized } = useAppSelector(selectAuth)
   const user = useAppSelector(selectCurrentUser)
@@ -39,7 +41,7 @@ export const App = () => {
   return (
     <>
       <ThemeProvider>
-        <SnackProvider maxSnack={3} placement='top'>
+        <SnackProvider maxSnack={3} snacks={snacks} onRemoveSnack={removeSnack}>
           <Routes>
             <Route path='/' element={<Drawer />}>
               <Route index element={<HomePage />} />

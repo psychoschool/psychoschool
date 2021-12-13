@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { bindActionCreators, createAsyncThunk, createReducer, Dispatch } from '@reduxjs/toolkit'
+import { signOut } from 'entities/auth/auth.actions'
 import * as userResource from 'api/user.resource'
 import type { User } from './user.types'
-import { signOut } from 'entities/auth/auth.actions'
 
 /*--------------------------------------------------
   actions
@@ -21,12 +21,12 @@ export const useUserActions = (dispatch: Dispatch) => {
 /*--------------------------------------------------
   reducers
   -------------------------------------------------- */
-export const userReducer = createReducer<User>({ user: null }, builder => {
+export const userReducer = createReducer<User>({ data: null }, builder => {
   builder
     .addCase(getCurrentUser.fulfilled, (state, action) => {
-      return { user: action.payload }
+      return { data: action.payload }
     })
     .addCase(signOut.rejected, () => {
-      return { user: null }
+      return { data: null }
     })
 })
