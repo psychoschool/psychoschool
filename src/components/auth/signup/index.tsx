@@ -22,14 +22,7 @@ export const Signup = () => {
     validation
   )
 
-  const handleClick = () => {
-    signUp({
-      firstName: 'Klark',
-      phone: 79998394800,
-      password: 'denchik1508',
-      email: 'klark@luthor.corp'
-    })
-  }
+  const handleClick = () => signUp(values)
 
   return (
     <div className={css.wrapper}>
