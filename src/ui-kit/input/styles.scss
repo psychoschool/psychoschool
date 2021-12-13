@@ -81,6 +81,8 @@
 }
 
 .legend {
+  @include m-text;
+
   float: unset;
   display: block;
   width: auto;
@@ -88,7 +90,6 @@
   height: 11px;
   visibility: hidden;
   max-width: 0.01px;
-  font-size: 1.52ch;
   -webkit-transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   white-space: nowrap;
