@@ -10,7 +10,7 @@ interface Props {
 }
 export const Accordion: FC<Props> = ({ children: childrenProp, expanded = false, onChange }) => {
   const [summary, ...children] = React.Children.toArray(childrenProp)
-  const [theme] = useTheme()
+  const { theme } = useTheme()
   const [open, setOpen] = useState(expanded)
 
   const handleChange = () => {

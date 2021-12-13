@@ -9,7 +9,7 @@ import logo from './icons/logo.png'
 import css from './styles.scss'
 
 export const Drawer = () => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
   const [open, setOpen] = useState(false)
   const handleClose = () => setOpen(false)
 

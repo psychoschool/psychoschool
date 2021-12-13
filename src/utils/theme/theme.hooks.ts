@@ -1,8 +1,9 @@
 import { useContext, useLayoutEffect, useMemo } from 'react'
 import { useLocalStorage } from 'utils/local-storage.util'
+import { ThemeName } from './theme.types'
 import { ThemeContext } from './theme-provider'
 import { setupTheme } from './theme.util'
-import { ThemeHook, ThemeName } from './theme.types'
+import { themes } from './theme.consts'
 
 export const useThemeCreator = (initial: ThemeName) => {
   const [theme, setTheme] = useLocalStorage<ThemeName>('theme', initial)
@@ -23,8 +24,12 @@ export const useThemeCreator = (initial: ThemeName) => {
   )
 }
 
-export const useTheme: ThemeHook = () => {
+export const useTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext)
 
-  return [theme, setTheme]
+  return {
+    theme,
+    setTheme,
+    themeVars: themes[theme]
+  }
 }
