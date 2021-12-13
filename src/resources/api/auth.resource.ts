@@ -14,16 +14,20 @@ export const signIn = resource((ctx, params: SignInParams) => ({
   onError: error => error
 }))
 
-export const signUp = resource((ctx, params: SignUpParams) => ({
-  ctx,
-  name: 'signUp',
-  method: 'POST',
-  serviceName: PSYCHO_API,
-  url: '/signup',
-  data: params,
-  onSuccess: (response: SignUpResponse) => normalizeSignIn(response),
-  onError: error => error
-}))
+export const signUp = resource((ctx, params: SignUpParams) => {
+  const data = { ...params, phone: parseInt(params.phone) }
+
+  return {
+    ctx,
+    name: 'signUp',
+    method: 'POST',
+    serviceName: PSYCHO_API,
+    url: '/signup',
+    data,
+    onSuccess: (response: SignUpResponse) => normalizeSignIn(response),
+    onError: error => error
+  }
+})
 
 export const signOut = resource(ctx => ({
   ctx,

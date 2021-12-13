@@ -14,6 +14,6 @@ export interface SignInParams {
 export interface SignUpParams {
   firstName: string
   email: string
-  phone: number
+  phone: string
   password: string
 }
