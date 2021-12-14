@@ -6,12 +6,11 @@
   position: relative;
 
   color: $primaryMain;
-  text-decoration: underline $primaryMain;
-}
+  text-decoration: underline;
 
-.dark {
-  color: $primaryDark;
-  text-decoration: underline $primaryDark;
+  &:hover {
+    text-decoration-color: $primaryMain !important;
+  }
 }
 
 .large {

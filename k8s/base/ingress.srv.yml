@@ -46,3 +46,23 @@ spec:
                 name: psycho-api-stage-srv
                 port:
                   number: 8080
+    - host: admin.psychoschool.ru
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: psycho-admin-srv
+                port:
+                  number: 5000
+    - host: admin-stage.psychoschool.ru
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: psycho-admin-stage-srv
+                port:
+                  number: 5000

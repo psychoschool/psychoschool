@@ -15,7 +15,7 @@ interface Props {
   onSelect: () => void
 }
 export const Menu: FC<Props> = ({ onSelect }) => {
-  const [theme, setTheme] = useTheme()
+  const { theme, setTheme } = useTheme()
   const { authorized } = useAppSelector(selectAuth)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()

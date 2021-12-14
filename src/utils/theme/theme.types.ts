@@ -32,5 +32,3 @@ export interface ThemeCtx {
   theme: ThemeName
   setTheme: (theme: ThemeName) => void
 }
-
-export type ThemeHook = () => [ThemeName, (theme: ThemeName) => void]
