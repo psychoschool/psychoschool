@@ -2,21 +2,27 @@ import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
-import { useCourseActions } from 'entities/courses/courses.slice'
-import { selectCourse } from 'entities/courses/courses.selector'
 import { Lesson } from 'components/lesson'
+import { useLessonActions } from 'entities/lessons/lessons.slice'
+import { selectCurrentUser } from 'entities/user/user.selector'
+import { selectLesson } from 'entities/lessons/lessons.selector'
 
 const LessonPage = () => {
-  const { courseId } = useParams()
+  const { courseUrl } = useParams()
   const dispatch = useAppDispatch()
-  const { getCourseById } = useCourseActions(dispatch)
-  const course = useAppSelector(selectCourse)
+  const user = useAppSelector(selectCurrentUser)
+  const { getUserLessonByUrl } = useLessonActions(dispatch)
+  const lesson = useAppSelector(selectLesson)
 
   useEffect(() => {
-    if (courseId) getCourseById(courseId)
-  }, [courseId, getCourseById])
+    if (courseUrl && user)
+      getUserLessonByUrl({
+        url: courseUrl,
+        userId: user.id
+      })
+  }, [courseUrl, user, getUserLessonByUrl])
 
-  if (!courseId) return <h3>Курс не найден</h3>
+  if (!courseUrl || !lesson) return <h3>Курс не найден</h3>
 
   return (
     <>
@@ -24,7 +30,7 @@ const LessonPage = () => {
         <title>Lesson</title>
       </Helmet>
 
-      {course && <Lesson course={course} />}
+      <Lesson course={lesson.course} />
     </>
   )
 }
