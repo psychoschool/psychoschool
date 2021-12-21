@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
-import { ICourse } from 'entities/courses/courses.type'
+import { Course } from 'entities/courses/courses.types'
 import PlayIcon from './icons/play.icon.svg'
 import { Accordion } from 'ui-kit/accordion'
 import { Checkbox } from 'ui-kit/checkbox'
@@ -8,7 +8,7 @@ import css from './styles.scss'
 
 interface Props {
   current: string
-  course: ICourse
+  course: Course
   onChange: (video: string) => void
 }
 
@@ -28,8 +28,8 @@ export const Listing: FC<Props> = ({ current, course, onChange }) => {
               {s.lectures.map(l => (
                 <li
                   key={l.title}
-                  className={cn(css.lectureWrapper, { [css.selected]: current === l.video })}
-                  onClick={() => onChange(l.video)}
+                  className={cn(css.lectureWrapper, { [css.selected]: current === l.url })}
+                  onClick={() => onChange(l.url)}
                 >
                   <Checkbox size='small' />
 
@@ -37,7 +37,7 @@ export const Listing: FC<Props> = ({ current, course, onChange }) => {
                     <p className={css.lectureTitle}>{l.title}</p>
                     <p className={css.lectureText}>
                       <PlayIcon className={css.icon} />
-                      {l.duration} мин
+                      {10} мин
                     </p>
                   </div>
                 </li>

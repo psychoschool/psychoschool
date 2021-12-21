@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react'
-import { ICourse } from 'entities/courses/courses.type'
+import { Course } from 'entities/courses/courses.types'
 import { Preview } from './preview'
 import { Listing } from './listing'
 import css from './styles.scss'
 
 interface Props {
-  course: ICourse
+  course: Course
 }
 export const Learn: FC<Props> = ({ course }) => {
-  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].video)
+  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].url)
 
   return (
     <div className={css.wrapper}>

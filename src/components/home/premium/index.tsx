@@ -1,14 +1,10 @@
 import React, { FC } from 'react'
-import { CoursesCollection } from 'entities/courses/courses.type'
+import { Button } from 'ui-kit/button'
+import { course } from './consts'
 import preview from './bg.jpg'
 import css from './styles.scss'
-import { Button } from 'ui-kit/button'
 
-interface Props {
-  courses: CoursesCollection
-}
-export const Premium: FC<Props> = ({ courses }) => {
-  const course = courses['1']
+export const Premium: FC = () => {
   return (
     <div className={css.wrapper}>
       <h3 className={css.title}>Рекомендуемый курс</h3>

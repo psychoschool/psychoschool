@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { CourseItem } from 'entities/courses/courses.type'
+import { Course } from 'entities/courses/courses.types'
 import PlayListIcon from './icons/playlist.icon.svg'
 import css from './styles.scss'
 
 interface Props {
-  course: CourseItem
+  course: Course
 }
 export const FreeCourse: FC<Props> = ({ course }) => {
-  const { id, title, image, lectures } = course
+  const { id, title, image, sections } = course
 
   return (
     <Link to={`course/${id}`}>
@@ -16,7 +16,7 @@ export const FreeCourse: FC<Props> = ({ course }) => {
         <div className={css.cover}>
           <img src={image} className={css.image} alt='preview' />
           <div className={css.countWrapper}>
-            {lectures}
+            {12}
             <PlayListIcon className={css.countIcon} />
           </div>
 
