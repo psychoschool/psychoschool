@@ -22,3 +22,14 @@ export const getCourseById = resource((ctx, id: string) => ({
   onSuccess: (course: CourseResponse) => normalizeCourse(course),
   onError: error => error
 }))
+
+export const getCourseByUrl = resource((ctx, url: string) => ({
+  ctx,
+  name: 'getCourses',
+  method: 'GET',
+  serviceName: PSYCHO_API,
+  url: '/courses',
+  params: { url },
+  onSuccess: (course: CourseResponse) => normalizeCourse(course),
+  onError: error => error
+}))

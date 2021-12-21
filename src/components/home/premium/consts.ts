@@ -9,6 +9,7 @@ export const course: Course = {
     role: 'admin'
   },
   isFree: false,
+  url: 'shag',
   id: '1',
   title: 'Шаг к свободе',
   image: 'https://picsum.photos/320/183',
