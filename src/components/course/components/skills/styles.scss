@@ -13,11 +13,15 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 16px;
+
+  @media #{$mobile} {
+    grid-template-columns: 1fr;
+  }
 }
 
 .row {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 16px 1fr;
   gap: 8px;
   align-items: center;
 }

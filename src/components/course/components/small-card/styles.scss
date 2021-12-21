@@ -23,8 +23,16 @@
 
 .title {
   @include l-text;
+
+  @media #{$mobile} {
+    @include text;
+  }
 }
 
 .price {
   @include text;
+
+  @media #{$mobile} {
+    display: none;
+  }
 }

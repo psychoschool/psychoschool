@@ -2,7 +2,11 @@
 
 .wrapper {
   @media #{$tablet} {
-    margin-bottom: 100px;
+    margin-bottom: 75px;
+  }
+
+  @media #{$mobile} {
+    margin-bottom: 68px;
   }
 }
 
@@ -21,5 +25,6 @@
 
   @media #{$tablet} {
     max-width: 100%;
+    padding: 20px;
   }
 }
