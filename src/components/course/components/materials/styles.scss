@@ -1,0 +1,56 @@
+@import 'variables';
+
+.material {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.section-header {
+  padding: 12px 20px;
+}
+
+.section-title {
+  @include h4;
+}
+
+.section-text {
+  @include s-text;
+
+  color: $textSecondary;
+}
+
+.lecture-wrapper {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  &:hover {
+    background: $actionHover;
+  }
+}
+
+.selected {
+  background: $actionFocus;
+}
+
+.lecture-title {
+  @include h5;
+}
+
+.lecture-text {
+  @include s-text;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: $textSecondary;
+}
+
+.icon {
+  height: 16px;
+  fill: $textSecondary;
+}

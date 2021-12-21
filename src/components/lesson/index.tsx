@@ -7,7 +7,7 @@ import css from './styles.scss'
 interface Props {
   course: Course
 }
-export const Learn: FC<Props> = ({ course }) => {
+export const Lesson: FC<Props> = ({ course }) => {
   const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].url)
 
   return (

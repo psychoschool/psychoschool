@@ -4,6 +4,7 @@ export interface CourseResponse {
   id: string
   title: string
   image: string
+  url: string
   isFree: boolean
   description: string
   author: UserResponse

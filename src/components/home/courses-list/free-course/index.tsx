@@ -8,10 +8,10 @@ interface Props {
   course: Course
 }
 export const FreeCourse: FC<Props> = ({ course }) => {
-  const { id, title, image, sections } = course
+  const { url, title, image } = course
 
   return (
-    <Link to={`course/${id}`}>
+    <Link to={`course/${url}`}>
       <div className={css.course}>
         <div className={css.cover}>
           <img src={image} className={css.image} alt='preview' />

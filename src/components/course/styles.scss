@@ -1,0 +1,30 @@
+@import 'variables';
+
+.wrapper {
+  @media #{$tablet} {
+    margin-bottom: 75px;
+  }
+
+  @media #{$mobile} {
+    margin-bottom: 68px;
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: #1c1d1f;
+  color: $white;
+}
+
+.content {
+  max-width: 70%;
+  padding: 40px;
+  display: grid;
+  gap: 20px;
+
+  @media #{$tablet} {
+    max-width: 100%;
+    padding: 20px;
+  }
+}

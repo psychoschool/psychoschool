@@ -18,6 +18,7 @@ import './styles.scss'
 const AuthPage = loadable(() => import('pages/auth'))
 const HomePage = loadable(() => import('pages/home'))
 const CoursePage = loadable(() => import('pages/course'))
+const LessonPage = loadable(() => import('pages/lesson'))
 const NotFoundPage = loadable(() => import('pages/not-found'))
 
 export const App = () => {
@@ -46,7 +47,8 @@ export const App = () => {
             <Route path='/' element={<Drawer />}>
               <Route index element={<HomePage />} />
 
-              <Route path='course/:courseId' element={<CoursePage />} />
+              <Route path='course/:courseUrl' element={<CoursePage />} />
+              <Route path='course/:courseUrl/learn' element={<LessonPage />} />
 
               <Route element={<AuthPage />}>
                 <Route path='login' element={<Login />} />

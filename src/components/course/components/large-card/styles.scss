@@ -1,0 +1,42 @@
+@import 'variables';
+
+.course-card {
+  @include s-shadow;
+
+  position: fixed;
+  top: 100px;
+  width: 25%;
+  right: 40px;
+  color: $textPrimary;
+  border: 1px solid $divider;
+  background: rgb(247 247 247);
+
+  @media #{$tablet} {
+    display: none;
+  }
+}
+
+.card-image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: $textSecondary;
+}
+
+.price {
+  @include g-text;
+  margin: 10px 0;
+}
+
+.dark {
+  background: #1e1e1e;
+}
