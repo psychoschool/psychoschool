@@ -1,7 +1,7 @@
 import { getNextLec } from 'utils/lesson'
 import { Lesson } from 'entities/lessons/lessons.types'
 
-const mockLesson = (completedLectures: Array<string>) =>
+export const mockLesson = (completedLectures: Array<string>) =>
   ({
     course: {
       sections: [
@@ -26,7 +26,7 @@ const mockLesson = (completedLectures: Array<string>) =>
     completedLectures
   } as unknown as Lesson)
 
-describe('nextLecUtil', () => {
+describe('nextLec.util', () => {
   describe('should return first Lec', () => {
     it('empty completed arr', () => {
       const lesson = mockLesson([])

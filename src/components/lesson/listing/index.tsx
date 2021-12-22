@@ -1,18 +1,19 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
-import { Course } from 'entities/courses/courses.types'
+import { Course, Lecture } from 'entities/courses/courses.types'
 import PlayIcon from './icons/play.icon.svg'
 import { Accordion } from 'ui-kit/accordion'
 import { Checkbox } from 'ui-kit/checkbox'
 import css from './styles.scss'
 
 interface Props {
-  current: string
+  current: Lecture
   course: Course
-  onChange: (video: string) => void
+  completed: Array<string>
+  onChange: (lecture: Lecture) => void
 }
 
-export const Listing: FC<Props> = ({ current, course, onChange }) => {
+export const Listing: FC<Props> = ({ current, course, completed, onChange }) => {
   return (
     <div className={css.wrapper}>
       <h3 className={css.header}>Материалы курса</h3>
@@ -28,10 +29,10 @@ export const Listing: FC<Props> = ({ current, course, onChange }) => {
               {s.lectures.map(l => (
                 <li
                   key={l.title}
-                  className={cn(css.lectureWrapper, { [css.selected]: current === l.url })}
-                  onClick={() => onChange(l.url)}
+                  className={cn(css.lectureWrapper, { [css.selected]: current.url === l.url })}
+                  onClick={() => onChange(l)}
                 >
-                  <Checkbox size='small' />
+                  <Checkbox size='small' checked={completed.includes(l.id)} />
 
                   <div>
                     <p className={css.lectureTitle}>{l.title}</p>

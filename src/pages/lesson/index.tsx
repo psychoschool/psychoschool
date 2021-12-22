@@ -30,7 +30,7 @@ const LessonPage = () => {
         <title>Lesson</title>
       </Helmet>
 
-      <Lesson course={lesson.course} />
+      <Lesson lesson={lesson} />
     </>
   )
 }

@@ -1,1 +1,2 @@
-export * from './nextLec.util'
+export * from './next-lec.util'
+export * from './get-index.util'

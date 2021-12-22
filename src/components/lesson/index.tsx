@@ -1,19 +1,31 @@
 import React, { FC, useState } from 'react'
-import { Course } from 'entities/courses/courses.types'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getIndex } from 'utils/lesson'
+import { Lesson as TLesson } from 'entities/lessons/lessons.types'
+import { Lecture } from 'entities/courses/courses.types'
 import { Preview } from './preview'
 import { Listing } from './listing'
 import css from './styles.scss'
 
 interface Props {
-  course: Course
+  lesson: TLesson
 }
-export const Lesson: FC<Props> = ({ course }) => {
-  const [current, setCurrent] = useState<string>(course.sections[0].lectures[0].url)
+export const Lesson: FC<Props> = ({ lesson }) => {
+  const navigate = useNavigate()
+  const { lecId } = useParams()
+  const { course, completedLectures } = lesson
+  const { sectionIndex, lectureIndex } = getIndex(lecId, course)
+  const [current, setCurrent] = useState(course.sections[sectionIndex].lectures[lectureIndex])
+
+  const handleChange = (lec: Lecture) => {
+    setCurrent(lec)
+    navigate(`/course/depression/learn/${lec.id}`)
+  }
 
   return (
     <div className={css.wrapper}>
       <div className={css.content}>
-        <Preview videoID={current} />
+        <Preview videoID={current.url} />
 
         <div className={css.info}>
           <h2 className={css.title}>Об этом курсе</h2>
@@ -25,7 +37,7 @@ export const Lesson: FC<Props> = ({ course }) => {
       </div>
 
       <div className={css.listing}>
-        <Listing current={current} course={course} onChange={setCurrent} />
+        <Listing current={current} course={course} completed={completedLectures} onChange={handleChange} />
       </div>
     </div>
   )
