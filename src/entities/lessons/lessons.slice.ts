@@ -50,6 +50,7 @@ export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending'
   { status: 'pending' },
   builder => {
     builder
+      .addCase(getUserLessonByUrl.pending, () => ({ status: 'pending' }))
       .addCase(getUserLessonByUrl.fulfilled, () => ({ status: 'succeeded' }))
       .addCase(getUserLessonByUrl.rejected, () => ({ status: 'failed' }))
   }

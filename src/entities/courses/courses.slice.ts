@@ -43,3 +43,16 @@ export const courseReducer = createReducer<{ data: Course | null }>({ data: null
       return { data: action.payload }
     })
 })
+
+export const courseMetaReducer = createReducer<{ status: 'succeeded' | 'pending' | 'failed' }>(
+  { status: 'pending' },
+  builder => {
+    builder
+      .addCase(getCourseById.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(getCourseById.pending, () => ({ status: 'pending' }))
+      .addCase(getCourseById.rejected, () => ({ status: 'failed' }))
+      .addCase(getCourseByUrl.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(getCourseByUrl.pending, () => ({ status: 'pending' }))
+      .addCase(getCourseByUrl.rejected, () => ({ status: 'failed' }))
+  }
+)

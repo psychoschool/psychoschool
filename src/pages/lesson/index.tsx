@@ -20,7 +20,7 @@ const LessonPage = () => {
   const lesson = useAppSelector(selectLesson)
 
   useEffect(() => {
-    if (!authorized && status === 'succeeded') {
+    if ((!authorized && status === 'failed') || (!authorized && status === 'succeeded')) {
       navigate(`/course/${courseUrl}`)
     }
   }, [courseUrl, navigate, authorized, status])

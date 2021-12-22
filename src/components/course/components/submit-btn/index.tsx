@@ -26,7 +26,7 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
         userId: user.id,
         courseId: course.id,
         url: course.url,
-        paidPlan: '61c1f3d051982502f8e25a8d',
+        paidPlan: '61c21b91153cd66dce2bd35b',
         onSuccess: () => {
           navigate('/')
         }

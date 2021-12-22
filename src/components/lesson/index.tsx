@@ -19,7 +19,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
 
   const handleChange = (lec: Lecture) => {
     setCurrent(lec)
-    navigate(`/course/depression/learn/${lec.id}`)
+    navigate(`/course/${course.url}/learn/${lec.id}`)
   }
 
   return (

@@ -15,7 +15,7 @@ export const getCourses = resource(ctx => ({
 
 export const getCourseById = resource((ctx, id: string) => ({
   ctx,
-  name: 'getCourses',
+  name: 'getCourseById',
   method: 'GET',
   serviceName: PSYCHO_API,
   url: `/courses/${id}`,
@@ -25,7 +25,7 @@ export const getCourseById = resource((ctx, id: string) => ({
 
 export const getCourseByUrl = resource((ctx, url: string) => ({
   ctx,
-  name: 'getCourses',
+  name: 'getCourseByUrl',
   method: 'GET',
   serviceName: PSYCHO_API,
   url: '/courses',

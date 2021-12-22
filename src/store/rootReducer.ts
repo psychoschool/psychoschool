@@ -15,7 +15,8 @@ export const createRootReducer = (routerReducer: Reducer<RouterState, AnyAction>
       lessons: lessonsReducer.collections.lessons
     }),
     meta: combineReducers({
-      lesson: lessonsReducer.meta.lesson
+      lesson: lessonsReducer.meta.lesson,
+      course: courseReducer.meta.course
     }),
     course: courseReducer.course,
     lesson: lessonsReducer.lesson,
