@@ -1,8 +1,11 @@
-import { lessonsCollectionReducer, lessonReducer } from './lessons.slice'
+import { lessonsCollectionReducer, lessonReducer, lessonMetaReducer } from './lessons.slice'
 
 export default {
   collections: {
     lessons: lessonsCollectionReducer
   },
-  lesson: lessonReducer
+  lesson: lessonReducer,
+  meta: {
+    lesson: lessonMetaReducer
+  }
 }

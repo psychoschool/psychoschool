@@ -61,5 +61,13 @@ describe('nextLec.util', () => {
 
       expect(next).toMatchObject(expected)
     })
+
+    it('if next lec in gap', () => {
+      const lesson = mockLesson(['4', '6'])
+      const next = getNextLec(lesson)
+      const expected = { id: '7', name: '7 lec' }
+
+      expect(next).toMatchObject(expected)
+    })
   })
 })

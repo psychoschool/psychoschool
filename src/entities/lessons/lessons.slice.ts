@@ -3,6 +3,7 @@ import { bindActionCreators, createAsyncThunk, createReducer, Dispatch } from '@
 import * as lessonResource from 'api/lesson.resource'
 import { Lesson, LessonsCollection } from './lessons.types'
 import { AddLessonParam, GetLessonReqParams } from 'resources/types'
+import { signOut } from 'entities/auth/auth.actions'
 
 /*--------------------------------------------------
   actions
@@ -30,9 +31,13 @@ export const useLessonActions = (dispatch: Dispatch) => {
   reducers
   -------------------------------------------------- */
 export const lessonsCollectionReducer = createReducer<LessonsCollection>({}, builder => {
-  builder.addCase(getUserLessons.fulfilled, (state, action) => {
-    return action.payload
-  })
+  builder
+    .addCase(getUserLessons.fulfilled, (state, action) => {
+      return action.payload
+    })
+    .addCase(signOut.fulfilled, () => {
+      return {}
+    })
 })
 
 export const lessonReducer = createReducer<{ data: Lesson | null }>({ data: null }, builder => {
@@ -40,3 +45,12 @@ export const lessonReducer = createReducer<{ data: Lesson | null }>({ data: null
     return { data: action.payload }
   })
 })
+
+export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending' | 'failed' }>(
+  { status: 'pending' },
+  builder => {
+    builder
+      .addCase(getUserLessonByUrl.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(getUserLessonByUrl.rejected, () => ({ status: 'failed' }))
+  }
+)
