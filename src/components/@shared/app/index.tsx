@@ -48,7 +48,7 @@ export const App = () => {
               <Route index element={<HomePage />} />
 
               <Route path='course/:courseUrl' element={<CoursePage />} />
-              <Route path='course/:courseUrl/learn' element={<LessonPage />} />
+              <Route path='course/:courseUrl/learn/:lecId' element={<LessonPage />} />
 
               <Route element={<AuthPage />}>
                 <Route path='login' element={<Login />} />

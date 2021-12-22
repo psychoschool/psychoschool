@@ -21,7 +21,7 @@ export const Premium: FC = () => {
           </div>
 
           <div className={css.button}>
-            <Button size='medium' text='Начать курс' />
+            <Button href='https://shag.psychoschool.ru' target='_blank' size='medium' text='Начать курс' />
           </div>
         </div>
       </div>
