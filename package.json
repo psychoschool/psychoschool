@@ -11,8 +11,8 @@
   "author": "ollylut@gmal.com",
   "scripts": {
     "setup": "sh setup.sh",
-    "build": "rm -rf dist && NODE_ENV=production && webpack --mode production",
-    "start": "NODE_ENV=development webpack serve --mode development",
+    "build": "rimraf -rf dist && NODE_ENV=production && webpack --mode production",
+    "start": "cross-env NODE_ENV=development webpack serve --mode development",
     "test": "jest",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
     "lint": "run-p lint:**",

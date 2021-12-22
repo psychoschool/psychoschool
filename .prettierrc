@@ -6,7 +6,7 @@
   "semi": false,
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "jsxSingleQuote": true,
   "overrides": [
     {
