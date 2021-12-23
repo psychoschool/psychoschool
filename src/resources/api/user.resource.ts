@@ -8,6 +8,6 @@ export const getUser = resource(ctx => ({
   method: 'GET',
   serviceName: PSYCHO_API,
   url: '/me',
-  onSuccess: (response: Response<UserResponse>) => response.data,
+  onSuccess: (response: Response<Nullable<UserResponse>>) => response.data,
   onError: error => error
 }))

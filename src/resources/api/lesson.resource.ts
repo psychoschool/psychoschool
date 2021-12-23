@@ -20,7 +20,10 @@ export const getUserLessonsByUrl = resource((ctx, { userId, url }: GetLessonReqP
   serviceName: PSYCHO_API,
   url: `/lessons/user/${userId}`,
   params: { url },
-  onSuccess: (response: Response<LessonResponse>) => normalizeLesson(response.data),
+  onSuccess: (response: Response<Nullable<LessonResponse>>) => {
+    if (!response.data) return null
+    return normalizeLesson(response.data)
+  },
   onError: error => error
 }))
 
@@ -36,8 +39,9 @@ export const addLesson = resource((ctx, params: AddLessonParam) => ({
     url: params.url,
     paidPlan: params.paidPlan
   },
-  onSuccess: (response: Response<Array<LessonResponse>>) => {
+  onSuccess: (response: Response<Nullable<Array<LessonResponse>>>) => {
     params.onSuccess()
+    if (!response.data) return null
     return normalizeLessons(response.data)
   },
   onError: error => error
@@ -50,6 +54,9 @@ export const updateLesson = resource((ctx, { id, ...data }: Partial<LessonRespon
   serviceName: PSYCHO_API,
   url: `/lessons/${id}`,
   data,
-  onSuccess: (response: Response<LessonResponse>) => normalizeLesson(response.data),
+  onSuccess: (response: Response<Nullable<LessonResponse>>) => {
+    if (!response.data) return null
+    return normalizeLesson(response.data)
+  },
   onError: error => error
 }))
