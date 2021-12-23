@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Errors, Validations } from './types'
 import { initErrors, validateAll } from './utils/err.util'
 
@@ -6,6 +6,10 @@ export const useForm = <T extends object, K extends keyof T>(formData: T, valida
   const [values, setValues] = useState(formData)
   const [errors, setError] = useState<Errors<T>>(initErrors(formData))
   const [valid, setValid] = useState(false)
+
+  useEffect(() => {
+    setValid(validateAll(values, validation))
+  }, [values, errors, validation])
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const field = event.target.name as K

@@ -51,6 +51,7 @@ export const lessonReducer = createReducer<{ data: Lesson | null }>({ data: null
   builder
     .addCase(getUserLessonByUrl.fulfilled, (state, action) => ({ data: action.payload }))
     .addCase(updateLesson.fulfilled, (state, action) => ({ data: action.payload }))
+    .addCase(signOut.fulfilled, (state, action) => ({ data: null }))
 })
 
 export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending' | 'failed' }>(

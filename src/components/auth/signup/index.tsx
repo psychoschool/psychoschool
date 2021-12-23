@@ -31,18 +31,38 @@ export const Signup = () => {
         <h2 className={css.title}>Создать аккаунт</h2>
       </div>
 
-      <form className={css.form}>
-        <Input onChange={setValue} name='firstName' label='Имя' invalid={!errors.firstName?.isValid} fluid />
+      <form className={css.form} autoComplete='OFF'>
+        <Input
+          onChange={setValue}
+          name='firstName'
+          label='Имя'
+          // invalid={!errors.firstName?.isValid}
+          fluid
+        />
         <div className={css.raw}>
-          <Input onChange={setValue} name='email' label='Email' type='email' invalid={!errors.email?.isValid} fluid />
-          <Input onChange={setValue} name='phone' label='Телефон' type='tel' invalid={!errors.phone?.isValid} fluid />
+          <Input
+            onChange={setValue}
+            name='email'
+            label='Email'
+            type='email'
+            // invalid={!errors.email?.isValid}
+            fluid
+          />
+          <Input
+            onChange={setValue}
+            name='phone'
+            label='Телефон'
+            type='tel'
+            // invalid={!errors.phone?.isValid}
+            fluid
+          />
         </div>
         <Input
           label='Пароль'
           name='password'
           type='password'
           onChange={setValue}
-          invalid={!errors.password?.isValid}
+          // invalid={!errors.password?.isValid}
           fluid
         />
         <div className={css.btn}>

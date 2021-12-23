@@ -23,14 +23,21 @@ export const Login = () => {
         <UserIcon className={css.avatar} />
         <h2 className={css.title}>Войти</h2>
       </div>
-      <form className={css.form}>
-        <Input onChange={setValue} name='email' label='Email' type='email' invalid={!errors.email?.isValid} fluid />
+      <form className={css.form} autoComplete='off'>
+        <Input
+          onChange={setValue}
+          name='email'
+          label='Email'
+          type='email'
+          // invalid={!errors.email?.isValid}
+          fluid
+        />
         <Input
           label='Пароль'
           name='password'
           type='password'
           onChange={setValue}
-          invalid={!errors.password?.isValid}
+          // invalid={!errors.password?.isValid}
           fluid
         />
         <Checkbox size='small' label='Запомнить меня' />
