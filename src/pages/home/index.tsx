@@ -22,7 +22,7 @@ const HomePage = () => {
     if (authorized && user) {
       getUserLessons(user.id)
     }
-  }, [authorized, user, getCourses, getUserLessons])
+  }, [authorized, user, getUserLessons])
 
   return (
     <>
