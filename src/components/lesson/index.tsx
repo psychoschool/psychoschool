@@ -13,7 +13,7 @@ interface Props {
 export const Lesson: FC<Props> = ({ lesson }) => {
   const navigate = useNavigate()
   const { lecId } = useParams()
-  const { course, completedLectures } = lesson
+  const { course } = lesson
   const { sectionIndex, lectureIndex } = getIndex(lecId, course)
   const [current, setCurrent] = useState(course.sections[sectionIndex].lectures[lectureIndex])
 
@@ -29,15 +29,12 @@ export const Lesson: FC<Props> = ({ lesson }) => {
 
         <div className={css.info}>
           <h2 className={css.title}>Об этом курсе</h2>
-          <p className={css.text}>
-            Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками,
-            зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.
-          </p>
+          <p className={css.text}>{course.description}</p>
         </div>
       </div>
 
       <div className={css.listing}>
-        <Listing current={current} course={course} completed={completedLectures} onChange={handleChange} />
+        <Listing current={current} lesson={lesson} onChange={handleChange} />
       </div>
     </div>
   )

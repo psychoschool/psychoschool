@@ -42,3 +42,14 @@ export const addLesson = resource((ctx, params: AddLessonParam) => ({
   },
   onError: error => error
 }))
+
+export const updateLesson = resource((ctx, { id, ...data }: Partial<LessonResponse>) => ({
+  ctx,
+  name: 'updateLesson',
+  method: 'PUT',
+  serviceName: PSYCHO_API,
+  url: `/lessons/${id}`,
+  data,
+  onSuccess: (response: Response<LessonResponse>) => normalizeLesson(response.data),
+  onError: error => error
+}))

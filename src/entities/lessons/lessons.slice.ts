@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { bindActionCreators, createAsyncThunk, createReducer, Dispatch } from '@reduxjs/toolkit'
 import * as lessonResource from 'api/lesson.resource'
 import { Lesson, LessonsCollection } from './lessons.types'
-import { AddLessonParam, GetLessonReqParams } from 'resources/types'
+import { AddLessonParam, GetLessonReqParams, LessonResponse } from 'resources/types'
 import { signOut } from 'entities/auth/auth.actions'
 
 /*--------------------------------------------------
@@ -20,11 +20,18 @@ export const addLesson = createAsyncThunk('lessons/addLesson', (params: AddLesso
   return lessonResource.addLesson({}, params)
 })
 
+export const updateLesson = createAsyncThunk('lessons/updateLesson', (params: Partial<LessonResponse>) => {
+  return lessonResource.updateLesson({}, params)
+})
+
 /*--------------------------------------------------
   dispatch actions
   -------------------------------------------------- */
 export const useLessonActions = (dispatch: Dispatch) => {
-  return useMemo(() => bindActionCreators({ getUserLessons, getUserLessonByUrl, addLesson }, dispatch), [dispatch])
+  return useMemo(
+    () => bindActionCreators({ getUserLessons, getUserLessonByUrl, addLesson, updateLesson }, dispatch),
+    [dispatch]
+  )
 }
 
 /*--------------------------------------------------
@@ -41,9 +48,9 @@ export const lessonsCollectionReducer = createReducer<LessonsCollection>({}, bui
 })
 
 export const lessonReducer = createReducer<{ data: Lesson | null }>({ data: null }, builder => {
-  builder.addCase(getUserLessonByUrl.fulfilled, (state, action) => {
-    return { data: action.payload }
-  })
+  builder
+    .addCase(getUserLessonByUrl.fulfilled, (state, action) => ({ data: action.payload }))
+    .addCase(updateLesson.fulfilled, (state, action) => ({ data: action.payload }))
 })
 
 export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending' | 'failed' }>(
@@ -53,5 +60,8 @@ export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending'
       .addCase(getUserLessonByUrl.pending, () => ({ status: 'pending' }))
       .addCase(getUserLessonByUrl.fulfilled, () => ({ status: 'succeeded' }))
       .addCase(getUserLessonByUrl.rejected, () => ({ status: 'failed' }))
+      .addCase(updateLesson.pending, () => ({ status: 'pending' }))
+      .addCase(updateLesson.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(updateLesson.rejected, () => ({ status: 'failed' }))
   }
 )
