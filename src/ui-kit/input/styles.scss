@@ -34,7 +34,6 @@
   align-items: center;
   position: relative;
   border-radius: 4px;
-  padding-right: 14px;
   width: 100%;
 
   &:hover {
@@ -155,4 +154,14 @@
 
 .fluid {
   width: 100%;
+}
+
+.dark {
+  .input:-webkit-autofill {
+    box-shadow: rgb(38 103 152) 0 0 0 100px inset;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    caret-color: rgb(255, 255, 255);
+    border-radius: inherit;
+    display: block;
+  }
 }

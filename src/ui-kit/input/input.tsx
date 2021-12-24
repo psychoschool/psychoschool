@@ -1,5 +1,6 @@
 import React, { FC, ChangeEvent, FocusEvent, createRef, useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
+import { useTheme } from 'utils/theme'
 import { useOnClickOutside } from 'utils/outside.util'
 import { getClassNames } from './utils/cn.util'
 import { InputProps } from './types'
@@ -9,6 +10,7 @@ export const Input: FC<InputProps> = props => {
   const { type, label, value, name, disabled, onFocus, onChange, onValueChange, defaultValue, autoComplete } = props
   const [id, setId] = useState('')
   const [focus, setFocus] = useState(false)
+  const { theme } = useTheme()
   const [inputValue, setInputValue] = useState(defaultValue)
   const inputRef = createRef<HTMLInputElement>()
 
@@ -32,7 +34,7 @@ export const Input: FC<InputProps> = props => {
   }
 
   return (
-    <div className={getClassNames({ ...props, value: value ?? inputValue, focus })}>
+    <div className={getClassNames({ ...props, theme, value: value ?? inputValue, focus })}>
       <label className={css.label} htmlFor={id}>
         {label}
       </label>

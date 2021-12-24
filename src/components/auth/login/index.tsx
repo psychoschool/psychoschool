@@ -7,13 +7,12 @@ import { useAppDispatch } from 'utils/store.util'
 import { useAuthActions } from 'entities/auth/auth.slice'
 import { Link } from 'ui-kit/link'
 import UserIcon from './user.icon.svg'
-import { validation } from './validation'
 import css from './styles.scss'
 
 export const Login = () => {
   const dispatch = useAppDispatch()
   const { signIn } = useAuthActions(dispatch)
-  const { values, setValue, errors, isValid } = useForm({ email: '', password: '' }, validation)
+  const { values, setValue } = useForm({ email: '', password: '' })
 
   const handleSignIn = () => signIn(values)
 
@@ -24,25 +23,11 @@ export const Login = () => {
         <h2 className={css.title}>Войти</h2>
       </div>
       <form className={css.form} autoComplete='off'>
-        <Input
-          onChange={setValue}
-          name='email'
-          label='Email'
-          type='email'
-          // invalid={!errors.email?.isValid}
-          fluid
-        />
-        <Input
-          label='Пароль'
-          name='password'
-          type='password'
-          onChange={setValue}
-          // invalid={!errors.password?.isValid}
-          fluid
-        />
+        <Input onChange={setValue} name='email' label='Email' type='email' fluid />
+        <Input label='Пароль' name='password' type='password' onChange={setValue} fluid />
         <Checkbox size='small' label='Запомнить меня' />
         <div className={css.btn}>
-          <Button disabled={!isValid} text='Войти' onClick={handleSignIn} fluid />
+          <Button text='Войти' onClick={handleSignIn} fluid />
         </div>
 
         <div className={css.help}>
