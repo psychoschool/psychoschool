@@ -7,12 +7,24 @@ import { InputProps } from './types'
 import css from './styles.scss'
 
 export const Input: FC<InputProps> = props => {
-  const { type, label, value, name, disabled, onFocus, onChange, onValueChange, defaultValue, autoComplete } = props
+  const {
+    type,
+    label,
+    value,
+    name,
+    disabled,
+    onFocus,
+    onChange,
+    onValueChange,
+    defaultValue,
+    autoComplete,
+    inputRef: ref
+  } = props
   const [id, setId] = useState('')
   const [focus, setFocus] = useState(false)
   const { theme } = useTheme()
   const [inputValue, setInputValue] = useState(defaultValue)
-  const inputRef = createRef<HTMLInputElement>()
+  const inputRef = ref ?? createRef<HTMLInputElement>()
 
   useEffect(() => {
     setId(uuid())

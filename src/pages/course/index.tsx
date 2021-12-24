@@ -31,6 +31,7 @@ const CoursePage = () => {
   }, [authorized, courseUrl, getUserLessonByUrl, user])
 
   if (!courseUrl || (status === 'failed' && !course)) return <h3>Курс не найден</h3>
+  if (!course) return <h3>Курс не найден</h3>
 
   return (
     <>
@@ -38,7 +39,7 @@ const CoursePage = () => {
         <title>Курс</title>
       </Helmet>
 
-      {course && <Course course={course} />}
+      <Course course={course} />
     </>
   )
 }

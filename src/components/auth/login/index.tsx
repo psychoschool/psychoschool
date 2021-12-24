@@ -12,7 +12,10 @@ import css from './styles.scss'
 export const Login = () => {
   const dispatch = useAppDispatch()
   const { signIn } = useAuthActions(dispatch)
-  const { values, setValue } = useForm({ email: '', password: '' })
+  const { values, setValue } = useForm({
+    email: '',
+    password: ''
+  })
 
   const handleSignIn = () => signIn(values)
 
