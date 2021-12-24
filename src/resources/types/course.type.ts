@@ -5,14 +5,15 @@ export interface CourseResponse {
   title: string
   image: string
   url: string
-  isFree: boolean
   description: string
   author: UserResponse
   sections: Array<{
     title: string
     lectures: Array<Lecture>
   }>
-  paidPlans: Array<{ id: string; name: string; price: number }>
+  isFree: boolean
+  price: { cost: number; promoCost?: number }
+  skills: Array<string>
 }
 
 export interface Lecture {

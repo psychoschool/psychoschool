@@ -14,6 +14,7 @@ export const course: Course = {
   title: 'Шаг к свободе',
   image: 'https://picsum.photos/320/183',
   sections: [],
-  paidPlans: {},
+  price: { cost: 6000 },
+  skills: [],
   description: ''
 }

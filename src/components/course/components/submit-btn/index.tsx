@@ -34,7 +34,7 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
         userId: user.id,
         courseId: course.id,
         url: course.url,
-        paidPlan: Object.keys(course.paidPlans)[0],
+        price: course.price.cost,
         onSuccess: () => {
           navigate('/')
         }

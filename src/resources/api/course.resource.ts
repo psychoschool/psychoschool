@@ -9,7 +9,7 @@ export const getCourses = resource(ctx => ({
   method: 'GET',
   serviceName: PSYCHO_API,
   url: '/courses',
-  onSuccess: (response: Response<Array<CourseResponse>>) => normalizeCourses(response.data),
+  onSuccess: (response: Response<Array<CourseResponse>>) => normalizeCourses(response.result),
   onError: error => error
 }))
 
@@ -20,8 +20,8 @@ export const getCourseById = resource((ctx, id: string) => ({
   serviceName: PSYCHO_API,
   url: `/courses/${id}`,
   onSuccess: (response: Response<Nullable<CourseResponse>>) => {
-    if (!response.data) return null
-    return normalizeCourse(response.data)
+    if (!response.result) return null
+    return normalizeCourse(response.result)
   },
   onError: error => error
 }))
@@ -34,8 +34,8 @@ export const getCourseByUrl = resource((ctx, url: string) => ({
   url: '/courses',
   params: { url },
   onSuccess: (response: Response<Nullable<CourseResponse>>) => {
-    if (!response.data) return null
-    return normalizeCourse(response.data)
+    if (!response.result) return null
+    return normalizeCourse(response.result)
   },
   onError: error => error
 }))

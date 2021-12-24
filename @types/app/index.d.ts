@@ -1,6 +1,6 @@
 type Collection<TypeId extends string | number, T> = Record<TypeId, T>
 interface Response<T> {
-  data: T
+  result: T
 }
 
 type Nullable<T> = T | null

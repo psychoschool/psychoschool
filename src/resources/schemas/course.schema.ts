@@ -10,10 +10,5 @@ export const normalizeCourses = (response: Array<CourseResponse>): CoursesCollec
 }
 
 export const normalizeCourse = (course: CourseResponse): Course => {
-  const paidPlans = course.paidPlans.reduce((acc, plan) => {
-    acc[plan.id] = plan
-    return acc
-  }, {} as Course['paidPlans'])
-
-  return { ...course, paidPlans }
+  return { ...course }
 }

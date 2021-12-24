@@ -6,14 +6,15 @@ export type LessonResponse = {
   course: CourseResponse
   user: UserResponse
   completedLectures: Array<string>
-  paidPlan: string
+  purchasedPrice?: number
+  isFree: boolean
 }
 
 export interface AddLessonParam {
   userId: string
   courseId: string
   url: string
-  paidPlan: string
+  price?: number
   onSuccess: () => void
 }
 
