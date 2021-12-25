@@ -1,6 +1,7 @@
 import debugLib from 'debug'
+import { getEnvVars } from 'utils/env.util'
 
-const debug = process.env.DEBUG
+const debug = getEnvVars('DEBUG')
 if (debug) debugLib.enable('PLATFORM:*')
 else debugLib.disable()
 

@@ -38,7 +38,6 @@ const config = {
     plugins.forkTsCheckerWebpackPlugin,
     plugins.refreshPlugin,
     plugins.definePlugin,
-    plugins.environmentPlugin,
     plugins.copyPlugin,
     ...plugins.htmlWebpackPlugin
   ].filter(Boolean)

@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { Button } from 'ui-kit/button'
-import { course } from './consts'
 import preview from './bg.jpg'
 import css from './styles.scss'
 
@@ -13,7 +12,7 @@ export const Premium: FC = () => {
         <img src={preview} className={css.image} alt='...' />
         <div className={css.info}>
           <div className={css.grid}>
-            <h2>{course.title}</h2>
+            <h2>Шаг к свободе</h2>
             <p>
               Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с
               установками, зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.
