@@ -25,7 +25,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
   return (
     <div className={css.wrapper}>
       <div className={css.content}>
-        <Preview videoID={current.url} />
+        {current.video && <Preview videoID={current.video?.videoId} />}
 
         <div className={css.info}>
           <h2 className={css.title}>Об этом курсе</h2>

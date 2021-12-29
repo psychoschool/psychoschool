@@ -39,7 +39,10 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
 
             <ul>
               {s.lectures.map(l => (
-                <li key={l.title} className={cn(css.lectureWrapper, { [css.selected]: current.url === l.url })}>
+                <li
+                  key={l.title}
+                  className={cn(css.lectureWrapper, { [css.selected]: current.video?.videoId === l.video?.videoId })}
+                >
                   <Checkbox
                     size='small'
                     checked={completedLectures.includes(l.id)}

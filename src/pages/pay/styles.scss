@@ -1,0 +1,11 @@
+@import 'variables';
+
+.preview {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  border: none;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 16/9;
+}

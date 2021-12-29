@@ -19,6 +19,7 @@ const AuthPage = loadable(() => import('pages/auth'))
 const HomePage = loadable(() => import('pages/home'))
 const CoursePage = loadable(() => import('pages/course'))
 const LessonPage = loadable(() => import('pages/lesson'))
+const PayPage = loadable(() => import('pages/pay'))
 const NotFoundPage = loadable(() => import('pages/not-found'))
 
 export const App = () => {
@@ -46,6 +47,8 @@ export const App = () => {
           <Routes>
             <Route path='/' element={<Drawer />}>
               <Route index element={<HomePage />} />
+
+              <Route path='pay' element={<PayPage />} />
 
               <Route path='course/:courseUrl' element={<CoursePage />} />
               <Route path='course/:courseUrl/learn/:lecId' element={<LessonPage />} />

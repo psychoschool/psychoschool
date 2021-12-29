@@ -19,6 +19,10 @@ export interface CourseResponse {
 export interface Lecture {
   id: string
   type: 'video'
-  url: string
   title: string
+  video?: {
+    provider: 'youtube' | 'wistia'
+    videoId: string
+    videoUrl: string
+  }
 }
