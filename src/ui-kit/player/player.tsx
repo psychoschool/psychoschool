@@ -1,21 +1,56 @@
 import React, { FC } from 'react'
 import { PlayerProps } from './types'
-import { Wistia } from 'ui-kit/player/components/wistia'
+import { Wistia, Youtube } from './components'
 import css from './styles.scss'
 
-export const Player: FC<PlayerProps> = ({ provider, url }) => {
+export const Player: FC<PlayerProps> = ({
+  provider,
+  url,
+  autoPlay,
+  controls,
+  muted,
+  onReady,
+  onEnded,
+  onPause,
+  onPlay
+}) => {
   return (
     <div className={css.player}>
       {provider === 'wistia' && (
         <Wistia
-          provider={provider}
           url={url}
-          onReady={() => console.log('ready')}
-          onEnded={() => console.log('ended')}
-          onPause={() => console.log('onPause')}
-          onPlay={() => console.log('onplay')}
+          autoPlay={autoPlay}
+          muted={muted}
+          controls={controls}
+          onReady={onReady}
+          onEnded={onEnded}
+          onPause={onPause}
+          onPlay={onPlay}
+        />
+      )}
+
+      {provider === 'youtube' && (
+        <Youtube
+          url={url}
+          muted={muted}
+          autoPlay={autoPlay}
+          controls={controls}
+          onReady={onReady}
+          onEnded={onEnded}
+          onPause={onPause}
+          onPlay={onPlay}
         />
       )}
     </div>
   )
+}
+
+Player.defaultProps = {
+  autoPlay: false,
+  controls: true,
+  muted: false,
+  onReady: () => {},
+  onPlay: () => {},
+  onPause: () => {},
+  onEnded: () => {}
 }

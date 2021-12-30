@@ -26,6 +26,10 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
     updateLesson({ id: lesson.id, completedLectures: completed })
   }
 
+  const isCompleted = (id: string) => {
+    return completedLectures.includes(id)
+  }
+
   return (
     <div className={css.wrapper}>
       <h3 className={css.header}>Материалы курса</h3>
@@ -43,17 +47,13 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
                   key={l.title}
                   className={cn(css.lectureWrapper, { [css.selected]: current.video?.videoId === l.video?.videoId })}
                 >
-                  <Checkbox
-                    size='small'
-                    checked={completedLectures.includes(l.id)}
-                    onValueChange={v => handleComplete(l.id)(v)}
-                  />
+                  <Checkbox size='small' checked={isCompleted(l.id)} onValueChange={v => handleComplete(l.id)(v)} />
 
                   <div onClick={() => onChange(l)}>
                     <p className={css.lectureTitle}>{l.title}</p>
                     <p className={css.lectureText}>
                       <PlayIcon className={css.icon} />
-                      {10} мин
+                      {`${isCompleted(l.id)}`} мин
                     </p>
                   </div>
                 </li>

@@ -1,11 +1,10 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
-import { v4 as uuid } from 'uuid'
 import { useScript } from 'utils/script.util'
 import { PlayerProps } from 'ui-kit/player/types'
 import { MATCH_URL_WISTIA } from '../../utils'
 import { WistiaPlayer } from 'ui-kit/player/components/wistia/types'
 
-export const Wistia: FC<PlayerProps> = ({
+export const Wistia: FC<Omit<PlayerProps, 'provider'>> = ({
   autoPlay,
   controls,
   muted,
@@ -13,14 +12,11 @@ export const Wistia: FC<PlayerProps> = ({
   url,
   onPlay,
   onPause,
-  onSeek,
-  onEnded,
-  onPlaybackRateChange
+  onEnded
 }) => {
   useScript('https://fast.wistia.com/assets/external/E-v1.js')
   const [player, setPlayer] = useState<WistiaPlayer | null>(null)
   const videoID = url.match(MATCH_URL_WISTIA)?.[1]
-  const playerID = videoID || uuid()
   const style = { width: '100%', height: '100%' }
   const className = `wistia_embed wistia_async_${videoID}`
 
@@ -28,26 +24,22 @@ export const Wistia: FC<PlayerProps> = ({
     if (player) {
       player.unbind('play', onPlay)
       player.unbind('pause', onPause)
-      player.unbind('seek', onSeek)
       player.unbind('end', onEnded)
-      player.unbind('playbackratechange', onPlaybackRateChange)
     }
-  }, [onEnded, onPause, onPlay, onPlaybackRateChange, onSeek, player])
+  }, [onEnded, onPause, onPlay, player])
 
   const bind = useCallback(() => {
     if (player) {
       player.bind('play', onPlay)
       player.bind('pause', onPause)
-      player.bind('seek', onSeek)
       player.bind('end', onEnded)
-      player.bind('playbackratechange', onPlaybackRateChange)
     }
-  }, [onEnded, onPause, onPlay, onPlaybackRateChange, onSeek, player])
+  }, [onEnded, onPause, onPlay, player])
 
   useEffect(() => {
     window._wq = window._wq || []
     window._wq.push({
-      id: playerID,
+      id: videoID,
       options: {
         autoPlay,
         silentAutoPlay: 'allow',
@@ -66,7 +58,7 @@ export const Wistia: FC<PlayerProps> = ({
         onReady?.()
       }
     })
-  }, [autoPlay, controls, muted, onReady, playerID])
+  }, [autoPlay, controls, muted, onReady, videoID])
 
   useEffect(() => {
     if (player) {
@@ -77,5 +69,5 @@ export const Wistia: FC<PlayerProps> = ({
     return unbind
   }, [player, bind, unbind])
 
-  return <div style={style} id={playerID} key={videoID} className={className} />
+  return <div style={style} id={videoID} className={className} />
 }

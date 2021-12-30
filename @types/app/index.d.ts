@@ -13,7 +13,7 @@ interface WistiaPlayer {
 interface Window {
   IS_DEV: boolean
   _wq: Array<{
-    id: string
+    id?: string
     options: object
     onReady: (player: WistiaPlayer) => void
   }>
