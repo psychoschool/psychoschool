@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { CheckBoxProps, Size } from './types'
 import { getClassNames } from './utils/cn.util'
 import DoneIcon from './done.icon.svg'
@@ -12,6 +12,10 @@ export const Checkbox: FC<CheckBoxProps> = props => {
     setValue(e.target.checked)
     onValueChange?.(e.target.checked)
   }
+
+  useEffect(() => {
+    setValue(checked)
+  }, [checked])
 
   return (
     <div className={getClassNames({ ...props, checked: value })}>
