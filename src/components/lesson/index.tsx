@@ -1,12 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getIndex, getNextLec } from 'utils/lesson'
-import { Player } from 'ui-kit/player'
-import { useAppDispatch } from 'utils/store.util'
-import { useLessonActions } from 'entities/lessons/lessons.slice'
-import { completedUtil } from 'components/lesson/listing/utils'
 import { Lesson as TLesson } from 'entities/lessons/lessons.types'
 import { Lecture } from 'entities/courses/courses.types'
+import { Sandbox } from './sandbox'
 import { Listing } from './listing'
 import css from './styles.scss'
 
@@ -17,8 +14,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
   const { course } = lesson
   const { lecId } = useParams()
   const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  const { updateLesson } = useLessonActions(dispatch)
+
   const { sectionIndex, lectureIndex } = getIndex(lecId, course)
   const [current, setCurrent] = useState(course.sections[sectionIndex].lectures[lectureIndex])
 
@@ -26,11 +22,6 @@ export const Lesson: FC<Props> = ({ lesson }) => {
     const nextLec = getNextLec(lesson)
     setCurrent(nextLec)
   }, [lesson])
-
-  const handleComplete = () => {
-    const completed = completedUtil(lesson.completedLectures, current.id, true)
-    updateLesson({ id: lesson.id, completedLectures: completed })
-  }
 
   const handleChange = (lec: Lecture) => {
     setCurrent(lec)
@@ -40,9 +31,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
   return (
     <div className={css.wrapper}>
       <div className={css.content}>
-        {current.type === 'video' && current.video && (
-          <Player url={current.video.videoUrl} provider={current.video.provider} onEnded={handleComplete} />
-        )}
+        <Sandbox lessonId={lesson.id} lecture={current} completed={lesson.completedLectures} />
 
         <div className={css.info}>
           <h2 className={css.title}>Об этом курсе</h2>

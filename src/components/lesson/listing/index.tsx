@@ -53,7 +53,7 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
                     <p className={css.lectureTitle}>{l.title}</p>
                     <p className={css.lectureText}>
                       <PlayIcon className={css.icon} />
-                      {`${isCompleted(l.id)}`} мин
+                      {10} мин
                     </p>
                   </div>
                 </li>
