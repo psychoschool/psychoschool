@@ -52,8 +52,7 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
                   <div onClick={() => onChange(l)}>
                     <p className={css.lectureTitle}>{l.title}</p>
                     <p className={css.lectureText}>
-                      <PlayIcon className={css.icon} />
-                      {10} мин
+                      <PlayIcon className={css.icon} />~ мин
                     </p>
                   </div>
                 </li>

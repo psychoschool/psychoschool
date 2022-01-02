@@ -18,14 +18,17 @@ export const Sandbox: FC<Props> = ({ lecture, lesson, onChange }) => {
 
   const handleComplete = () => {
     if (!lesson.completedLectures.includes(lecture.id)) {
-      updateLesson({ id: lesson.id, completedLectures: [...lesson.completedLectures, lecture.id] })
-    } else {
-      const nextLec = getNextLec(lesson)
+      const completedLectures = [...lesson.completedLectures, lecture.id]
+      const nextLec = getNextLec({ ...lesson, completedLectures })
+
+      updateLesson({ id: lesson.id, completedLectures })
       onChange(nextLec)
+    } else {
+      onChange(getNextLec(lesson))
     }
   }
 
   if (type !== 'video' || !video) return null
 
-  return <Player url={video.videoUrl} provider={video.provider} onEnded={handleComplete} />
+  return <Player url={video.videoUrl} provider={video.provider} onEnded={handleComplete} autoPlay />
 }

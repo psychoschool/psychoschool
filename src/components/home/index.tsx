@@ -17,7 +17,7 @@ export const Home = () => {
 
       <Premium />
 
-      <LessonsList title='Продолжить обучение' lessons={lessons} />
+      <LessonsList title='Мои курсы' lessons={lessons} />
 
       <CoursesList title='Доступные курсы' courses={courses} />
     </>
