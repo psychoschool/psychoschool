@@ -1,22 +1,27 @@
 import React, { FC } from 'react'
 import { Player } from 'ui-kit/player'
 import type { Lecture } from 'resources/types'
-import { useAppDispatch } from 'utils/store.util'
+import type { Lesson } from 'entities/lessons/lessons.types'
 import { useLessonActions } from 'entities/lessons/lessons.slice'
+import { useAppDispatch } from 'utils/store.util'
+import { getNextLec } from 'utils/lesson'
 
 interface Props {
-  lessonId: string
+  lesson: Lesson
   lecture: Lecture
-  completed: Array<string>
+  onChange: (lecture: Lecture) => void
 }
-export const Sandbox: FC<Props> = ({ lessonId, completed, lecture }) => {
+export const Sandbox: FC<Props> = ({ lecture, lesson, onChange }) => {
   const { type, video } = lecture
   const dispatch = useAppDispatch()
   const { updateLesson } = useLessonActions(dispatch)
 
   const handleComplete = () => {
-    if (!completed.includes(lecture.id)) {
-      updateLesson({ id: lessonId, completedLectures: [...completed, lecture.id] })
+    if (!lesson.completedLectures.includes(lecture.id)) {
+      updateLesson({ id: lesson.id, completedLectures: [...lesson.completedLectures, lecture.id] })
+    } else {
+      const nextLec = getNextLec(lesson)
+      onChange(nextLec)
     }
   }
 

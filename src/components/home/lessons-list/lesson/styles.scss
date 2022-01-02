@@ -1,6 +1,6 @@
 @import 'variables';
 
-.course {
+.lesson {
   cursor: pointer;
 
   &:hover {
@@ -8,6 +8,15 @@
       opacity: 1;
     }
   }
+}
+
+.progress {
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: $secondaryMain;
 }
 
 .cover {

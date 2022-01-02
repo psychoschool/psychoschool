@@ -7,6 +7,7 @@ export type LessonResponse = {
   user: UserResponse
   completedLectures: Array<string>
   purchasedPrice?: number
+  progress: number
   isFree: boolean
 }
 

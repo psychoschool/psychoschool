@@ -13,5 +13,9 @@ export const normalizeLessons = (response: Array<LessonResponse>): LessonsCollec
 export const normalizeLesson = (response: LessonResponse): Lesson => {
   const { course } = response
 
-  return { ...response, course: normalizeCourse(course) }
+  return {
+    ...response,
+    completedLectures: response.completedLectures.sort(),
+    course: normalizeCourse(course)
+  }
 }

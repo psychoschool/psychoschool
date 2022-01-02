@@ -4,7 +4,6 @@ import { createBrowserHistory } from 'history'
 
 import { createRootReducer } from 'store/rootReducer'
 import { logger } from 'utils/logger.util'
-import { exampleApi } from 'entities/example/example.api'
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
   history: createBrowserHistory()
@@ -13,7 +12,7 @@ const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHisto
 export const store = configureStore({
   reducer: createRootReducer(routerReducer),
   devTools: IS_DEV,
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat([routerMiddleware, exampleApi.middleware, logger])
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat([routerMiddleware, logger])
 })
 
 if (IS_DEV && module.hot) {

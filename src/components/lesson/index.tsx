@@ -31,7 +31,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
   return (
     <div className={css.wrapper}>
       <div className={css.content}>
-        <Sandbox lessonId={lesson.id} lecture={current} completed={lesson.completedLectures} />
+        <Sandbox lesson={lesson} lecture={current} onChange={handleChange} />
 
         <div className={css.info}>
           <h2 className={css.title}>Об этом курсе</h2>
