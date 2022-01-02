@@ -1,21 +1,25 @@
 import React from 'react'
-import { Filters } from './filters'
-import { Premium } from './premium'
+import { useAppSelector } from 'utils/store.util'
+import { selectCourses } from 'entities/courses/courses.selector'
+import { selectLessons } from 'entities/lessons/lessons.selector'
+import { Premium } from 'components/home/promo'
+import { LessonsList } from './lessons-list'
 import { CoursesList } from './courses-list'
-import { courses } from './consts'
+import { Filters } from './filters'
 
 export const Home = () => {
-  const primaryCourses = courses.find(c => c.type === 'premium')
+  const courses = useAppSelector(selectCourses)
+  const lessons = useAppSelector(selectLessons)
 
   return (
     <>
       <Filters />
 
-      {primaryCourses && <Premium courses={primaryCourses.courses} />}
+      <Premium />
 
-      {courses.map(s => (
-        <CoursesList key={s.title} type={s.type} title={s.title} courses={s.courses} />
-      ))}
+      <LessonsList title='Мои курсы' lessons={lessons} />
+
+      <CoursesList title='Доступные курсы' courses={courses} />
     </>
   )
 }

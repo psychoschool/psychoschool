@@ -1,7 +1,6 @@
 import { PSYCHO_API } from 'config/services'
 import { resource } from 'utils/resource.util'
 import type { SigningResponse, SignUpResponse, SignUpParams, SignInParams } from 'resources/types'
-import { normalizeSignIn } from 'schemas/auth.schema'
 
 export const signIn = resource((ctx, params: SignInParams) => ({
   ctx,
@@ -10,7 +9,7 @@ export const signIn = resource((ctx, params: SignInParams) => ({
   serviceName: PSYCHO_API,
   url: '/login',
   data: params,
-  onSuccess: (response: SigningResponse) => normalizeSignIn(response),
+  onSuccess: (response: SigningResponse) => response,
   onError: error => error
 }))
 
@@ -24,7 +23,7 @@ export const signUp = resource((ctx, params: SignUpParams) => {
     serviceName: PSYCHO_API,
     url: '/signup',
     data,
-    onSuccess: (response: SignUpResponse) => normalizeSignIn(response),
+    onSuccess: (response: SignUpResponse) => response,
     onError: error => error
   }
 })

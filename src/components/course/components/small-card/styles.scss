@@ -1,0 +1,38 @@
+@import 'variables';
+
+.card {
+  @include s-shadow;
+
+  display: none;
+  z-index: 999;
+  background: #1c1d1f;
+  width: 100%;
+  left: 0;
+  padding: 20px;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid $divider;
+  grid-template-columns: 1fr auto auto;
+
+  @media #{$tablet} {
+    display: grid;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.title {
+  @include l-text;
+
+  @media #{$mobile} {
+    @include text;
+  }
+}
+
+.price {
+  @include text;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}

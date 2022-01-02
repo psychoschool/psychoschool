@@ -10,15 +10,17 @@ import DarkIcon from './icons/dark-mod.icon.svg'
 import LogOutIcon from './icons/logout.icon.svg'
 import PersonIcon from './icons/person.icon.svg'
 import css from './styles.scss'
+import { selectCurrentUser } from 'entities/user/user.selector'
 
 interface Props {
   onSelect: () => void
 }
 export const Menu: FC<Props> = ({ onSelect }) => {
-  const { theme, setTheme } = useTheme()
-  const { authorized } = useAppSelector(selectAuth)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const { theme, setTheme } = useTheme()
+  const { authorized } = useAppSelector(selectAuth)
+  const user = useAppSelector(selectCurrentUser)
   const { signOut } = useAuthActions(dispatch)
 
   const toggleTheme = () => {
@@ -42,7 +44,7 @@ export const Menu: FC<Props> = ({ onSelect }) => {
         <div className={cn(css.avatar, { [css.dark]: theme === 'dark' })}>
           <PersonIcon className={css.avatarIcon} />
         </div>
-        Профиль
+        {user?.firstName ?? 'Профиль'}
       </li>
 
       <hr className={css.divider} />

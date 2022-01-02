@@ -1,22 +1,23 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { CourseItem } from 'entities/courses/courses.type'
+import { Course } from 'entities/courses/courses.types'
+import { getLecCount } from 'utils/course.util'
 import PlayListIcon from './icons/playlist.icon.svg'
 import css from './styles.scss'
 
 interface Props {
-  course: CourseItem
+  course: Course
 }
 export const FreeCourse: FC<Props> = ({ course }) => {
-  const { id, title, image, lectures } = course
+  const { url, title, image } = course
 
   return (
-    <Link to={`course/${id}`}>
+    <Link to={`course/${url}`}>
       <div className={css.course}>
         <div className={css.cover}>
           <img src={image} className={css.image} alt='preview' />
           <div className={css.countWrapper}>
-            {lectures}
+            {getLecCount(course)}
             <PlayListIcon className={css.countIcon} />
           </div>
 

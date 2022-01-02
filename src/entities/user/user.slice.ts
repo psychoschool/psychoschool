@@ -26,7 +26,5 @@ export const userReducer = createReducer<User>({ data: null }, builder => {
     .addCase(getCurrentUser.fulfilled, (state, action) => {
       return { data: action.payload }
     })
-    .addCase(signOut.rejected, () => {
-      return { data: null }
-    })
+    .addCase(signOut.fulfilled, () => ({ data: null }))
 })

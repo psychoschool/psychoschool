@@ -1,3 +1,5 @@
+import { getEnvVars } from 'utils/env.util'
+
 interface ServiceConfig {
   host: string
   pathPrefix?: string
@@ -19,4 +21,5 @@ const stage: Record<string, ServiceConfig> = {
   }
 }
 
-export const services = process.env.API_MODE === 'prod' ? prod : stage
+const apiMode = getEnvVars('API_MODE', 'stage')
+export const services = apiMode === 'prod' ? prod : stage
