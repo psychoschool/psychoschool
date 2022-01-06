@@ -22,12 +22,12 @@
 .row {
   display: grid;
   grid-template-columns: 16px 1fr;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
 }
 
 .icon {
-  height: 16px;
+  height: 22px;
   fill: $textSecondary;
 }
 

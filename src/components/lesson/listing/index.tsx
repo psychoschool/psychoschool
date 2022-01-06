@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
-import { Lecture } from 'entities/courses/courses.types'
+import { Section, Lecture } from 'entities/courses/courses.types'
 import PlayIcon from './icons/play.icon.svg'
 import { Accordion } from 'ui-kit/accordion'
 import { Checkbox } from 'ui-kit/checkbox'
+import { displayTime } from 'utils/time.util'
 import { useAppDispatch } from 'utils/store.util'
 import { useLessonActions } from 'entities/lessons/lessons.slice'
 import { Lesson } from 'entities/lessons/lessons.types'
@@ -31,6 +32,14 @@ export const Listing: FC<Props> = ({ current, lesson, sectionIndex, onChange }) 
     return completedLectures.includes(id)
   }
 
+  const getSectionMeta = (section: Section) => {
+    const lecIds = section.lectures.map(l => l.id)
+    const duration = displayTime(section.duration)
+    const completed = lecIds.filter(l => completedLectures.includes(l)).length
+
+    return ` ${completed} / ${section.lectures.length} | ${duration}`
+  }
+
   return (
     <div className={css.wrapper}>
       <h3 className={css.header}>Материалы курса</h3>
@@ -39,7 +48,7 @@ export const Listing: FC<Props> = ({ current, lesson, sectionIndex, onChange }) 
           <Accordion key={s.title} expanded={index == sectionIndex}>
             <div className={css.sectionHeader}>
               <h4 className={css.sectionTitle}>{s.title}</h4>
-              <p className={css.sectionText}> 0 / {s.lectures.length} | 1ч 30 мин </p>
+              <p className={css.sectionText}>{getSectionMeta(s)}</p>
             </div>
 
             <ul>
@@ -53,7 +62,8 @@ export const Listing: FC<Props> = ({ current, lesson, sectionIndex, onChange }) 
                   <div onClick={() => onChange(l)}>
                     <p className={css.lectureTitle}>{l.title}</p>
                     <p className={css.lectureText}>
-                      <PlayIcon className={css.icon} />~ мин
+                      <PlayIcon className={css.icon} />
+                      {l.video && displayTime(l.video.duration)}
                     </p>
                   </div>
                 </li>
