@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getIndex, getNextLec } from 'utils/lesson'
+import { getIndex } from 'utils/lesson'
 import { Lesson as TLesson } from 'entities/lessons/lessons.types'
 import { Lecture } from 'entities/courses/courses.types'
 import { Sandbox } from './sandbox'
@@ -17,6 +17,10 @@ export const Lesson: FC<Props> = ({ lesson }) => {
 
   const { sectionIndex, lectureIndex } = getIndex(lecId, course)
   const [current, setCurrent] = useState(course.sections[sectionIndex].lectures[lectureIndex])
+
+  useEffect(() => {
+    setCurrent(course.sections[sectionIndex].lectures[lectureIndex])
+  }, [course.sections, lectureIndex, sectionIndex])
 
   const handleChange = (lec: Lecture) => {
     setCurrent(lec)
@@ -35,7 +39,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
       </div>
 
       <div className={css.listing}>
-        <Listing current={current} lesson={lesson} onChange={handleChange} />
+        <Listing current={current} lesson={lesson} sectionIndex={sectionIndex} onChange={handleChange} />
       </div>
     </div>
   )

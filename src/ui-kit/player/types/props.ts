@@ -4,8 +4,8 @@ export interface PlayerProps {
   autoPlay?: boolean
   muted?: boolean
   controls?: boolean
-  onPlay?: (params: unknown) => void
-  onPause?: (params: unknown) => void
-  onEnded?: (params: unknown) => void
+  onPlay?: () => void
+  onPause?: () => void
+  onEnded?: () => void
   onReady?: (params?: unknown) => void
 }
