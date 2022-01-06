@@ -13,10 +13,11 @@ import css from './styles.scss'
 interface Props {
   current: Lecture
   lesson: Lesson
+  sectionIndex: number
   onChange: (lecture: Lecture) => void
 }
 
-export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
+export const Listing: FC<Props> = ({ current, lesson, sectionIndex, onChange }) => {
   const { course, completedLectures } = lesson
   const dispatch = useAppDispatch()
   const { updateLesson } = useLessonActions(dispatch)
@@ -35,7 +36,7 @@ export const Listing: FC<Props> = ({ current, lesson, onChange }) => {
       <h3 className={css.header}>Материалы курса</h3>
       <div className={css.list}>
         {course.sections.map((s, index) => (
-          <Accordion key={s.title} expanded={index == 0}>
+          <Accordion key={s.title} expanded={index == sectionIndex}>
             <div className={css.sectionHeader}>
               <h4 className={css.sectionTitle}>{s.title}</h4>
               <p className={css.sectionText}> 0 / {s.lectures.length} | 1ч 30 мин </p>

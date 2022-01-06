@@ -11,8 +11,9 @@ export const Player: FC<PlayerProps> = ({ provider, url, autoPlay, controls, mut
   }
 
   const onProgress = (state: { played: number; playedSeconds: number }) => {
-    const gap = provider === 'youtube' ? 15 : 1
-    if (duration - state.playedSeconds <= gap) onEnded?.()
+    if (provider === 'youtube' && duration - state.playedSeconds <= 15) {
+      onEnded?.()
+    }
   }
 
   if (!['wistia', 'youtube'].includes(provider)) return null
