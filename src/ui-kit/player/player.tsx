@@ -1,46 +1,37 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
+import ReactPlayer from 'react-player'
 import { PlayerProps } from './types'
-import { Wistia, Youtube } from './components'
 import css from './styles.scss'
 
-export const Player: FC<PlayerProps> = ({
-  provider,
-  url,
-  autoPlay,
-  controls,
-  muted,
-  onReady,
-  onEnded,
-  onPause,
-  onPlay
-}) => {
+export const Player: FC<PlayerProps> = ({ provider, url, autoPlay, controls, muted, onEnded, onPause, onPlay }) => {
+  const [duration, setDuration] = useState(0)
+
+  const onReady = (player: ReactPlayer) => {
+    setDuration(player.getDuration())
+  }
+
+  const onProgress = (state: { played: number; playedSeconds: number }) => {
+    const gap = provider === 'youtube' ? 15 : 1
+    if (duration - state.playedSeconds <= gap) onEnded?.()
+  }
+
+  if (!['wistia', 'youtube'].includes(provider)) return null
+
   return (
     <div className={css.player}>
-      {provider === 'wistia' && (
-        <Wistia
-          url={url}
-          autoPlay={autoPlay}
-          muted={muted}
-          controls={controls}
-          onReady={onReady}
-          onEnded={onEnded}
-          onPause={onPause}
-          onPlay={onPlay}
-        />
-      )}
-
-      {provider === 'youtube' && (
-        <Youtube
-          url={url}
-          muted={muted}
-          autoPlay={autoPlay}
-          controls={controls}
-          onReady={onReady}
-          onEnded={onEnded}
-          onPause={onPause}
-          onPlay={onPlay}
-        />
-      )}
+      <ReactPlayer
+        url={url}
+        muted={muted}
+        controls={controls}
+        playing={autoPlay}
+        onPlay={onPlay}
+        onEnded={onEnded}
+        onPause={onPause}
+        onReady={onReady}
+        onProgress={onProgress}
+        width='100%'
+        height='100%'
+      />
     </div>
   )
 }
