@@ -3,8 +3,18 @@ import ReactPlayer from 'react-player'
 import { PlayerProps } from './types'
 import css from './styles.scss'
 
-export const Player: FC<PlayerProps> = ({ provider, url, autoPlay, controls, muted, onEnded, onPause, onPlay }) => {
-  const [duration, setDuration] = useState(0)
+export const Player: FC<PlayerProps> = ({
+  provider,
+  url,
+  duration: videoDuration,
+  autoPlay,
+  controls,
+  muted,
+  onEnded,
+  onPause,
+  onPlay
+}) => {
+  const [duration, setDuration] = useState(videoDuration)
 
   const onReady = (player: ReactPlayer) => {
     setDuration(player.getDuration())

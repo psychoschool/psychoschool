@@ -1,6 +1,7 @@
 export interface PlayerProps {
   provider: 'youtube' | 'wistia'
   url: string
+  duration: number
   autoPlay?: boolean
   muted?: boolean
   controls?: boolean

@@ -4,9 +4,10 @@
   @include s-shadow;
 
   position: fixed;
+  z-index: 1;
   top: 100px;
-  width: 25%;
   right: 40px;
+  width: max(340px, 25%);
   color: $textPrimary;
   border: 1px solid $divider;
   background: rgb(247 247 247);
@@ -27,9 +28,22 @@
 
 .card-list {
   display: grid;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 20px;
   color: $textSecondary;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon {
+  @include square(24px);
+
+  fill: $textPrimary;
 }
 
 .price {

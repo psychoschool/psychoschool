@@ -30,5 +30,5 @@ export const Sandbox: FC<Props> = ({ lecture, lesson, onChange }) => {
 
   if (type !== 'video' || !video) return null
 
-  return <Player url={video.videoUrl} provider={video.provider} onEnded={handleComplete} />
+  return <Player url={video.videoUrl} provider={video.provider} duration={video.duration} onEnded={handleComplete} />
 }

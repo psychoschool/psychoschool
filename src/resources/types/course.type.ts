@@ -6,9 +6,11 @@ export interface CourseResponse {
   image: string
   url: string
   description: string
+  duration: number
   author: UserResponse
   sections: Array<{
     title: string
+    duration: number
     lectures: Array<Lecture>
   }>
   isFree: boolean
@@ -24,5 +26,6 @@ export interface Lecture {
     provider: 'youtube' | 'wistia'
     videoId: string
     videoUrl: string
+    duration: number
   }
 }
