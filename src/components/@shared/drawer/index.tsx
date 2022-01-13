@@ -18,7 +18,7 @@ export const Drawer = () => {
       <header className={cn(css.wrapper, { [css.dark]: theme === 'dark' })}>
         <Link to='/' className={css.link}>
           <img className={css.logo} src={logo} alt='logo' />
-          <h4 className={css.title}>Platform</h4>
+          <h4 className={css.title}>PsychoSchool</h4>
         </Link>
 
         <Popper

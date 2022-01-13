@@ -13,8 +13,9 @@
   align-items: center;
   gap: 14px;
   z-index: 999;
-  background: $secondaryMain;
   color: $secondaryContrastText;
+  //background: $secondaryDark;
+  background: linear-gradient(90deg, #7f00ff, #be1f7e);
 }
 
 .link {

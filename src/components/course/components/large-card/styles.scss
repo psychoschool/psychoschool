@@ -10,7 +10,7 @@
   width: max(340px, 25%);
   color: $textPrimary;
   border: 1px solid $divider;
-  background: rgb(247 247 247);
+  background: $backgroundPaper;
 
   @media #{$tablet} {
     display: none;
@@ -49,8 +49,4 @@
 .price {
   @include g-text;
   margin: 10px 0;
-}
-
-.dark {
-  background: #1e1e1e;
 }
