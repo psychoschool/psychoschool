@@ -17,6 +17,14 @@
   color: $white;
 }
 
+.title {
+  @include h1(100);
+}
+
+.text {
+  @include text;
+}
+
 .content {
   max-width: 70%;
   padding: 40px;

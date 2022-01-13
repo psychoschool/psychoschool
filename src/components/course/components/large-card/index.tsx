@@ -1,11 +1,8 @@
 import React, { FC } from 'react'
-import cn from 'classnames'
-import { useTheme } from 'utils/theme'
 import { getLecCount } from 'utils/course.util'
 import { displayTime } from 'utils/time.util'
 import { Course } from 'entities/courses/courses.types'
 import { SubmitBtn } from '../submit-btn'
-import VideoIcon from './icons/video.icon.svg'
 import UserIcon from './icons/user.icon.svg'
 import TimeIcon from './icons/time.icon.svg'
 import BookIcon from './icons/book.icon.svg'
@@ -16,10 +13,8 @@ interface Props {
   course: Course
 }
 export const LargeCard: FC<Props> = ({ course }) => {
-  const { theme } = useTheme()
-
   return (
-    <div className={cn(css.courseCard, { [css.dark]: theme === 'dark' })}>
+    <div className={css.courseCard}>
       <img className={css.cardImage} src={course.image} alt='...' />
       <div className={css.cardBody}>
         <p className={css.price}>Бесплатный</p>

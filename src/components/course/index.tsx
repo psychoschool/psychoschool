@@ -19,8 +19,8 @@ export const Course: FC<Props> = ({ course }) => {
     <div className={cn(css.wrapper, { [css.dark]: theme === 'dark' })}>
       <div className={css.header}>
         <div className={css.content}>
-          <h3>{course.title}</h3>
-          <p>{course.description}</p>
+          <h3 className={css.title}>{course.title}</h3>
+          <p className={css.text}>{course.description}</p>
         </div>
         <LargeCard course={course} />
         <SmallCard course={course} />

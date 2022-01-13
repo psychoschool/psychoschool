@@ -50,7 +50,7 @@ const darkTheme: Theme = {
     },
     divider: 'rgba(255, 255, 255, 0.12)',
     background: {
-      paper: '#121212',
+      paper: '#1e1e1e',
       default: '#121212'
     },
     action: {
@@ -119,8 +119,8 @@ const lightTheme: Theme = {
     },
     divider: 'rgba(0, 0, 0, 0.12)',
     background: {
-      paper: '#fff',
-      default: '#fff'
+      paper: '#f7f7f7',
+      default: '#f2f4f6'
     },
     action: {
       active: 'rgba(0, 0, 0, 0.54)',

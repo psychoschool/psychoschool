@@ -16,7 +16,9 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: $secondaryMain;
+  //background-color: $secondaryMain;
+  //background: linear-gradient(to right, #7f00ff, #e100ff);
+  background: linear-gradient(90deg, #7f00ff, #be1f7e);
 }
 
 .cover {

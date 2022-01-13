@@ -4,7 +4,7 @@
   display: grid;
   gap: 20px;
   padding: 20px;
-  background: rgb(247 247 247);
+  background: $backgroundPaper;
   border: 1px solid $divider;
 }
 
@@ -28,9 +28,5 @@
 
 .icon {
   height: 22px;
-  fill: $textSecondary;
-}
-
-.dark {
-  background: #1e1e1e;
+  fill: $successLight;
 }

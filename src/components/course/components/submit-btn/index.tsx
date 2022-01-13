@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button } from 'ui-kit/button'
 import { useAppDispatch, useAppSelector } from 'utils/store.util'
 import { useLessonActions } from 'entities/lessons/lessons.slice'
 import { selectCurrentUser } from 'entities/user/user.selector'
 import { Course } from 'entities/courses/courses.types'
-import { selectIsDesktop } from 'entities/ui/screen/screen.selector'
 import { selectLesson } from 'entities/lessons/lessons.selector'
 import { getNextLec } from 'utils/lesson'
+import css from './styles.scss'
 
 interface Props {
   course: Course
@@ -17,9 +16,7 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
   const dispatch = useAppDispatch()
   const lesson = useAppSelector(selectLesson)
   const { addLesson } = useLessonActions(dispatch)
-  const isDesktop = useAppSelector(selectIsDesktop)
   const user = useAppSelector(selectCurrentUser)
-  const size = isDesktop ? 'large' : 'medium'
   const text = lesson ? 'Продолжить курс' : 'Начать курс'
 
   const handleSubmit = () => {
@@ -41,5 +38,9 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
       })
     }
   }
-  return <Button size={size} onClick={handleSubmit} text={text} fluid />
+  return (
+    <button className={css.btn} onClick={handleSubmit}>
+      {text}
+    </button>
+  )
 }
