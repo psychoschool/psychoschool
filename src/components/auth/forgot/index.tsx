@@ -1,7 +1,6 @@
 import React from 'react'
 import { Input } from 'ui-kit/input'
 import { Button } from 'ui-kit/button'
-import { Checkbox } from 'ui-kit/checkbox'
 import { useForm } from 'utils/form'
 import { useAppDispatch } from 'utils/store.util'
 import { useAuthActions } from 'entities/auth/auth.slice'
@@ -9,15 +8,14 @@ import { Link } from 'ui-kit/link'
 import UserIcon from './user.icon.svg'
 import css from './styles.scss'
 
-export const Login = () => {
+export const Forgot = () => {
   const dispatch = useAppDispatch()
-  const { signIn } = useAuthActions(dispatch)
+  const { forgot } = useAuthActions(dispatch)
   const { values, setValue } = useForm({
-    email: '',
-    password: ''
+    email: ''
   })
 
-  const handleSignIn = () => signIn(values)
+  const handleSignIn = () => forgot(values.email)
 
   return (
     <div className={css.wrapper}>
@@ -27,15 +25,14 @@ export const Login = () => {
       </div>
       <form className={css.form} autoComplete='off'>
         <Input onChange={setValue} name='email' label='Email' type='email' fluid />
-        <Input label='Пароль' name='password' type='password' onChange={setValue} fluid />
-        <Checkbox size='small' label='Запомнить меня' />
+
         <div className={css.btn}>
-          <Button text='Войти' onClick={handleSignIn} fluid />
+          <Button text='Восстановить пароль' onClick={handleSignIn} fluid />
         </div>
 
         <div className={css.help}>
-          <Link size='small' linkTo='/forgot'>
-            Забыли пароль?
+          <Link size='small' linkTo='/login'>
+            Войти?
           </Link>
           <Link size='small' linkTo='/signup'>
             Создать аккаунт?

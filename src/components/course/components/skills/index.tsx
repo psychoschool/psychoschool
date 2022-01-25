@@ -11,7 +11,7 @@ export const Skills: FC<Props> = ({ course }) => {
 
   return (
     <div className={css.skills}>
-      <h3>Чему вы научитесь за этот курс</h3>
+      <h3 className={css.title}>Чему вы научитесь за этот курс</h3>
 
       <ul className={css.content}>
         {course.skills.map(skill => (

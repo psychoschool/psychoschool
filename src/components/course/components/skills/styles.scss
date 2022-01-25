@@ -26,6 +26,10 @@
   align-items: center;
 }
 
+.title {
+  @include h3;
+}
+
 .icon {
   height: 22px;
   //fill: #3c8aeb;
