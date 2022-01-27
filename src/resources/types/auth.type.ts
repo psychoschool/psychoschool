@@ -17,3 +17,9 @@ export interface SignUpParams {
   phone: string
   password: string
 }
+
+export interface ResetParams {
+  token: string
+  userId: string
+  password: string
+}

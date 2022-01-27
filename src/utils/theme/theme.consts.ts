@@ -120,7 +120,7 @@ const lightTheme: Theme = {
     divider: 'rgba(0, 0, 0, 0.12)',
     background: {
       paper: '#f7f7f7',
-      default: '#f2f4f6'
+      default: '#fff'
     },
     action: {
       active: 'rgba(0, 0, 0, 0.54)',

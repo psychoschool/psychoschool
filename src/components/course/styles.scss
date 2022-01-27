@@ -13,8 +13,26 @@
 .header {
   display: grid;
   grid-template-columns: 1fr auto;
-  background: #1c1d1f;
   color: $white;
+  background: $backgroundPaper;
+  border-bottom: 1px solid $divider;
+}
+
+.dark {
+  .header {
+    background: #1c1d1f;
+  }
+}
+
+.title {
+  @include h1(100);
+  color: $textPrimary;
+}
+
+.text {
+  @include m-text;
+  color: $textSecondary;
+  line-height: 1.5;
 }
 
 .title {

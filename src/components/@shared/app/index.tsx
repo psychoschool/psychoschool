@@ -12,7 +12,7 @@ import { selectCurrentUser } from 'entities/user/user.selector'
 import { selectSnacksCollection } from 'entities/ui/snacks/snacks.selector'
 import { useUserActions } from 'entities/user/user.slice'
 import { Drawer } from 'components/@shared/drawer'
-import { Login, Signup } from 'components/auth'
+import { Login, Signup, Forgot, Reset } from 'components/auth'
 import './styles.scss'
 
 const AuthPage = loadable(() => import('pages/auth'))
@@ -55,7 +55,9 @@ export const App = () => {
 
               <Route element={<AuthPage />}>
                 <Route path='login' element={<Login />} />
+                <Route path='forgot' element={<Forgot />} />
                 <Route path='signup' element={<Signup />} />
+                <Route path='reset/:userId/:token' element={<Reset />} />
               </Route>
 
               <Route path='*' element={<NotFoundPage />} />
