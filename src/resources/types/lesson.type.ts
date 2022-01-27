@@ -14,12 +14,12 @@ export type LessonResponse = {
 export interface AddLessonParam {
   userId: string
   courseId: string
-  url: string
+  slug: string
   price?: number
   onSuccess: () => void
 }
 
 export interface GetLessonReqParams {
   userId: string
-  url: string
+  slug: string
 }

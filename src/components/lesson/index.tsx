@@ -24,7 +24,7 @@ export const Lesson: FC<Props> = ({ lesson }) => {
 
   const handleChange = (lec: Lecture) => {
     setCurrent(lec)
-    navigate(`/course/${course.url}/learn/${lec.id}`)
+    navigate(`/course/${course.slug}/learn/${lec.id}`)
   }
 
   return (

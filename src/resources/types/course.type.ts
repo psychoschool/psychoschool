@@ -4,7 +4,7 @@ export interface CourseResponse {
   id: string
   title: string
   image: string
-  url: string
+  slug: string
   description: string
   duration: number
   author: UserResponse

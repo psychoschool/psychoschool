@@ -10,36 +10,36 @@ import { selectAuth } from 'entities/auth/auth.selector'
 import { useNavigate } from 'react-router-dom'
 
 const LessonPage = () => {
-  const { courseUrl } = useParams()
+  const { slug } = useParams()
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { authorized, status } = useAppSelector(selectAuth)
   const { status: lessonStatus } = useAppSelector(selectLessonMeta)
   const user = useAppSelector(selectCurrentUser)
-  const { getUserLessonByUrl } = useLessonActions(dispatch)
+  const { getUserLessonBySlug } = useLessonActions(dispatch)
   const lesson = useAppSelector(selectLesson)
 
   useEffect(() => {
     if ((!authorized && status === 'failed') || (!authorized && status === 'succeeded')) {
-      navigate(`/course/${courseUrl}`)
+      navigate(`/course/${slug}`)
     }
-  }, [courseUrl, navigate, authorized, status])
+  }, [slug, navigate, authorized, status])
 
   useEffect(() => {
-    if (courseUrl && user)
-      getUserLessonByUrl({
-        url: courseUrl,
+    if (slug && user)
+      getUserLessonBySlug({
+        slug,
         userId: user.id
       })
-  }, [courseUrl, user, getUserLessonByUrl])
+  }, [slug, user, getUserLessonBySlug])
 
   useEffect(() => {
     if (lessonStatus === 'succeeded' && !lesson) {
-      navigate(`/course/${courseUrl}`)
+      navigate(`/course/${slug}`)
     }
-  }, [courseUrl, lesson, lessonStatus, navigate, status])
+  }, [slug, lesson, lessonStatus, navigate, status])
 
-  if (!courseUrl || !lesson) return null
+  if (!slug || !lesson) return <p>Курс не найден</p>
 
   return (
     <>

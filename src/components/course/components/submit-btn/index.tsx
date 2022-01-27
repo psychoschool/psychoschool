@@ -24,13 +24,13 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
       navigate('/login')
     } else if (lesson) {
       const nextLec = getNextLec(lesson)
-      const link = `/course/${lesson.course.url}/learn/${nextLec.id}`
+      const link = `/course/${lesson.course.slug}/learn/${nextLec.id}`
       navigate(link)
     } else {
       addLesson({
         userId: user.id,
         courseId: course.id,
-        url: course.url,
+        slug: course.slug,
         price: course.price.cost,
         onSuccess: () => {
           navigate('/')

@@ -14,15 +14,15 @@ export const getCourseById = createAsyncThunk('courses/getCourseById', (id: stri
   return courseResource.getCourseById({}, id)
 })
 
-export const getCourseByUrl = createAsyncThunk('courses/getCourseByUrl', (id: string) => {
-  return courseResource.getCourseByUrl({}, id)
+export const getCourseBySlug = createAsyncThunk('courses/getCourseBySlug', (slug: string) => {
+  return courseResource.getCourseBySlug({}, slug)
 })
 
 /*--------------------------------------------------
   dispatch actions
   -------------------------------------------------- */
 export const useCourseActions = (dispatch: Dispatch) => {
-  return useMemo(() => bindActionCreators({ getCourses, getCourseByUrl, getCourseById }, dispatch), [dispatch])
+  return useMemo(() => bindActionCreators({ getCourses, getCourseBySlug, getCourseById }, dispatch), [dispatch])
 }
 
 /*--------------------------------------------------
@@ -39,7 +39,7 @@ export const courseReducer = createReducer<{ data: Course | null }>({ data: null
     .addCase(getCourseById.fulfilled, (state, action) => {
       return { data: action.payload }
     })
-    .addCase(getCourseByUrl.fulfilled, (state, action) => {
+    .addCase(getCourseBySlug.fulfilled, (state, action) => {
       return { data: action.payload }
     })
 })
@@ -51,8 +51,8 @@ export const courseMetaReducer = createReducer<{ status: 'succeeded' | 'pending'
       .addCase(getCourseById.fulfilled, () => ({ status: 'succeeded' }))
       .addCase(getCourseById.pending, () => ({ status: 'pending' }))
       .addCase(getCourseById.rejected, () => ({ status: 'failed' }))
-      .addCase(getCourseByUrl.fulfilled, () => ({ status: 'succeeded' }))
-      .addCase(getCourseByUrl.pending, () => ({ status: 'pending' }))
-      .addCase(getCourseByUrl.rejected, () => ({ status: 'failed' }))
+      .addCase(getCourseBySlug.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(getCourseBySlug.pending, () => ({ status: 'pending' }))
+      .addCase(getCourseBySlug.rejected, () => ({ status: 'failed' }))
   }
 )

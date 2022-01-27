@@ -13,13 +13,13 @@ export const getUserLessons = resource((ctx, id: string) => ({
   onError: error => error
 }))
 
-export const getUserLessonsByUrl = resource((ctx, { userId, url }: GetLessonReqParams) => ({
+export const getUserLessonBySlug = resource((ctx, { userId, slug }: GetLessonReqParams) => ({
   ctx,
-  name: 'getUserLessonsByUrl',
+  name: 'getUserLessonBySlug',
   method: 'GET',
   serviceName: PSYCHO_API,
   url: `/lessons/user/${userId}`,
-  params: { url },
+  params: { slug },
   onSuccess: (response: Response<Nullable<LessonResponse>>) => {
     if (!response.result) return null
     return normalizeLesson(response.result)
@@ -36,7 +36,7 @@ export const addLesson = resource((ctx, params: AddLessonParam) => ({
   data: {
     course: params.courseId,
     user: params.userId,
-    url: params.url,
+    slug: params.slug,
     price: params.price
   },
   onSuccess: (response: Response<Nullable<Array<LessonResponse>>>) => {

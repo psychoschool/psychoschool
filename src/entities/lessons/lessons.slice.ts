@@ -12,8 +12,8 @@ export const getUserLessons = createAsyncThunk('lessons/getUserLessons', (id: st
   return lessonResource.getUserLessons({}, id)
 })
 
-export const getUserLessonByUrl = createAsyncThunk('lessons/getUserLessonByUrl', (params: GetLessonReqParams) => {
-  return lessonResource.getUserLessonsByUrl({}, params)
+export const getUserLessonBySlug = createAsyncThunk('lessons/getUserLessonBySlug', (params: GetLessonReqParams) => {
+  return lessonResource.getUserLessonBySlug({}, params)
 })
 
 export const addLesson = createAsyncThunk('lessons/addLesson', (params: AddLessonParam) => {
@@ -29,7 +29,7 @@ export const updateLesson = createAsyncThunk('lessons/updateLesson', (params: Pa
   -------------------------------------------------- */
 export const useLessonActions = (dispatch: Dispatch) => {
   return useMemo(
-    () => bindActionCreators({ getUserLessons, getUserLessonByUrl, addLesson, updateLesson }, dispatch),
+    () => bindActionCreators({ getUserLessons, getUserLessonBySlug, addLesson, updateLesson }, dispatch),
     [dispatch]
   )
 }
@@ -49,7 +49,7 @@ export const lessonsCollectionReducer = createReducer<LessonsCollection>({}, bui
 
 export const lessonReducer = createReducer<{ data: Lesson | null }>({ data: null }, builder => {
   builder
-    .addCase(getUserLessonByUrl.fulfilled, (state, action) => ({ data: action.payload }))
+    .addCase(getUserLessonBySlug.fulfilled, (state, action) => ({ data: action.payload }))
     .addCase(updateLesson.fulfilled, (state, action) => ({ data: action.payload }))
     .addCase(signOut.fulfilled, (state, action) => ({ data: null }))
 })
@@ -58,9 +58,9 @@ export const lessonMetaReducer = createReducer<{ status: 'succeeded' | 'pending'
   { status: 'pending' },
   builder => {
     builder
-      .addCase(getUserLessonByUrl.pending, () => ({ status: 'pending' }))
-      .addCase(getUserLessonByUrl.fulfilled, () => ({ status: 'succeeded' }))
-      .addCase(getUserLessonByUrl.rejected, () => ({ status: 'failed' }))
+      .addCase(getUserLessonBySlug.pending, () => ({ status: 'pending' }))
+      .addCase(getUserLessonBySlug.fulfilled, () => ({ status: 'succeeded' }))
+      .addCase(getUserLessonBySlug.rejected, () => ({ status: 'failed' }))
       .addCase(updateLesson.pending, () => ({ status: 'pending' }))
       .addCase(updateLesson.fulfilled, () => ({ status: 'succeeded' }))
       .addCase(updateLesson.rejected, () => ({ status: 'failed' }))

@@ -10,27 +10,27 @@ import { selectCurrentUser } from 'entities/user/user.selector'
 import { selectAuth } from 'entities/auth/auth.selector'
 
 const CoursePage = () => {
-  const { courseUrl } = useParams()
+  const { slug } = useParams()
   const dispatch = useAppDispatch()
-  const { getCourseByUrl } = useCourseActions(dispatch)
+  const { getCourseBySlug } = useCourseActions(dispatch)
   const course = useAppSelector(selectCourse)
   const { status } = useAppSelector(selectCourseMeta)
 
-  const { getUserLessonByUrl } = useLessonActions(dispatch)
+  const { getUserLessonBySlug } = useLessonActions(dispatch)
   const user = useAppSelector(selectCurrentUser)
   const { authorized } = useAppSelector(selectAuth)
 
   useEffect(() => {
-    if (courseUrl) getCourseByUrl(courseUrl)
-  }, [courseUrl, getCourseByUrl])
+    if (slug) getCourseBySlug(slug)
+  }, [slug, getCourseBySlug])
 
   useEffect(() => {
-    if (authorized && user && courseUrl) {
-      getUserLessonByUrl({ userId: user.id, url: courseUrl })
+    if (authorized && user && slug) {
+      getUserLessonBySlug({ userId: user.id, slug })
     }
-  }, [authorized, courseUrl, getUserLessonByUrl, user])
+  }, [authorized, slug, getUserLessonBySlug, user])
 
-  if (!courseUrl || (status === 'failed' && !course)) return <h3>Курс не найден</h3>
+  if (!slug || (status === 'failed' && !course)) return <h3>Курс не найден</h3>
   if (!course) return <h3>Курс не найден</h3>
 
   return (

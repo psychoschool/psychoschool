@@ -50,8 +50,8 @@ export const App = () => {
 
               <Route path='pay' element={<PayPage />} />
 
-              <Route path='course/:courseUrl' element={<CoursePage />} />
-              <Route path='course/:courseUrl/learn/:lecId' element={<LessonPage />} />
+              <Route path='course/:slug' element={<CoursePage />} />
+              <Route path='course/:slug/learn/:lecId' element={<LessonPage />} />
 
               <Route element={<AuthPage />}>
                 <Route path='login' element={<Login />} />

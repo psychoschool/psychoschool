@@ -11,10 +11,10 @@ interface Props {
 }
 export const Lesson: FC<Props> = ({ lesson }) => {
   const { course } = lesson
-  const { url, title, image } = course
+  const { slug, title, image } = course
   const nextLec = getNextLec(lesson)
 
-  const link = `course/${url}/learn/${nextLec.id}`
+  const link = `course/${slug}/learn/${nextLec.id}`
 
   return (
     <Link to={link}>

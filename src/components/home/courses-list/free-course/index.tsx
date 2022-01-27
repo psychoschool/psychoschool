@@ -9,10 +9,10 @@ interface Props {
   course: Course
 }
 export const FreeCourse: FC<Props> = ({ course }) => {
-  const { url, title, image } = course
+  const { slug, title, image } = course
 
   return (
-    <Link to={`course/${url}`}>
+    <Link to={`course/${slug}`}>
       <div className={css.course}>
         <div className={css.cover}>
           <img src={image} className={css.image} alt='preview' />
