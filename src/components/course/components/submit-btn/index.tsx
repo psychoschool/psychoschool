@@ -27,15 +27,17 @@ export const SubmitBtn: FC<Props> = ({ course }) => {
       const link = `/course/${lesson.course.slug}/learn/${nextLec.id}`
       navigate(link)
     } else {
-      addLesson({
-        userId: user.id,
-        courseId: course.id,
-        slug: course.slug,
-        price: course.price.cost,
-        onSuccess: () => {
-          navigate('/')
-        }
-      })
+      if (course.isFree) {
+        addLesson({
+          userId: user.id,
+          courseId: course.id,
+          slug: course.slug,
+          price: course.price.cost,
+          onSuccess: () => {
+            navigate('/')
+          }
+        })
+      }
     }
   }
   return (
