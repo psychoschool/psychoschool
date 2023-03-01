@@ -79,7 +79,7 @@
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.2.0",
     "css-loader": "^6.5.1",
-    "cssnano": "^5.0.14",
+    "cssnano": "^5.1.15",
     "dotenv": "^10.0.0",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
